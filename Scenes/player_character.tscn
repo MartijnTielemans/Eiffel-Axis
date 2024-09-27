@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo1hlnjr873ur"]
+
+[ext_resource type="Texture2D" uid="uid://bic8ay2r577y6" path="res://Assets/Cube.png" id="1_eb0sq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hif78"]
+size = Vector2(32, 32)
+
+[node name="PlayerCharacter" type="CharacterBody2D"]
+
+[node name="Cube" type="Sprite2D" parent="."]
+position = Vector2(1, -16)
+texture = ExtResource("1_eb0sq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -16)
+shape = SubResource("RectangleShape2D_hif78")
