@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cli2135tl06sc"]
+
+[ext_resource type="PackedScene" uid="uid://bo1hlnjr873ur" path="res://Scenes/player_character.tscn" id="1_f47mq"]
+[ext_resource type="PackedScene" uid="uid://dnh3fcaqoh1i2" path="res://Scenes/BulletKillzone.tscn" id="2_tes6b"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnpl8"]
+normal = Vector2(-1, 0)
+
+[node name="Level" type="Node2D"]
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_f47mq")]
+position = Vector2(171, 112)
+
+[node name="Area2D" parent="." instance=ExtResource("2_tes6b")]
+position = Vector2(358, 99)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("WorldBoundaryShape2D_lnpl8")

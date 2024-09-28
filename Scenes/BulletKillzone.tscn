@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnh3fcaqoh1i2"]
+
+[ext_resource type="Script" path="res://Scripts/BulletKillzone.gd" id="1_vixg5"]
+
+[node name="Area2D" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_vixg5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
