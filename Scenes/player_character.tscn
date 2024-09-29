@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bo1hlnjr873ur"]
+[gd_scene load_steps=14 format=3 uid="uid://bo1hlnjr873ur"]
 
 [ext_resource type="Script" path="res://Scripts/player_character.gd" id="1_ft8se"]
 [ext_resource type="Texture2D" uid="uid://h2ce8dd3iwmk" path="res://Assets/Player_FlyingSprites.png" id="2_h4ank"]
+[ext_resource type="Texture2D" uid="uid://60mkedbpwqq" path="res://Assets/Player_TurnSprites.png" id="3_js5e1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2yl45"]
 atlas = ExtResource("2_h4ank")
@@ -14,6 +15,14 @@ region = Rect2(24, 0, 24, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_y3nfb"]
 atlas = ExtResource("2_h4ank")
 region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsj74"]
+atlas = ExtResource("3_js5e1")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jtxs"]
+atlas = ExtResource("3_js5e1")
+region = Rect2(24, 0, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gjkql"]
 animations = [{
@@ -40,6 +49,17 @@ animations = [{
 "loop": true,
 "name": &"fly_up",
 "speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsj74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jtxs")
+}],
+"loop": true,
+"name": &"pivot",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5e32g"]
@@ -47,7 +67,7 @@ radius = 6.0
 
 [sub_resource type="Animation" id="Animation_mfvew"]
 resource_name = "Shooting"
-length = 0.15
+length = 0.2
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -63,8 +83,23 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_g2ab5"]
+resource_name = "PivotPlayer"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4yjnk"]
 _data = {
+"PivotPlayer": SubResource("Animation_g2ab5"),
 "Shooting": SubResource("Animation_mfvew")
 }
 
@@ -74,7 +109,7 @@ script = ExtResource("1_ft8se")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gjkql")
-animation = &"fly_up"
+animation = &"pivot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5e32g")
