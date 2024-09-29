@@ -1,8 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://cjk88n4luj0va"]
+[gd_scene load_steps=23 format=3 uid="uid://cjk88n4luj0va"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/menu_main.gd" id="1_ddcqc"]
 [ext_resource type="FontFile" uid="uid://d35wovbc4u2xv" path="res://Fonts/PolygonPixel5x7Cyrillic.ttf" id="3_3eyp4"]
 [ext_resource type="Texture2D" uid="uid://bic8ay2r577y6" path="res://Assets/Cube.png" id="3_n0l3a"]
+[ext_resource type="Texture2D" uid="uid://o3npsthay5g2" path="res://Assets/Menus/MenuButton_Neutral.png" id="3_vygps"]
+[ext_resource type="Texture2D" uid="uid://dqnphqo2ckj1c" path="res://Assets/Menus/MenuButton_Select.png" id="4_fv65o"]
+[ext_resource type="Texture2D" uid="uid://c57onmqsyc0qu" path="res://Assets/Menus/MenuButton_Hover.png" id="5_6wj0e"]
+[ext_resource type="Texture2D" uid="uid://bac8gqdhwy6gm" path="res://Assets/Menus/MenuButtonSmall_Neutral.png" id="6_ebtdo"]
+[ext_resource type="Texture2D" uid="uid://bvoxq8ryhx6of" path="res://Assets/Menus/MenuButtonSmall_Select.png" id="7_txr1a"]
+[ext_resource type="Texture2D" uid="uid://bt2wba8o7jsga" path="res://Assets/Menus/MenuButtonSmall_Hover.png" id="8_5xmql"]
+[ext_resource type="Texture2D" uid="uid://clx1ivnkusmr3" path="res://Assets/Player_Neutral.png" id="10_8jxd6"]
 
 [sub_resource type="Image" id="Image_5ocn5"]
 data = {
@@ -178,7 +185,7 @@ grow_vertical = 2
 [node name="BGColor" type="ColorRect" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-color = Color(0.807843, 0.741176, 0.67451, 1)
+color = Color(0.180392, 0.203922, 0.223529, 1)
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -186,35 +193,125 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 50.0
-offset_top = -109.0
-offset_right = 142.0
-offset_bottom = -13.0
+offset_top = -110.0
+offset_right = 140.0
+offset_bottom = -10.0
 grow_vertical = 0
 alignment = 1
 
-[node name="Play" type="Button" parent="Buttons"]
+[node name="Play" type="TextureButton" parent="Buttons"]
 layout_mode = 2
 theme = SubResource("Theme_jdxsw")
+texture_normal = ExtResource("3_vygps")
+texture_pressed = ExtResource("4_fv65o")
+texture_hover = ExtResource("5_6wj0e")
+texture_disabled = ExtResource("3_vygps")
+
+[node name="RichTextLabel" type="Label" parent="Buttons/Play"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
 text = "Play!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Controls" type="Button" parent="Buttons"]
+[node name="Controls" type="TextureButton" parent="Buttons"]
 layout_mode = 2
 theme = SubResource("Theme_jdxsw")
+texture_normal = ExtResource("3_vygps")
+texture_pressed = ExtResource("4_fv65o")
+texture_hover = ExtResource("5_6wj0e")
+texture_disabled = ExtResource("3_vygps")
+
+[node name="RichTextLabel" type="Label" parent="Buttons/Controls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
-text = "Controls"
+text = "Controls
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Settings" type="Button" parent="Buttons"]
+[node name="Settings" type="TextureButton" parent="Buttons"]
 layout_mode = 2
 theme = SubResource("Theme_jdxsw")
+texture_normal = ExtResource("3_vygps")
+texture_pressed = ExtResource("4_fv65o")
+texture_hover = ExtResource("5_6wj0e")
+texture_disabled = ExtResource("3_vygps")
+
+[node name="RichTextLabel" type="Label" parent="Buttons/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
 text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Quit" type="Button" parent="Buttons"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Buttons"]
+layout_mode = 2
+
+[node name="Credits" type="TextureButton" parent="Buttons/HBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_jdxsw")
+texture_normal = ExtResource("6_ebtdo")
+texture_pressed = ExtResource("7_txr1a")
+texture_hover = ExtResource("8_5xmql")
+texture_disabled = ExtResource("6_ebtdo")
+
+[node name="RichTextLabel" type="Label" parent="Buttons/HBoxContainer/Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
-text = "Quit Game"
+text = "Credit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="Buttons/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_jdxsw")
+texture_normal = ExtResource("6_ebtdo")
+texture_pressed = ExtResource("7_txr1a")
+texture_hover = ExtResource("8_5xmql")
+texture_disabled = ExtResource("6_ebtdo")
+
+[node name="RichTextLabel" type="Label" parent="Buttons/HBoxContainer/Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -224,6 +321,13 @@ offset_right = 160.0
 offset_bottom = 64.0
 texture = ExtResource("3_n0l3a")
 expand_mode = 2
+
+[node name="ShipCursor" type="TextureRect" parent="."]
+offset_left = 21.0
+offset_top = 148.0
+offset_right = 43.0
+offset_bottom = 170.0
+texture = ExtResource("10_8jxd6")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 1
@@ -242,4 +346,5 @@ texture = ExtResource("3_n0l3a")
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Buttons/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Buttons/HBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Buttons/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
