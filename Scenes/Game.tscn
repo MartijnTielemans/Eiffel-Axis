@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dnh3fcaqoh1i2" path="res://Scenes/BulletKillzone.tscn" id="2_tes6b"]
 [ext_resource type="PackedScene" uid="uid://01ipqwrpf2b4" path="res://Scenes/EiffelTowerBG.tscn" id="4_3uwxw"]
 [ext_resource type="PackedScene" uid="uid://cccn6g6gmnls2" path="res://Scenes/enemy_wave_spawner.tscn" id="6_y3l4w"]
-[ext_resource type="PackedScene" uid="uid://0np0slgleins" path="res://Scenes/GameUI.tscn" id="7_cd0yk"]
+[ext_resource type="PackedScene" path="res://Scenes/GameUI.tscn" id="7_cd0yk"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_20bud"]
 normal = Vector2(0, 1)
