@@ -1,0 +1,359 @@
+[gd_scene load_steps=24 format=3 uid="uid://cjk88n4luj0va"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/menu_main.gd" id="1_ddcqc"]
+[ext_resource type="FontFile" uid="uid://d35wovbc4u2xv" path="res://Fonts/PolygonPixel5x7Cyrillic.ttf" id="3_3eyp4"]
+[ext_resource type="Texture2D" uid="uid://bic8ay2r577y6" path="res://Assets/Cube.png" id="3_n0l3a"]
+[ext_resource type="Texture2D" uid="uid://o3npsthay5g2" path="res://Assets/Menus/MenuButton_Neutral.png" id="3_vygps"]
+[ext_resource type="Texture2D" uid="uid://dqnphqo2ckj1c" path="res://Assets/Menus/MenuButton_Select.png" id="4_fv65o"]
+[ext_resource type="Texture2D" uid="uid://c57onmqsyc0qu" path="res://Assets/Menus/MenuButton_Hover.png" id="5_6wj0e"]
+[ext_resource type="Texture2D" uid="uid://bac8gqdhwy6gm" path="res://Assets/Menus/MenuButtonSmall_Neutral.png" id="6_ebtdo"]
+[ext_resource type="Script" path="res://Scenes/Menus/MenuButton.gd" id="6_ryl42"]
+[ext_resource type="Texture2D" uid="uid://bvoxq8ryhx6of" path="res://Assets/Menus/MenuButtonSmall_Select.png" id="7_txr1a"]
+[ext_resource type="Texture2D" uid="uid://bt2wba8o7jsga" path="res://Assets/Menus/MenuButtonSmall_Hover.png" id="8_5xmql"]
+[ext_resource type="Texture2D" uid="uid://clx1ivnkusmr3" path="res://Assets/Player_Neutral.png" id="10_8jxd6"]
+
+[sub_resource type="Image" id="Image_5ocn5"]
+data = {
+"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 179, 179, 179, 153, 178, 178, 178, 166, 184, 184, 184, 18, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 178, 178, 178, 166, 178, 178, 178, 151, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 166, 178, 178, 178, 217, 177, 177, 177, 179, 184, 184, 184, 18, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 178, 178, 178, 179, 178, 178, 178, 217, 178, 178, 178, 165, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 177, 177, 177, 179, 178, 178, 178, 217, 177, 177, 177, 179, 184, 184, 184, 18, 184, 184, 184, 18, 178, 178, 178, 179, 178, 178, 178, 217, 177, 177, 177, 179, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 177, 177, 177, 179, 178, 178, 178, 217, 178, 178, 178, 197, 178, 178, 178, 197, 178, 178, 178, 217, 177, 177, 177, 179, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 177, 177, 177, 179, 178, 178, 178, 217, 178, 178, 178, 217, 177, 177, 177, 179, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 178, 178, 178, 165, 178, 178, 178, 165, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
+"format": "RGBA8",
+"height": 12,
+"mipmaps": false,
+"width": 12
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_8itve"]
+image = SubResource("Image_5ocn5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mj1fg"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ncuqw"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l23jd"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mefjp"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8ju3"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxhnw"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khodf"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5oan0"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8n1v"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_jdxsw"]
+default_font = ExtResource("3_3eyp4")
+default_font_size = 16
+OptionButton/colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+OptionButton/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+OptionButton/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+OptionButton/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+OptionButton/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_outline_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_pressed_color = Color(1, 1, 1, 1)
+OptionButton/constants/arrow_margin = 4
+OptionButton/constants/h_separation = 4
+OptionButton/constants/modulate_arrow = 0
+OptionButton/constants/outline_size = 0
+OptionButton/icons/arrow = SubResource("ImageTexture_8itve")
+OptionButton/styles/disabled = SubResource("StyleBoxFlat_mj1fg")
+OptionButton/styles/disabled_mirrored = SubResource("StyleBoxFlat_ncuqw")
+OptionButton/styles/focus = SubResource("StyleBoxFlat_l23jd")
+OptionButton/styles/hover = SubResource("StyleBoxFlat_mefjp")
+OptionButton/styles/hover_mirrored = SubResource("StyleBoxFlat_l8ju3")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_kxhnw")
+OptionButton/styles/normal_mirrored = SubResource("StyleBoxFlat_khodf")
+OptionButton/styles/pressed = SubResource("StyleBoxFlat_5oan0")
+OptionButton/styles/pressed_mirrored = SubResource("StyleBoxFlat_x8n1v")
+
+[node name="MenuMain" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ddcqc")
+
+[node name="MarginContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BGColor" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.180392, 0.203922, 0.223529, 1)
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -110.0
+offset_right = 140.0
+offset_bottom = -10.0
+grow_vertical = 0
+alignment = 1
+
+[node name="Play" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+theme = SubResource("Theme_jdxsw")
+texture_normal = ExtResource("3_vygps")
+texture_pressed = ExtResource("4_fv65o")
+texture_hover = ExtResource("5_6wj0e")
+texture_focused = ExtResource("5_6wj0e")
+script = ExtResource("6_ryl42")
+isFirst = true
+
+[node name="RichTextLabel" type="Label" parent="Buttons/Play"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+text = "Play!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+theme = SubResource("Theme_jdxsw")
+texture_normal = ExtResource("3_vygps")
+texture_pressed = ExtResource("4_fv65o")
+texture_hover = ExtResource("5_6wj0e")
+texture_focused = ExtResource("5_6wj0e")
+script = ExtResource("6_ryl42")
+
+[node name="RichTextLabel" type="Label" parent="Buttons/Controls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+text = "Controls
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+theme = SubResource("Theme_jdxsw")
+texture_normal = ExtResource("3_vygps")
+texture_pressed = ExtResource("4_fv65o")
+texture_hover = ExtResource("5_6wj0e")
+texture_focused = ExtResource("5_6wj0e")
+script = ExtResource("6_ryl42")
+
+[node name="RichTextLabel" type="Label" parent="Buttons/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Buttons"]
+layout_mode = 2
+
+[node name="Credits" type="TextureButton" parent="Buttons/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_jdxsw")
+texture_normal = ExtResource("6_ebtdo")
+texture_pressed = ExtResource("7_txr1a")
+texture_hover = ExtResource("8_5xmql")
+texture_focused = ExtResource("8_5xmql")
+script = ExtResource("6_ryl42")
+
+[node name="RichTextLabel" type="Label" parent="Buttons/HBoxContainer/Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+text = "Credit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="Buttons/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_jdxsw")
+texture_normal = ExtResource("6_ebtdo")
+texture_pressed = ExtResource("7_txr1a")
+texture_hover = ExtResource("8_5xmql")
+texture_focused = ExtResource("8_5xmql")
+script = ExtResource("6_ryl42")
+
+[node name="RichTextLabel" type="Label" parent="Buttons/HBoxContainer/Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 14.0
+offset_right = 160.0
+offset_bottom = 64.0
+texture = ExtResource("3_n0l3a")
+expand_mode = 2
+
+[node name="ShipCursor" type="TextureRect" parent="."]
+offset_left = 21.0
+offset_top = 148.0
+offset_right = 43.0
+offset_bottom = 170.0
+texture = ExtResource("10_8jxd6")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -90.0
+offset_bottom = 90.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_n0l3a")
+
+[connection signal="focus_exited" from="Buttons/Play" to="Buttons/Play" method="_on_focus_exited"]
+[connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Buttons/Play" to="Buttons/Play" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons/HBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Buttons/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
