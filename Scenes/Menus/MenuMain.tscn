@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cjk88n4luj0va"]
+[gd_scene load_steps=24 format=3 uid="uid://cjk88n4luj0va"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/menu_main.gd" id="1_ddcqc"]
 [ext_resource type="FontFile" uid="uid://d35wovbc4u2xv" path="res://Fonts/PolygonPixel5x7Cyrillic.ttf" id="3_3eyp4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dqnphqo2ckj1c" path="res://Assets/Menus/MenuButton_Select.png" id="4_fv65o"]
 [ext_resource type="Texture2D" uid="uid://c57onmqsyc0qu" path="res://Assets/Menus/MenuButton_Hover.png" id="5_6wj0e"]
 [ext_resource type="Texture2D" uid="uid://bac8gqdhwy6gm" path="res://Assets/Menus/MenuButtonSmall_Neutral.png" id="6_ebtdo"]
+[ext_resource type="Script" path="res://Scenes/Menus/MenuButton.gd" id="6_ryl42"]
 [ext_resource type="Texture2D" uid="uid://bvoxq8ryhx6of" path="res://Assets/Menus/MenuButtonSmall_Select.png" id="7_txr1a"]
 [ext_resource type="Texture2D" uid="uid://bt2wba8o7jsga" path="res://Assets/Menus/MenuButtonSmall_Hover.png" id="8_5xmql"]
 [ext_resource type="Texture2D" uid="uid://clx1ivnkusmr3" path="res://Assets/Player_Neutral.png" id="10_8jxd6"]
@@ -205,7 +206,8 @@ theme = SubResource("Theme_jdxsw")
 texture_normal = ExtResource("3_vygps")
 texture_pressed = ExtResource("4_fv65o")
 texture_hover = ExtResource("5_6wj0e")
-texture_disabled = ExtResource("3_vygps")
+texture_focused = ExtResource("5_6wj0e")
+script = ExtResource("6_ryl42")
 
 [node name="RichTextLabel" type="Label" parent="Buttons/Play"]
 layout_mode = 1
@@ -227,7 +229,7 @@ theme = SubResource("Theme_jdxsw")
 texture_normal = ExtResource("3_vygps")
 texture_pressed = ExtResource("4_fv65o")
 texture_hover = ExtResource("5_6wj0e")
-texture_disabled = ExtResource("3_vygps")
+texture_focused = ExtResource("5_6wj0e")
 
 [node name="RichTextLabel" type="Label" parent="Buttons/Controls"]
 layout_mode = 1
@@ -250,7 +252,7 @@ theme = SubResource("Theme_jdxsw")
 texture_normal = ExtResource("3_vygps")
 texture_pressed = ExtResource("4_fv65o")
 texture_hover = ExtResource("5_6wj0e")
-texture_disabled = ExtResource("3_vygps")
+texture_focused = ExtResource("5_6wj0e")
 
 [node name="RichTextLabel" type="Label" parent="Buttons/Settings"]
 layout_mode = 1
@@ -275,7 +277,7 @@ theme = SubResource("Theme_jdxsw")
 texture_normal = ExtResource("6_ebtdo")
 texture_pressed = ExtResource("7_txr1a")
 texture_hover = ExtResource("8_5xmql")
-texture_disabled = ExtResource("6_ebtdo")
+texture_focused = ExtResource("8_5xmql")
 
 [node name="RichTextLabel" type="Label" parent="Buttons/HBoxContainer/Credits"]
 layout_mode = 1
@@ -297,7 +299,7 @@ theme = SubResource("Theme_jdxsw")
 texture_normal = ExtResource("6_ebtdo")
 texture_pressed = ExtResource("7_txr1a")
 texture_hover = ExtResource("8_5xmql")
-texture_disabled = ExtResource("6_ebtdo")
+texture_focused = ExtResource("8_5xmql")
 
 [node name="RichTextLabel" type="Label" parent="Buttons/HBoxContainer/Quit"]
 layout_mode = 1
