@@ -208,6 +208,7 @@ texture_pressed = ExtResource("4_fv65o")
 texture_hover = ExtResource("5_6wj0e")
 texture_focused = ExtResource("5_6wj0e")
 script = ExtResource("6_ryl42")
+isFirst = true
 
 [node name="RichTextLabel" type="Label" parent="Buttons/Play"]
 layout_mode = 1
@@ -230,6 +231,7 @@ texture_normal = ExtResource("3_vygps")
 texture_pressed = ExtResource("4_fv65o")
 texture_hover = ExtResource("5_6wj0e")
 texture_focused = ExtResource("5_6wj0e")
+script = ExtResource("6_ryl42")
 
 [node name="RichTextLabel" type="Label" parent="Buttons/Controls"]
 layout_mode = 1
@@ -253,6 +255,7 @@ texture_normal = ExtResource("3_vygps")
 texture_pressed = ExtResource("4_fv65o")
 texture_hover = ExtResource("5_6wj0e")
 texture_focused = ExtResource("5_6wj0e")
+script = ExtResource("6_ryl42")
 
 [node name="RichTextLabel" type="Label" parent="Buttons/Settings"]
 layout_mode = 1
@@ -278,6 +281,7 @@ texture_normal = ExtResource("6_ebtdo")
 texture_pressed = ExtResource("7_txr1a")
 texture_hover = ExtResource("8_5xmql")
 texture_focused = ExtResource("8_5xmql")
+script = ExtResource("6_ryl42")
 
 [node name="RichTextLabel" type="Label" parent="Buttons/HBoxContainer/Credits"]
 layout_mode = 1
@@ -300,6 +304,7 @@ texture_normal = ExtResource("6_ebtdo")
 texture_pressed = ExtResource("7_txr1a")
 texture_hover = ExtResource("8_5xmql")
 texture_focused = ExtResource("8_5xmql")
+script = ExtResource("6_ryl42")
 
 [node name="RichTextLabel" type="Label" parent="Buttons/HBoxContainer/Quit"]
 layout_mode = 1
@@ -345,7 +350,9 @@ grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("3_n0l3a")
 
+[connection signal="focus_exited" from="Buttons/Play" to="Buttons/Play" method="_on_focus_exited"]
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Buttons/Play" to="Buttons/Play" method="_on_pressed"]
 [connection signal="pressed" from="Buttons/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Buttons/HBoxContainer/Credits" to="." method="_on_credits_pressed"]
