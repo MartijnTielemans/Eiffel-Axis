@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var player_character : CharacterBody2D
 var spawn_pos : Vector2
 
 func _ready():
