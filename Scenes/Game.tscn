@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cli2135tl06sc"]
+[gd_scene load_steps=13 format=3 uid="uid://cli2135tl06sc"]
 
 [ext_resource type="Texture2D" uid="uid://ctahdtrvwvadd" path="res://Assets/ColorBG.png" id="1_66xep"]
 [ext_resource type="PackedScene" uid="uid://bo1hlnjr873ur" path="res://Scenes/player_character.tscn" id="1_f47mq"]
 [ext_resource type="PackedScene" uid="uid://dnh3fcaqoh1i2" path="res://Scenes/BulletKillzone.tscn" id="2_tes6b"]
 [ext_resource type="PackedScene" uid="uid://01ipqwrpf2b4" path="res://Scenes/EiffelTowerBG.tscn" id="4_3uwxw"]
 [ext_resource type="PackedScene" uid="uid://cccn6g6gmnls2" path="res://Scenes/enemy_wave_spawner.tscn" id="6_y3l4w"]
-[ext_resource type="Texture2D" uid="uid://tdr05oewayyg" path="res://Assets/UI/UI_BlackBar.png" id="7_exq5x"]
+[ext_resource type="PackedScene" uid="uid://0np0slgleins" path="res://Scenes/GameUI.tscn" id="7_cd0yk"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_20bud"]
 normal = Vector2(0, 1)
@@ -17,6 +17,9 @@ normal = Vector2(1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fpw58"]
 normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_etps8"]
+normal = Vector2(1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnpl8"]
 normal = Vector2(-1, 0)
@@ -54,16 +57,18 @@ shape = SubResource("WorldBoundaryShape2D_fpw58")
 position = Vector2(171, 112)
 
 [node name="PlayerBulletKillzone" parent="." instance=ExtResource("2_tes6b")]
-visible = false
-position = Vector2(324, 89)
+position = Vector2(327, 89)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayerBulletKillzone"]
+position = Vector2(-333, 5)
+shape = SubResource("WorldBoundaryShape2D_etps8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBulletKillzone"]
 shape = SubResource("WorldBoundaryShape2D_lnpl8")
 
 [node name="Node2D" parent="." instance=ExtResource("6_y3l4w")]
-position = Vector2(278, 63)
+position = Vector2(363, 38)
 
-[node name="UiBlackBar" type="Sprite2D" parent="."]
-z_index = 20
-position = Vector2(160, 6)
-texture = ExtResource("7_exq5x")
+[node name="Control" parent="." instance=ExtResource("7_cd0yk")]
+z_index = 21
+offset_right = 320.0
