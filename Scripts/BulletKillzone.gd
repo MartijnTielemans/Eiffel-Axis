@@ -4,5 +4,5 @@ extends Area2D
 @onready var player_character: CharacterBody2D = $"../PlayerCharacter"
 
 #when something enters the collision, player's amount of projectiles goes down
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: CharacterBody2D) -> void:
 	player_character.amount_of_projectiles -= 1

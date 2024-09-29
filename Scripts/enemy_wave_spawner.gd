@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var level = get_tree().get_root().get_node("Level")
+@onready var player_character: CharacterBody2D = $"../PlayerCharacter"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,5 +15,6 @@ func _process(delta: float) -> void:
 func spawn_basic_enemy(Location: Vector2):
 	var enemy_to_spawn = load("res://Scenes/Enemy/BasicEnemy.tscn")
 	var instanced_enemy = enemy_to_spawn.instantiate()
+	instanced_enemy.player_character = player_character
 	instanced_enemy.spawn_pos = Location #change this to where you want it to spawn
 	level.add_child(instanced_enemy)

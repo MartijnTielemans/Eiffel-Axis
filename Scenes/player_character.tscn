@@ -59,11 +59,35 @@ animations = [{
 }],
 "loop": true,
 "name": &"pivot",
-"speed": 5.0
+"speed": 2.5
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5e32g"]
 radius = 6.0
+
+[sub_resource type="Animation" id="Animation_g2ab5"]
+resource_name = "PivotPlayer"
+length = 0.4
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"pivot_player_animation"
+}, {
+"args": [],
+"method": &"pivot_player"
+}, {
+"args": [],
+"method": &"end_pivot_player"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_mfvew"]
 resource_name = "Shooting"
@@ -83,20 +107,6 @@ tracks/0/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_g2ab5"]
-resource_name = "PivotPlayer"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4yjnk"]
 _data = {
 "PivotPlayer": SubResource("Animation_g2ab5"),
@@ -105,11 +115,13 @@ _data = {
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
 z_index = 5
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_ft8se")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gjkql")
-animation = &"pivot"
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5e32g")
