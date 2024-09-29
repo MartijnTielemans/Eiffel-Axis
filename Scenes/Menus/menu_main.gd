@@ -9,7 +9,14 @@ extends Control
 @export var creditsButton: TextureButton
 var lastButtonPressed: TextureButton;
 
+# Waits for the transition to be done before going to next scene
 func _on_play_pressed() -> void:
+	SceneTransition.transitionOver.connect(load_scene);
+	SceneTransition.Transition(true);
+
+# Loads the game scene
+func load_scene():
+	SceneTransition.Transition(false);
 	get_tree().change_scene_to_file("res://Scenes/Game.tscn");
 
 func _on_controls_pressed() -> void:
