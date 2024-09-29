@@ -1,10 +1,49 @@
-[gd_scene load_steps=6 format=3 uid="uid://bo1hlnjr873ur"]
+[gd_scene load_steps=10 format=3 uid="uid://bo1hlnjr873ur"]
 
-[ext_resource type="Texture2D" uid="uid://bic8ay2r577y6" path="res://Assets/Cube.png" id="1_eb0sq"]
 [ext_resource type="Script" path="res://Scripts/player_character.gd" id="1_ft8se"]
+[ext_resource type="Texture2D" uid="uid://h2ce8dd3iwmk" path="res://Assets/Player_FlyingSprites.png" id="2_h4ank"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hif78"]
-size = Vector2(16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yl45"]
+atlas = ExtResource("2_h4ank")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iupyr"]
+atlas = ExtResource("2_h4ank")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3nfb"]
+atlas = ExtResource("2_h4ank")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gjkql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yl45")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iupyr")
+}],
+"loop": true,
+"name": &"fly_down",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3nfb")
+}],
+"loop": true,
+"name": &"fly_up",
+"speed": 0.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5e32g"]
+radius = 6.0
 
 [sub_resource type="Animation" id="Animation_mfvew"]
 resource_name = "Shooting"
@@ -30,14 +69,15 @@ _data = {
 }
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
+z_index = 5
 script = ExtResource("1_ft8se")
 
-[node name="Cube" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_eb0sq")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gjkql")
+animation = &"fly_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_hif78")
+shape = SubResource("CircleShape2D_5e32g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
