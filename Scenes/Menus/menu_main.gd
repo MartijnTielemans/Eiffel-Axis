@@ -1,16 +1,45 @@
 extends Control
 
+@export var controlsPanel: BoxContainer;
+@export var settingsPanel: BoxContainer;
+@export var creditsPanel: BoxContainer;
+
+@export var controlButton: TextureButton
+@export var settingsButton: TextureButton
+@export var creditsButton: TextureButton
+var lastButtonPressed: TextureButton;
+
+# Waits for the transition to be done before going to next scene
 func _on_play_pressed() -> void:
+	SceneTransition.transitionOver.connect(load_scene);
+	SceneTransition.Transition(true);
+
+# Loads the game scene
+func load_scene():
+	SceneTransition.Transition(false);
 	get_tree().change_scene_to_file("res://Scenes/Game.tscn");
 
 func _on_controls_pressed() -> void:
-	print("Controls");
+	lastButtonPressed = controlButton;
+	controlsPanel.visible = true;
+	get_node("PanelMenus/BoxContainer2/ControlsMenu").ReturnFirstButton().grab_focus();
 
 func _on_settings_pressed() -> void:
-	print("Settings");
+	lastButtonPressed = settingsButton;
+	settingsPanel.visible = true;
+	get_node("PanelMenus/BoxContainer/SettingsMenu").ReturnFirstButton().grab_focus();
 
 func _on_quit_pressed() -> void:
 	get_tree().quit();
 
 func _on_credits_pressed() -> void:
-	print("Credits");
+	lastButtonPressed = creditsButton;
+	creditsPanel.visible = true;
+	get_node("PanelMenus/BoxContainer3/CreditsMenu").ReturnFirstButton().grab_focus();
+
+# When a panel closes, reget focus on the last button
+func _on_close_panel() -> void:
+	controlsPanel.visible = false;
+	settingsPanel.visible = false;
+	creditsPanel.visible = false;
+	lastButtonPressed.grab_focus();
