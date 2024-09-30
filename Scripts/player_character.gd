@@ -79,3 +79,5 @@ func update_health(health_change: int):
 	HP += health_change
 	UI_ref.health = HP
 	UI_ref.update_visuals()
+	if HP < 1:
+		pass

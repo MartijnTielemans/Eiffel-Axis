@@ -11,4 +11,5 @@ func _on_body_entered(body: Node2D) -> void:
 		print("string")
 		health -= 1
 	else:
-		myparent.queue_free()
+		myparent.die()
+		

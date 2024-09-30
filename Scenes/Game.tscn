@@ -66,8 +66,8 @@ shape = SubResource("WorldBoundaryShape2D_etps8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBulletKillzone"]
 shape = SubResource("WorldBoundaryShape2D_lnpl8")
 
-[node name="Node2D" parent="." instance=ExtResource("6_y3l4w")]
-position = Vector2(363, 38)
+[node name="Wave_spawner" parent="." instance=ExtResource("6_y3l4w")]
+position = Vector2(344, 43)
 
 [node name="Control" parent="." instance=ExtResource("7_cd0yk")]
 z_index = 21
