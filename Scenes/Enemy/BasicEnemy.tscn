@@ -1,32 +1,33 @@
 [gd_scene load_steps=7 format=3 uid="uid://xalcavewkuaf"]
 
-[ext_resource type="Texture2D" uid="uid://bic8ay2r577y6" path="res://Assets/Cube.png" id="1_p4vge"]
 [ext_resource type="Script" path="res://Scripts/basic_enemy.gd" id="1_xb0co"]
+[ext_resource type="Texture2D" uid="uid://b3uk8j0om23vq" path="res://Assets/Enemies/Enemy_Flyer.png" id="2_7tty3"]
 [ext_resource type="PackedScene" uid="uid://dv2srg8rl3sm0" path="res://Scenes/Enemy/damage_player.tscn" id="3_ebtc6"]
 [ext_resource type="PackedScene" uid="uid://donl0dpk4vj7k" path="res://Scenes/Enemy/EnemyHealth.tscn" id="4_elqex"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_imdxj"]
-size = Vector2(14, 14)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ouoty"]
+radius = 8.0
+height = 22.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iggts"]
-size = Vector2(9.25, 9.5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_m83k1"]
+radius = 5.0
 
 [node name="CharacterBody2D" type="Node2D"]
 script = ExtResource("1_xb0co")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 9.53674e-07)
-scale = Vector2(0.421875, 0.4375)
-texture = ExtResource("1_p4vge")
+texture = ExtResource("2_7tty3")
+
+[node name="EnemyHealth" parent="." instance=ExtResource("4_elqex")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHealth"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ouoty")
 
 [node name="DamagePlayer" parent="." instance=ExtResource("3_ebtc6")]
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamagePlayer"]
-shape = SubResource("RectangleShape2D_imdxj")
-
-[node name="EnemyHealth" parent="." instance=ExtResource("4_elqex")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHealth"]
-shape = SubResource("RectangleShape2D_iggts")
+shape = SubResource("CircleShape2D_m83k1")
