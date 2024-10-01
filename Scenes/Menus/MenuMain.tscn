@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cjk88n4luj0va"]
+[gd_scene load_steps=30 format=3 uid="uid://cjk88n4luj0va"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/menu_main.gd" id="1_ddcqc"]
 [ext_resource type="FontFile" uid="uid://d35wovbc4u2xv" path="res://Fonts/PolygonPixel5x7Cyrillic.ttf" id="3_3eyp4"]
@@ -13,11 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://bt2wba8o7jsga" path="res://Assets/Menus/MenuButtonSmall_Hover.png" id="8_5xmql"]
 [ext_resource type="Texture2D" uid="uid://clx1ivnkusmr3" path="res://Assets/Player_Neutral.png" id="10_8jxd6"]
 [ext_resource type="Texture2D" uid="uid://dp8x10dgmx6j0" path="res://Assets/Menus/MenuButtonSmall_HoverMouse.png" id="10_701kr"]
+[ext_resource type="Texture2D" uid="uid://ck8xmsc2bb23w" path="res://Assets/Menus/EiffelAxis Logo.png" id="12_rig77"]
 [ext_resource type="PackedScene" uid="uid://brgfl8c0nkb0v" path="res://Scenes/Menus/Panel_SettingsMenu.tscn" id="14_5b8b5"]
 [ext_resource type="PackedScene" uid="uid://dfd0y3csrprsg" path="res://Scenes/Menus/Panel_ControlsMenu.tscn" id="15_oh24r"]
 [ext_resource type="PackedScene" uid="uid://bvlp1cffvf6s0" path="res://Scenes/Menus/Panel_CreditsMenu.tscn" id="16_e3x6g"]
 
-[sub_resource type="Image" id="Image_3sg5p"]
+[sub_resource type="Image" id="Image_xlb6c"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 179, 179, 179, 153, 178, 178, 178, 166, 184, 184, 184, 18, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 178, 178, 178, 166, 178, 178, 178, 151, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 166, 178, 178, 178, 217, 177, 177, 177, 179, 184, 184, 184, 18, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 178, 178, 178, 179, 178, 178, 178, 217, 178, 178, 178, 165, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 177, 177, 177, 179, 178, 178, 178, 217, 177, 177, 177, 179, 184, 184, 184, 18, 184, 184, 184, 18, 178, 178, 178, 179, 178, 178, 178, 217, 177, 177, 177, 179, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 177, 177, 177, 179, 178, 178, 178, 217, 178, 178, 178, 197, 178, 178, 178, 197, 178, 178, 178, 217, 177, 177, 177, 179, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 177, 177, 177, 179, 178, 178, 178, 217, 178, 178, 178, 217, 177, 177, 177, 179, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 178, 178, 178, 165, 178, 178, 178, 165, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -27,7 +28,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_8itve"]
-image = SubResource("Image_3sg5p")
+image = SubResource("Image_xlb6c")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mj1fg"]
 content_margin_left = 8.0
@@ -334,10 +335,10 @@ vertical_alignment = 1
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 30.0
-offset_top = 14.0
+offset_top = 8.0
 offset_right = 160.0
-offset_bottom = 64.0
-texture = ExtResource("3_n0l3a")
+offset_bottom = 60.0
+texture = ExtResource("12_rig77")
 expand_mode = 2
 
 [node name="ShipCursor" type="TextureRect" parent="."]
