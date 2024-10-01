@@ -450,7 +450,8 @@ script = ExtResource("14_kefrt")
 
 [node name="ShipCursor" type="TextureRect" parent="MenuCursor"]
 layout_mode = 0
-offset_right = 22.0
+offset_left = -0.325409
+offset_right = 21.6746
 offset_bottom = 22.0
 texture = ExtResource("10_8jxd6")
 
