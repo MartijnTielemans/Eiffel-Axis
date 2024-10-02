@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvlp1cffvf6s0"]
+[gd_scene load_steps=12 format=3 uid="uid://bvlp1cffvf6s0"]
 
 [ext_resource type="Texture2D" uid="uid://baxj3iyrggvns" path="res://Assets/Menus/SettingsBG.png" id="1_eivd5"]
 [ext_resource type="Script" path="res://Scenes/Menus/PanelScript.gd" id="1_uqchk"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bac8gqdhwy6gm" path="res://Assets/Menus/MenuButtonSmall_Neutral.png" id="4_cphn1"]
 [ext_resource type="Texture2D" uid="uid://bvoxq8ryhx6of" path="res://Assets/Menus/MenuButtonSmall_Select.png" id="5_gcpbd"]
 [ext_resource type="Texture2D" uid="uid://dp8x10dgmx6j0" path="res://Assets/Menus/MenuButtonSmall_HoverMouse.png" id="6_5v4hl"]
+[ext_resource type="Texture2D" uid="uid://clx1ivnkusmr3" path="res://Assets/Player_Neutral.png" id="6_jwf5y"]
 [ext_resource type="Texture2D" uid="uid://bt2wba8o7jsga" path="res://Assets/Menus/MenuButtonSmall_Hover.png" id="7_kie2y"]
 [ext_resource type="FontFile" uid="uid://d35wovbc4u2xv" path="res://Fonts/PolygonPixel5x7Cyrillic.ttf" id="8_3ox31"]
 
@@ -77,6 +78,48 @@ patch_margin_top = 6
 patch_margin_right = 5
 patch_margin_bottom = 5
 
+[node name="Label" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = 5.0
+offset_right = -2.0
+offset_bottom = -18.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("8_3ox31")
+text = "Pokopish"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = 16.0
+offset_right = -2.0
+offset_bottom = -7.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("8_3ox31")
+text = "Art, Design, Code"
+vertical_alignment = 1
+
+[node name="Image" type="TextureRect" parent="BoxContainer/NinePatchRect/NinePatchRect"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 30.0
+offset_bottom = 30.0
+texture = ExtResource("6_jwf5y")
+
 [node name="BoxContainer2" type="BoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -120,6 +163,47 @@ patch_margin_top = 6
 patch_margin_right = 5
 patch_margin_bottom = 5
 
+[node name="Label" type="Label" parent="BoxContainer2/NinePatchRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = 5.0
+offset_right = -2.0
+offset_bottom = -18.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("8_3ox31")
+text = "FunkyRuben"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="BoxContainer2/NinePatchRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = 16.0
+offset_right = -2.0
+offset_bottom = -7.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("8_3ox31")
+text = "Design, Code"
+vertical_alignment = 1
+
+[node name="Image" type="TextureRect" parent="BoxContainer2/NinePatchRect/NinePatchRect"]
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 30.0
+offset_bottom = 30.0
+texture = ExtResource("6_jwf5y")
+
 [node name="BoxContainer3" type="BoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -162,6 +246,47 @@ patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 5
 patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="BoxContainer3/NinePatchRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = 5.0
+offset_right = -2.0
+offset_bottom = -18.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("8_3ox31")
+text = "Gabrimer"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="BoxContainer3/NinePatchRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = 16.0
+offset_right = -2.0
+offset_bottom = -7.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("8_3ox31")
+text = "Music, Sound"
+vertical_alignment = 1
+
+[node name="Image" type="TextureRect" parent="BoxContainer3/NinePatchRect/NinePatchRect"]
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 30.0
+offset_bottom = 30.0
+texture = ExtResource("6_jwf5y")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 1
