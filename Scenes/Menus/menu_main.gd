@@ -22,12 +22,12 @@ func load_scene():
 func _on_controls_pressed() -> void:
 	lastButtonPressed = controlButton;
 	controlsPanel.visible = true;
-	get_node("PanelMenus/BoxContainer2/ControlsMenu").ReturnFirstButton().grab_focus();
+	get_node("PanelMenus/BoxContainer/ControlsMenu2").ReturnFirstButton().grab_focus();
 
 func _on_settings_pressed() -> void:
 	lastButtonPressed = settingsButton;
 	settingsPanel.visible = true;
-	get_node("PanelMenus/BoxContainer/SettingsMenu").ReturnFirstButton().grab_focus();
+	get_node("PanelMenus/BoxContainer2/SettingsMenu").ReturnFirstButton().grab_focus();
 
 func _on_quit_pressed() -> void:
 	get_tree().quit();

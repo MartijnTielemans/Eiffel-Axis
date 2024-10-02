@@ -14,12 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://dp8x10dgmx6j0" path="res://Assets/Menus/MenuButtonSmall_HoverMouse.png" id="10_701kr"]
 [ext_resource type="Texture2D" uid="uid://ck8xmsc2bb23w" path="res://Assets/Menus/EiffelAxis Logo.png" id="12_rig77"]
 [ext_resource type="Texture2D" uid="uid://cqovsa7u16vrd" path="res://Assets/Menus/MenuPilot_Alt.png" id="13_wngn8"]
-[ext_resource type="PackedScene" uid="uid://brgfl8c0nkb0v" path="res://Scenes/Menus/Panel_SettingsMenu.tscn" id="14_5b8b5"]
 [ext_resource type="Script" path="res://Scenes/Menus/ship_cursor.gd" id="14_kefrt"]
-[ext_resource type="PackedScene" uid="uid://dfd0y3csrprsg" path="res://Scenes/Menus/Panel_ControlsMenu.tscn" id="15_oh24r"]
+[ext_resource type="PackedScene" uid="uid://bylhq0eyu52yp" path="res://Scenes/Menus/Panel_ControlsMenu3.tscn" id="14_xtm81"]
+[ext_resource type="PackedScene" uid="uid://ck1vkcwad2qas" path="res://Scenes/Menus/Panel_SettingsMenu2.tscn" id="15_o8sev"]
 [ext_resource type="PackedScene" uid="uid://bvlp1cffvf6s0" path="res://Scenes/Menus/Panel_CreditsMenu.tscn" id="16_e3x6g"]
 
-[sub_resource type="Image" id="Image_38lh5"]
+[sub_resource type="Image" id="Image_c8m60"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 179, 179, 179, 153, 178, 178, 178, 166, 184, 184, 184, 18, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 178, 178, 178, 166, 178, 178, 178, 151, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 166, 178, 178, 178, 217, 177, 177, 177, 179, 184, 184, 184, 18, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 178, 178, 178, 179, 178, 178, 178, 217, 178, 178, 178, 165, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 177, 177, 177, 179, 178, 178, 178, 217, 177, 177, 177, 179, 184, 184, 184, 18, 184, 184, 184, 18, 178, 178, 178, 179, 178, 178, 178, 217, 177, 177, 177, 179, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 177, 177, 177, 179, 178, 178, 178, 217, 178, 178, 178, 197, 178, 178, 178, 197, 178, 178, 178, 217, 177, 177, 177, 179, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 177, 177, 177, 179, 178, 178, 178, 217, 178, 178, 178, 217, 177, 177, 177, 179, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 178, 178, 178, 165, 178, 178, 178, 165, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -29,7 +29,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_8itve"]
-image = SubResource("Image_38lh5")
+image = SubResource("Image_c8m60")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mj1fg"]
 content_margin_left = 8.0
@@ -220,8 +220,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ddcqc")
-controlsPanel = NodePath("PanelMenus/BoxContainer2")
-settingsPanel = NodePath("PanelMenus/BoxContainer")
+controlsPanel = NodePath("PanelMenus/BoxContainer")
+settingsPanel = NodePath("PanelMenus/BoxContainer2")
 creditsPanel = NodePath("PanelMenus/BoxContainer3")
 controlButton = NodePath("Buttons/Controls")
 settingsButton = NodePath("Buttons/Settings")
@@ -398,6 +398,20 @@ texture = ExtResource("13_wngn8")
 
 [node name="PanelMenus" type="Node" parent="."]
 
+[node name="BoxContainer" type="BoxContainer" parent="PanelMenus"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="ControlsMenu2" parent="PanelMenus/BoxContainer" instance=ExtResource("14_xtm81")]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="BoxContainer2" type="BoxContainer" parent="PanelMenus"]
 visible = false
 anchors_preset = 15
@@ -408,23 +422,8 @@ grow_vertical = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="ControlsMenu" parent="PanelMenus/BoxContainer2" instance=ExtResource("15_oh24r")]
+[node name="SettingsMenu" parent="PanelMenus/BoxContainer2" instance=ExtResource("15_o8sev")]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="BoxContainer" type="BoxContainer" parent="PanelMenus"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="SettingsMenu" parent="PanelMenus/BoxContainer" instance=ExtResource("14_5b8b5")]
-layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="BoxContainer3" type="BoxContainer" parent="PanelMenus"]
 visible = false
@@ -467,6 +466,6 @@ autoplay = "MenuCursorBob"
 [connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Buttons/HBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Buttons/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="closePanel" from="PanelMenus/BoxContainer2/ControlsMenu" to="." method="_on_close_panel"]
-[connection signal="closePanel" from="PanelMenus/BoxContainer/SettingsMenu" to="." method="_on_close_panel"]
+[connection signal="closePanel" from="PanelMenus/BoxContainer/ControlsMenu2" to="." method="_on_close_panel"]
+[connection signal="closePanel" from="PanelMenus/BoxContainer2/SettingsMenu" to="." method="_on_close_panel"]
 [connection signal="closePanel" from="PanelMenus/BoxContainer3/CreditsMenu" to="." method="_on_close_panel"]
