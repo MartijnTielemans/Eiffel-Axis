@@ -12,15 +12,9 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.7, 2.6),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [Vector2(330, 45)],
-"method": &"spawn_basic_enemy"
-}, {
-"args": [Vector2(330, 45)],
-"method": &"spawn_basic_enemy"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -29,17 +23,11 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.833333, 1.66667, 2.53333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(1.03333),
+"transitions": PackedFloat32Array(1),
 "values": [{
 "args": [Vector2(330, 90)],
-"method": &"spawn_basic_enemy"
-}, {
-"args": [Vector2(330, 90)],
-"method": &"spawn_basic_enemy"
-}, {
-"args": [Vector2(330, 90)],
-"method": &"spawn_basic_enemy"
+"method": &"spawn_tank_enemy"
 }]
 }
 tracks/2/type = "method"
@@ -49,15 +37,9 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.7, 2.6),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [Vector2(330, 135)],
-"method": &"spawn_basic_enemy"
-}, {
-"args": [Vector2(330, 135)],
-"method": &"spawn_basic_enemy"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -81,15 +63,9 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.5, 3.03333),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [Vector2(330, 45)],
-"method": &"spawn_basic_enemy"
-}, {
-"args": [Vector2(330, 45)],
-"method": &"spawn_basic_enemy"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -98,15 +74,9 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.5, 4),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [Vector2(330, 90)],
-"method": &"spawn_basic_enemy"
-}, {
-"args": [Vector2(330, 90)],
-"method": &"spawn_basic_enemy"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -115,15 +85,9 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.5, 3.03333),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [Vector2(330, 135)],
-"method": &"spawn_basic_enemy"
-}, {
-"args": [Vector2(330, 135)],
-"method": &"spawn_basic_enemy"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -147,15 +111,9 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.5, 3.03333),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [Vector2(330, 45)],
-"method": &"spawn_basic_enemy"
-}, {
-"args": [Vector2(330, 45)],
-"method": &"spawn_basic_enemy"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -164,15 +122,9 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.5, 4),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [Vector2(330, 90)],
-"method": &"spawn_basic_enemy"
-}, {
-"args": [Vector2(330, 90)],
-"method": &"spawn_basic_enemy"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -181,15 +133,9 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.5, 3.03333),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [Vector2(330, 135)],
-"method": &"spawn_basic_enemy"
-}, {
-"args": [Vector2(330, 135)],
-"method": &"spawn_basic_enemy"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/3/type = "method"
 tracks/3/imported = false

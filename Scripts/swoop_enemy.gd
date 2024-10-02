@@ -4,18 +4,17 @@ extends Node2D
 @onready var player_character : CharacterBody2D
 var spawn_pos : Vector2
 var spawner_ref : Node2D
-var awarded_points = 100
-const SPEED = 45
-var move_up : bool
+var awarded_points = 200
+const SPEED = 70
 
 func _ready():
 	var healthref = get_node("EnemyHealth")
-	healthref.health = 3
+	healthref.health = 1
 	global_position = spawn_pos
 
 func _physics_process(delta: float) -> void:
 	position.x -= SPEED * delta
-	position.y += y_movement * delta * ((int(move_up)*2)-1)
+	position.y += sin(position.x/25)
 
 func die():
 	spawner_ref.current_enemies -= 1
