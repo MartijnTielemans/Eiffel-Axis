@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://0np0slgleins"]
+[gd_scene load_steps=6 format=3 uid="uid://0np0slgleins"]
 
 [ext_resource type="Texture2D" uid="uid://cos0tn7ht2lr7" path="res://Assets/UI/UI_Heart_Full.png" id="1_5hd0h"]
 [ext_resource type="Script" path="res://Scripts/game_ui.gd" id="1_s4hrd"]
 [ext_resource type="Texture2D" uid="uid://cpdejujmkc2lk" path="res://Assets/UI/UI_ProgressNotches.png" id="2_5sua8"]
 [ext_resource type="Texture2D" uid="uid://cpiltujyawjqv" path="res://Assets/UI/UI_ProgressBar.png" id="2_kfsst"]
+[ext_resource type="FontFile" uid="uid://d35wovbc4u2xv" path="res://Fonts/PolygonPixel5x7Cyrillic.ttf" id="5_u1n5j"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 13.0
+offset_bottom = 14.0
 grow_horizontal = 2
 script = ExtResource("1_s4hrd")
 
@@ -74,3 +75,13 @@ position = Vector2(156, 7)
 texture = ExtResource("2_5sua8")
 region_enabled = true
 region_rect = Rect2(0, 0, 0, 7)
+
+[node name="Label" type="Label" parent="."]
+z_index = 25
+layout_mode = 0
+offset_left = 240.0
+offset_right = 283.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("5_u1n5j")
+text = "0"

@@ -10,7 +10,12 @@ var waves = [
 	"Wave3",
 	]
 var current_enemies : int
+var points : int
 
+
+func update_points():
+	UI_ref.points = points
+	UI_ref.update_points()
 #if there is another wave in array "waves" it will start a new wave
 func start_new_wave():
 	if current_wave < len(waves):
