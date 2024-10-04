@@ -1,21 +1,30 @@
 extends Node2D
 
 @onready var level = get_tree().get_root().get_node("Level")
+@export var y_movement = 50
 @onready var player_character : CharacterBody2D
 var spawn_pos : Vector2
 var spawner_ref : Node2D
 var awarded_points = 300
 const SPEED = 45
-@export var moving = true
+@export var look_up : bool
 
 func _ready():
 	var healthref = get_node("EnemyHealth")
-	healthref.health = 7
+	healthref.health = 3
 	global_position = spawn_pos
+	$Sprite2D.flip_v = look_up
 
 func _physics_process(delta: float) -> void:
-	if moving == true:
-		position.x -= SPEED * delta
+	position.x -= SPEED * delta
+
+func shoot():
+	var projectile = load("res://Scenes/Enemy/EnemyBullet.tscn")
+	var projectile_instance = projectile.instantiate()
+	projectile_instance.y_speed = (-75*((int(look_up)*2)-1))
+	projectile_instance.x_speed = -45
+	projectile_instance.spawnPos = global_position
+	level.add_child(projectile_instance)
 
 func die():
 	spawner_ref.current_enemies -= 1
@@ -25,12 +34,3 @@ func die():
 		spawner_ref.current_wave += 1
 		spawner_ref.start_new_wave()
 	queue_free()
-
-func shoot():
-	for i in 3:
-		var projectile = load("res://Scenes/Enemy/EnemyBullet.tscn")
-		var projectile_instance = projectile.instantiate()
-		projectile_instance.y_speed = (i-1)*35
-		projectile_instance.x_speed = -75
-		projectile_instance.spawnPos = global_position
-		level.add_child(projectile_instance)

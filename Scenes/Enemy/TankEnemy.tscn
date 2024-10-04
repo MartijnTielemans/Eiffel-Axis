@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://18vv3gsdr7xv"]
+[gd_scene load_steps=16 format=3 uid="uid://18vv3gsdr7xv"]
 
 [ext_resource type="Script" path="res://Scripts/tank_enemy.gd" id="1_7mavt"]
 [ext_resource type="Texture2D" uid="uid://nw6wf002rejo" path="res://Assets/Enemies/Enemy_Tank01.png" id="2_xlqqn"]
@@ -19,10 +19,6 @@ region = Rect2(0, 0, 22, 22)
 atlas = ExtResource("4_gxlj2")
 region = Rect2(0, 0, 22, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sb0b6"]
-atlas = ExtResource("3_0pn1y")
-region = Rect2(0, 0, 22, 22)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_2u1g0"]
 animations = [{
 "frames": [{
@@ -34,9 +30,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ggxpo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sb0b6")
 }],
 "loop": true,
 "name": &"default",
@@ -52,7 +45,7 @@ radius = 5.0
 
 [sub_resource type="Animation" id="Animation_bdl3d"]
 resource_name = "Movement"
-length = 4.0
+length = 4.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -60,7 +53,7 @@ tracks/0/path = NodePath(".:moving")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.75, 4),
+"times": PackedFloat32Array(1, 4.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -72,7 +65,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2.5, 3, 3.5),
+"times": PackedFloat32Array(3, 3.5, 4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],

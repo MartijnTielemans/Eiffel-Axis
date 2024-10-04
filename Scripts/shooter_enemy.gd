@@ -4,7 +4,7 @@ extends Node2D
 @onready var player_character : CharacterBody2D
 var spawn_pos : Vector2
 var spawner_ref : Node2D
-var awarded_points = 100
+var awarded_points = 200
 const SPEED = 30
 
 func _ready():

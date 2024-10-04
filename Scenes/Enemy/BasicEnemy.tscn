@@ -60,12 +60,14 @@ position = Vector2(0, 9.53674e-07)
 texture = ExtResource("2_7tty3")
 
 [node name="EnemyHealth" parent="." instance=ExtResource("4_elqex")]
+z_index = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHealth"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ouoty")
 
 [node name="DamagePlayer" parent="." instance=ExtResource("3_ebtc6")]
+z_index = 5
 collision_layer = 4
 collision_mask = 4
 

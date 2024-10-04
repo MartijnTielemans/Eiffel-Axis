@@ -1,7 +1,7 @@
 extends Control
 
 @onready var spawner_ref = $"../Wave_spawner"
-var health : int
+var health : int = 3
 var health_icons = []
 var progress : float = 0
 var max_progress : float = 1

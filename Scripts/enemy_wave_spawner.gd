@@ -65,3 +65,31 @@ func spawn_tank_enemy(Location: Vector2):
 	instanced_enemy.spawner_ref = self
 	current_enemies += 1
 	level.add_child(instanced_enemy)
+
+func spawn_capsule(Location: Vector2):
+	var enemy_to_spawn = load("res://Scenes/Enemy/CapsuleEnemy.tscn")
+	var instanced_enemy = enemy_to_spawn.instantiate()
+	instanced_enemy.player_character = player_character
+	instanced_enemy.spawn_pos = Location					 #change this to where you want it to spawn
+	instanced_enemy.spawner_ref = self
+	instanced_enemy.level = level
+	current_enemies += 1
+	level.add_child(instanced_enemy)
+	
+func spawn_block(Location: Vector2):
+	var enemy_to_spawn = load("res://Scenes/Enemy/Block.tscn")
+	var instanced_enemy = enemy_to_spawn.instantiate()
+	instanced_enemy.spawn_pos = Location					 #change this to where you want it to spawn
+	instanced_enemy.spawner_ref = self
+	current_enemies += 1
+	level.add_child(instanced_enemy)
+
+func spawn_turret(Location: Vector2, look_up: bool):
+	var enemy_to_spawn = load("res://Scenes/Enemy/TurretEnemy.tscn")
+	var instanced_enemy = enemy_to_spawn.instantiate()
+	instanced_enemy.player_character = player_character
+	instanced_enemy.spawn_pos = Location					 #change this to where you want it to spawn
+	instanced_enemy.spawner_ref = self
+	instanced_enemy.look_up = look_up
+	current_enemies += 1
+	level.add_child(instanced_enemy)
