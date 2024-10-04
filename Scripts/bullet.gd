@@ -18,6 +18,7 @@ func _physics_process(delta: float) -> void:
 func destroy_self():
 	player_ref.amount_of_projectiles -=1
 	queue_free()
+	print("destroy self")
 
 func flip_bullet():
 	$Sprite2D.flip_v = !$Sprite2D.flip_v
