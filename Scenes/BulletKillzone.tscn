@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/BulletKillzone.gd" id="1_vixg5"]
 
 [node name="Area2D" type="Area2D"]
+collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_vixg5")
 

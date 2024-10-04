@@ -8,7 +8,7 @@ func _on_body_entered(body: Node2D) -> void:
 	body.player_ref.amount_of_projectiles -= 1
 	body.queue_free()
 	if health > 1:
-		print("string")
+		pass
 		health -= 1
 	else:
 		myparent.die()

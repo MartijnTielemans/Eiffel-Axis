@@ -1,0 +1,133 @@
+[gd_scene load_steps=16 format=3 uid="uid://18vv3gsdr7xv"]
+
+[ext_resource type="Script" path="res://Scripts/tank_enemy.gd" id="1_7mavt"]
+[ext_resource type="Texture2D" uid="uid://nw6wf002rejo" path="res://Assets/Enemies/Enemy_Tank01.png" id="2_xlqqn"]
+[ext_resource type="Texture2D" uid="uid://bvj4rjn7c5o5o" path="res://Assets/Enemies/Enemy_Tank02.png" id="3_0pn1y"]
+[ext_resource type="PackedScene" uid="uid://donl0dpk4vj7k" path="res://Scenes/Enemy/EnemyHealth.tscn" id="3_sv12s"]
+[ext_resource type="Texture2D" uid="uid://ct1x23uba108t" path="res://Assets/Enemies/Enemy_Tank03.png" id="4_gxlj2"]
+[ext_resource type="PackedScene" uid="uid://dv2srg8rl3sm0" path="res://Scenes/Enemy/damage_player.tscn" id="4_nxi0c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s7je"]
+atlas = ExtResource("2_xlqqn")
+region = Rect2(0, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwtmx"]
+atlas = ExtResource("3_0pn1y")
+region = Rect2(0, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggxpo"]
+atlas = ExtResource("4_gxlj2")
+region = Rect2(0, 0, 22, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2u1g0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s7je")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwtmx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggxpo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ouoty"]
+radius = 8.0
+height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m83k1"]
+radius = 5.0
+
+[sub_resource type="Animation" id="Animation_bdl3d"]
+resource_name = "Movement"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:moving")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"shoot"
+}, {
+"args": [],
+"method": &"shoot"
+}, {
+"args": [],
+"method": &"shoot"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_akugm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:moving")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3dm2d"]
+_data = {
+"Movement": SubResource("Animation_bdl3d"),
+"RESET": SubResource("Animation_akugm")
+}
+
+[node name="CharacterBody2D" type="Node2D"]
+z_index = 4
+script = ExtResource("1_7mavt")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 5
+position = Vector2(0, 9.53674e-07)
+sprite_frames = SubResource("SpriteFrames_2u1g0")
+autoplay = "default"
+frame_progress = 0.529925
+
+[node name="EnemyHealth" parent="." instance=ExtResource("3_sv12s")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHealth"]
+z_index = 5
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ouoty")
+
+[node name="DamagePlayer" parent="." instance=ExtResource("4_nxi0c")]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagePlayer"]
+z_index = 5
+shape = SubResource("CircleShape2D_m83k1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3dm2d")
+}
+autoplay = "Movement"

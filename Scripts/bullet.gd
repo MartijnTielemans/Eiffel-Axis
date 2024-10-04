@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player_Bullet
 
 const SPEED = 200			#How much the bullet moves per second
 var spawnPos : Vector2		#This value is set by the player_character when spawned
@@ -14,6 +14,10 @@ func _ready() -> void:
 # Moves the bullet to the right
 func _physics_process(delta: float) -> void:
 	position.x += SPEED * delta * dir
+
+func destroy_self():
+	player_ref.amount_of_projectiles -=1
+	queue_free()
 
 func flip_bullet():
 	$Sprite2D.flip_v = !$Sprite2D.flip_v
