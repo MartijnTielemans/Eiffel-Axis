@@ -7,6 +7,7 @@ var awarded_points = 0
 var level : Node2D
 var images = []
 const SPEED = 45
+var start_left : bool
 
 func _ready():
 	var healthref = get_node("EnemyHealth")
@@ -16,7 +17,8 @@ func _ready():
 	images.append(load("res://Assets/Enemies/Enemy_CapsuleOpen_Bottom.png"))
 
 func _physics_process(delta: float) -> void:
-	position.x -= SPEED * delta
+	var dir = ((int(start_left)*-2)+1)
+	position.x -= SPEED * delta * dir
 
 func flip_image():
 	$Sprite2D.flip_h = !$Sprite2D.flip_h

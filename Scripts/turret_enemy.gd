@@ -8,6 +8,7 @@ var spawner_ref : Node2D
 var awarded_points = 300
 const SPEED = 45
 @export var look_up : bool
+var start_left : bool
 
 func _ready():
 	var healthref = get_node("EnemyHealth")
@@ -16,13 +17,15 @@ func _ready():
 	$Sprite2D.flip_v = look_up
 
 func _physics_process(delta: float) -> void:
-	position.x -= SPEED * delta
+	var dir = ((int(start_left)*-2)+1)
+	position.x -= SPEED * delta * dir
 
 func shoot():
 	var projectile = load("res://Scenes/Enemy/EnemyBullet.tscn")
 	var projectile_instance = projectile.instantiate()
 	projectile_instance.y_speed = (-75*((int(look_up)*2)-1))
-	projectile_instance.x_speed = -45
+	var dir = ((int(start_left)*-2)+1)
+	projectile_instance.x_speed = -45 * dir
 	projectile_instance.spawnPos = global_position
 	level.add_child(projectile_instance)
 

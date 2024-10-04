@@ -3,6 +3,8 @@ extends StaticBody2D
 var speed = 45
 var spawn_pos : Vector2
 var spawner_ref : Node2D
+var start_left : bool
+var dir = ((int(start_left)*2)-1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
