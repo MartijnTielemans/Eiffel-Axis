@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var level = get_tree().get_root().get_node("Level")
 @onready var UI_ref = $"../Control"
@@ -9,7 +10,7 @@ const y_maxspeed = 100			#Max Y speed the player can have
 const MaxBullets = 3			#Max amount of bullets that can be on screen at once
 var X_SPEED = 0
 var Y_SPEED = 0
-var HP = 3
+@export var HP = 3
 var amount_of_projectiles = 0
 var is_pivoting
 var dir = 1
@@ -63,6 +64,7 @@ func shoot_projectile():
 		projectile_instance.dir = dir
 		amount_of_projectiles += 1
 		level.add_child(projectile_instance)
+		$AudioStreamPlayer2D.play()
 
 func pivot_player_animation():
 	is_pivoting = true

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkrvm18q3ybl"]
+
+[ext_resource type="Script" path="res://Scripts/block.gd" id="1_pqoo8"]
+[ext_resource type="Texture2D" uid="uid://70jtftewx7lt" path="res://Assets/Enemies/Enemy_Block.png" id="1_vb3pj"]
+[ext_resource type="Script" path="res://Scripts/area_2d.gd" id="3_w10lj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rwbj"]
+size = Vector2(24.8558, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trifr"]
+
+[node name="Block" type="StaticBody2D"]
+script = ExtResource("1_pqoo8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vb3pj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.04, 1)
+shape = SubResource("RectangleShape2D_4rwbj")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 10
+collision_mask = 10
+script = ExtResource("3_w10lj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_trifr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

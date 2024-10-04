@@ -57,7 +57,7 @@ position = Vector2(158, -90)
 shape = SubResource("WorldBoundaryShape2D_fpw58")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_f47mq")]
-position = Vector2(171, 112)
+position = Vector2(101, 107)
 
 [node name="PlayerBulletKillzone" parent="." instance=ExtResource("2_tes6b")]
 position = Vector2(327, 89)
