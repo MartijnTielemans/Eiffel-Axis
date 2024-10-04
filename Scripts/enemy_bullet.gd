@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		body.HP -=1
+		body.update_health(-1)
 		UI_ref.health -=1
 		UI_ref.update_visuals()
 	if not body is Player_Bullet:

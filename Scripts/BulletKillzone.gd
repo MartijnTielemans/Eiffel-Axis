@@ -5,5 +5,5 @@ extends Area2D
 
 #when something enters the collision, player's amount of projectiles goes down
 func _on_body_entered(body: CharacterBody2D) -> void:
-	player_character.amount_of_projectiles -= 1
+	player_character.update_projectile_amount(-1)
 	body.queue_free()

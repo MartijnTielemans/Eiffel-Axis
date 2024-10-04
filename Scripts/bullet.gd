@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	position.x += SPEED * delta * dir
 
 func destroy_self():
-	player_ref.amount_of_projectiles -=1
+	player_ref.update_projectile_amount(-1)
 	queue_free()
 	print("destroy self")
 
