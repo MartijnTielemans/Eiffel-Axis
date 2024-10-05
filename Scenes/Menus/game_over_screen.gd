@@ -3,6 +3,7 @@ extends Control
 @export var playerScoreNumber : Label
 @export var highScoreNumber : Label
 @export var rankImage : TextureRect
+@export var winText : CompressedTexture2D
 
 @export var rankImages : Array[CompressedTexture2D]
 @export var rankThresholds : Array[int]

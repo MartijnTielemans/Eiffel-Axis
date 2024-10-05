@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsmw2xiigwjyx"]
+[gd_scene load_steps=12 format=3 uid="uid://dsmw2xiigwjyx"]
 
 [ext_resource type="Texture2D" uid="uid://bgeelt541pjb" path="res://Assets/Menus/GameOver_Text.png" id="1_26fk3"]
 [ext_resource type="Script" path="res://Scenes/Menus/game_over_screen.gd" id="1_hflth"]
 [ext_resource type="FontFile" uid="uid://d35wovbc4u2xv" path="res://Fonts/PolygonPixel5x7Cyrillic.ttf" id="2_dga0u"]
+[ext_resource type="Texture2D" uid="uid://cucbfd613w2l6" path="res://Assets/Menus/GameOver_WinText.png" id="2_p7aua"]
 [ext_resource type="Texture2D" uid="uid://d1s1touhuoxof" path="res://Assets/Menus/RankIcons/RankIcon_D.png" id="2_ur6sx"]
 [ext_resource type="Texture2D" uid="uid://cfl3sdadin3i" path="res://Assets/Menus/Panel9Slice.png" id="3_6wcp0"]
 [ext_resource type="Texture2D" uid="uid://rxflgq3oen7t" path="res://Assets/Menus/RankIcons/RankIcon_C.png" id="3_tmidi"]
@@ -22,6 +23,7 @@ script = ExtResource("1_hflth")
 playerScoreNumber = NodePath("BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Score Number")
 highScoreNumber = NodePath("BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/HighScore Number")
 rankImage = NodePath("BoxContainer/NinePatchRect/NinePatchRect/RankImage")
+winText = ExtResource("2_p7aua")
 rankImages = Array[CompressedTexture2D]([ExtResource("2_ur6sx"), ExtResource("3_tmidi"), ExtResource("4_ygghn"), ExtResource("5_km1wh"), ExtResource("6_ynqtm")])
 rankThresholds = Array[int]([3000, 5000, 7500, 10000])
 
