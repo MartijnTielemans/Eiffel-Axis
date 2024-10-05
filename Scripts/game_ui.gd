@@ -13,24 +13,22 @@ func _ready() -> void:
 	health_icons.append($HBoxContainer/Heart2)
 	health_icons.append($HBoxContainer/Heart3)
 	max_progress = int(len(spawner_ref.waves))-1
-	
 	# Get player and subscribe to death signal
 	var player_character: Player = $"../PlayerCharacter"
-	print(player_character)
 	player_character.on_death.connect(_game_over)
-
 
 func update_visuals():
 	for i in 3:
 		if i < health:
-			print(health_icons[i])
 			var full_heart = load("res://Assets/UI/UI_Heart_Full.png")
 			health_icons[i].texture = full_heart
 		else:
 			var empty_heart = load("res://Assets/UI/UI_Heart_Empty.png")
 			health_icons[i].texture = empty_heart
 
-func update_points():
+
+func update_points(extra_points: int):
+	points += extra_points
 	$Label.text = str(points)
 
 func update_progress():

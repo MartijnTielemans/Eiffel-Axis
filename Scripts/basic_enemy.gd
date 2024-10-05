@@ -1,5 +1,6 @@
 extends Node2D
 
+
 @export var y_movement = 50
 @onready var player_character : CharacterBody2D
 var spawn_pos : Vector2 = Vector2(-9999,-9999)
@@ -28,6 +29,9 @@ func lose_points():
 func die():
 	if not spawner_ref == null:
 		spawner_ref.update_enemy_count(-1,awarded_points)
+	else:
+		var UI_ref = get_node("/root/Level/Control")
+		UI_ref.update_points(awarded_points)
 	queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:

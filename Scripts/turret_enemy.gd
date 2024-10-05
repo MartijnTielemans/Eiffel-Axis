@@ -36,6 +36,9 @@ func lose_points():
 func die():
 	if not spawner_ref == null:
 		spawner_ref.update_enemy_count(-1,awarded_points)
+	else:
+		var UI_ref = get_node("/root/Level/Control")
+		UI_ref.update_points(awarded_points)
 	queue_free()
 
 
