@@ -13,9 +13,8 @@ var current_enemies : int
 var points : int
 
 
-func update_points():
-	UI_ref.points = points
-	UI_ref.update_points()
+func update_points(new_points: int):
+	UI_ref.update_points(new_points)
 #if there is another wave in array "waves" it will start a new wave
 func start_new_wave():
 	if current_wave < len(waves):
@@ -28,8 +27,7 @@ func start_new_wave():
 
 func update_enemy_count(change: int,awarded_points: int):
 	current_enemies += change
-	points += awarded_points
-	update_points()
+	update_points(awarded_points)
 	if current_enemies < 1 and not current_enemies == -1:
 		#when current_enemies == -1, then it means a scene is spawned, so it waits for the timer to be over.
 		current_wave += 1
