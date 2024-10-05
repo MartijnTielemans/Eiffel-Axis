@@ -59,7 +59,7 @@ func _physics_process(delta: float) -> void:
 	elif is_shooting and !is_pivoting:
 		$AnimationPlayer.play("Shooting")
 
-	#This is triggered by the ShootingPlayer
+	#This is triggered by the AnimationPlayer
 func shoot_projectile():
 	if amount_of_projectiles < MaxBullets:
 		var projectile = load("res://Scenes/Bullet.tscn")
@@ -76,6 +76,11 @@ func pivot_player_animation():
 	is_pivoting = true
 	$AnimatedSprite2D.play("pivot")
 	
+
+func update_projectile_amount(projectile_change: int):
+	amount_of_projectiles += projectile_change
+	clamp(amount_of_projectiles,0,MaxBullets)
+
 func pivot_player():
 	$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
 	dir = ((int($AnimatedSprite2D.flip_h)*-2)+1)
@@ -92,7 +97,13 @@ func update_health(health_change: int):
 	UI_ref.health = HP
 	UI_ref.update_visuals()
 	if HP < 1:
-		pass
-	
-	if (health_change < 0):
 		$HurtParticle.emitting = true
+	if (health_change < 0):
+		SceneTransition.transitionOver.connect(load_scene);
+		SceneTransition.Transition(true);
+	
+
+# Loads the game scene
+func load_scene():
+	SceneTransition.Transition(false);
+	get_tree().change_scene_to_file("res://Scenes/Game.tscn");

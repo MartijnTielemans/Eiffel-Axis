@@ -23,9 +23,10 @@ func destroy_self():
 	hitParticle.direction.x = -dir
 	get_tree().root.add_child(hitParticle)
 	hitParticle.emitting = true
+	player_ref.update_projectile_amount(-1)
 	
-	player_ref.amount_of_projectiles -=1
 	queue_free()
+	print("destroy self")
 
 func flip_bullet():
 	$Sprite2D.flip_v = !$Sprite2D.flip_v

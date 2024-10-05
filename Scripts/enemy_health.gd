@@ -6,6 +6,13 @@ var health : int
 @export var destroyParticles : Array[PackedScene]
 
 func _on_body_entered(body: Node2D) -> void:
+	if body is Player_Bullet:
+		body.destroy_self()
+		if health > 1:
+			health -= 1
+		else:
+			myparent.die()
+			
 	body.player_ref.amount_of_projectiles -= 1
 	body.queue_free()
 	if health > 1:
