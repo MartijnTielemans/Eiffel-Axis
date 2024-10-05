@@ -1,0 +1,167 @@
+[gd_scene load_steps=11 format=3 uid="uid://dsmw2xiigwjyx"]
+
+[ext_resource type="Texture2D" uid="uid://bgeelt541pjb" path="res://Assets/Menus/GameOver_Text.png" id="1_26fk3"]
+[ext_resource type="Script" path="res://Scenes/Menus/game_over_screen.gd" id="1_hflth"]
+[ext_resource type="FontFile" uid="uid://d35wovbc4u2xv" path="res://Fonts/PolygonPixel5x7Cyrillic.ttf" id="2_dga0u"]
+[ext_resource type="Texture2D" uid="uid://d1s1touhuoxof" path="res://Assets/Menus/RankIcons/RankIcon_D.png" id="2_ur6sx"]
+[ext_resource type="Texture2D" uid="uid://cfl3sdadin3i" path="res://Assets/Menus/Panel9Slice.png" id="3_6wcp0"]
+[ext_resource type="Texture2D" uid="uid://rxflgq3oen7t" path="res://Assets/Menus/RankIcons/RankIcon_C.png" id="3_tmidi"]
+[ext_resource type="Texture2D" uid="uid://gtvlcc72y7f3" path="res://Assets/Menus/Panel9SliceBlack.png" id="4_xxv0d"]
+[ext_resource type="Texture2D" uid="uid://bo16wcg4k754n" path="res://Assets/Menus/RankIcons/RankIcon_B.png" id="4_ygghn"]
+[ext_resource type="Texture2D" uid="uid://by22t0ugj3y6t" path="res://Assets/Menus/RankIcons/RankIcon_A.png" id="5_km1wh"]
+[ext_resource type="Texture2D" uid="uid://bl1yya2jjk787" path="res://Assets/Menus/RankIcons/RankIcon_S.png" id="6_ynqtm"]
+
+[node name="GameOverScreen" type="Control" node_paths=PackedStringArray("playerScoreNumber", "highScoreNumber", "rankImage")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hflth")
+playerScoreNumber = NodePath("BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Score Number")
+highScoreNumber = NodePath("BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/HighScore Number")
+rankImage = NodePath("BoxContainer/NinePatchRect/NinePatchRect/RankImage")
+rankImages = Array[CompressedTexture2D]([ExtResource("2_ur6sx"), ExtResource("3_tmidi"), ExtResource("4_ygghn"), ExtResource("5_km1wh"), ExtResource("6_ynqtm")])
+rankThresholds = Array[int]([3000, 5000, 7500, 10000])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.180392, 0.203922, 0.223529, 1)
+
+[node name="GameOver" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -74.0
+offset_right = 74.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_26fk3")
+
+[node name="FinalPilotImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 48.0
+offset_right = 290.0
+offset_bottom = 150.0
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_left = 40.0
+offset_top = 48.0
+offset_right = 143.0
+offset_bottom = 165.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_6wcp0")
+region_rect = Rect2(0, 0, 20, 20)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BoxContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -4.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_xxv0d")
+region_rect = Rect2(0, 0, 20, 20)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/NinePatchRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Final Score" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("2_dga0u")
+text = "Player Score:"
+
+[node name="Score Number" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("2_dga0u")
+text = "12300"
+horizontal_alignment = 2
+
+[node name="High Score" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("2_dga0u")
+text = "High Score:"
+
+[node name="HighScore Number" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("2_dga0u")
+text = "45800"
+horizontal_alignment = 2
+
+[node name="Rank" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("2_dga0u")
+text = "Rank:"
+
+[node name="RankImage" type="TextureRect" parent="BoxContainer/NinePatchRect/NinePatchRect"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 72.0
+offset_right = 88.0
+offset_bottom = 106.0
+
+[node name="Press" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -145.0
+offset_top = -20.0
+offset_right = -12.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("2_dga0u")
+text = "Press button to return."
+horizontal_alignment = 2
+
+[node name="CanContinueTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="CanContinueTimer" to="." method="_on_can_continue_timer_timeout"]

@@ -9,6 +9,13 @@ extends Control
 @export var creditsButton: TextureButton
 var lastButtonPressed: TextureButton;
 
+@export var highScoreText : Label
+
+func _ready() -> void:
+	# Get high score from file
+	var high_score = Global.score_save.high_score
+	highScoreText.text = str(high_score)
+
 # Waits for the transition to be done before going to next scene
 func _on_play_pressed() -> void:
 	SceneTransition.transitionOver.connect(load_scene);

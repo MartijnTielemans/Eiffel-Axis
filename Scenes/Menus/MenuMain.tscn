@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cjk88n4luj0va"]
+[gd_scene load_steps=36 format=3 uid="uid://cjk88n4luj0va"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/menu_main.gd" id="1_ddcqc"]
 [ext_resource type="FontFile" uid="uid://d35wovbc4u2xv" path="res://Fonts/PolygonPixel5x7Cyrillic.ttf" id="3_3eyp4"]
@@ -18,8 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://bylhq0eyu52yp" path="res://Scenes/Menus/Panel_ControlsMenu3.tscn" id="14_xtm81"]
 [ext_resource type="PackedScene" uid="uid://ck1vkcwad2qas" path="res://Scenes/Menus/Panel_SettingsMenu2.tscn" id="15_o8sev"]
 [ext_resource type="PackedScene" uid="uid://bvlp1cffvf6s0" path="res://Scenes/Menus/Panel_CreditsMenu.tscn" id="16_e3x6g"]
+[ext_resource type="Texture2D" uid="uid://gtvlcc72y7f3" path="res://Assets/Menus/Panel9SliceBlack.png" id="19_dc8ej"]
+[ext_resource type="Texture2D" uid="uid://cfl3sdadin3i" path="res://Assets/Menus/Panel9Slice.png" id="20_ddbjj"]
 
-[sub_resource type="Image" id="Image_imbg8"]
+[sub_resource type="Image" id="Image_7111j"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 179, 179, 179, 153, 178, 178, 178, 166, 184, 184, 184, 18, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 178, 178, 178, 166, 178, 178, 178, 151, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 166, 178, 178, 178, 217, 177, 177, 177, 179, 184, 184, 184, 18, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 178, 178, 178, 179, 178, 178, 178, 217, 178, 178, 178, 165, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 177, 177, 177, 179, 178, 178, 178, 217, 177, 177, 177, 179, 184, 184, 184, 18, 184, 184, 184, 18, 178, 178, 178, 179, 178, 178, 178, 217, 177, 177, 177, 179, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 177, 177, 177, 179, 178, 178, 178, 217, 178, 178, 178, 197, 178, 178, 178, 197, 178, 178, 178, 217, 177, 177, 177, 179, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 177, 177, 177, 179, 178, 178, 178, 217, 178, 178, 178, 217, 177, 177, 177, 179, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 178, 178, 178, 165, 178, 178, 178, 165, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -29,7 +31,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_8itve"]
-image = SubResource("Image_imbg8")
+image = SubResource("Image_7111j")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mj1fg"]
 content_margin_left = 8.0
@@ -212,7 +214,7 @@ _data = {
 "RESET": SubResource("Animation_21fqk")
 }
 
-[node name="MenuMain" type="Control" node_paths=PackedStringArray("controlsPanel", "settingsPanel", "creditsPanel", "controlButton", "settingsButton", "creditsButton")]
+[node name="MenuMain" type="Control" node_paths=PackedStringArray("controlsPanel", "settingsPanel", "creditsPanel", "controlButton", "settingsButton", "creditsButton", "highScoreText")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -226,6 +228,7 @@ creditsPanel = NodePath("PanelMenus/BoxContainer3")
 controlButton = NodePath("Buttons/Controls")
 settingsButton = NodePath("Buttons/Settings")
 creditsButton = NodePath("Buttons/HBoxContainer/Credits")
+highScoreText = NodePath("BoxContainer/NinePatchRect/NinePatchRect/ScoreContainer/ScoreNumber")
 
 [node name="MarginContainer" type="BoxContainer" parent="."]
 layout_mode = 1
@@ -388,9 +391,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -162.0
+offset_left = -160.0
 offset_top = -90.0
-offset_right = -10.0
+offset_right = -8.0
 offset_bottom = 90.0
 grow_horizontal = 0
 grow_vertical = 2
@@ -458,6 +461,79 @@ libraries = {
 "": SubResource("AnimationLibrary_04e8d")
 }
 autoplay = "MenuCursorBob"
+
+[node name="ColorRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+offset_left = 178.0
+offset_top = 153.0
+offset_right = 289.0
+offset_bottom = 170.0
+texture = ExtResource("19_dc8ej")
+region_rect = Rect2(0, 0, 18, 18)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 6
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 151.0
+offset_right = 289.0
+offset_bottom = 173.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("20_ddbjj")
+region_rect = Rect2(0, 0, 20, 20)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BoxContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("19_dc8ej")
+region_rect = Rect2(0, 0, 20, 20)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="ScoreContainer" type="HBoxContainer" parent="BoxContainer/NinePatchRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -7.5
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect/ScoreContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("3_3eyp4")
+text = "HighScore:"
+
+[node name="ScoreNumber" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect/ScoreContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("3_3eyp4")
+text = "10000"
+horizontal_alignment = 2
 
 [connection signal="focus_exited" from="Buttons/Play" to="Buttons/Play" method="_on_focus_exited"]
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]

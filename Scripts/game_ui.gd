@@ -14,6 +14,11 @@ func _ready() -> void:
 	health_icons.append($HBoxContainer/Heart3)
 	max_progress = int(len(spawner_ref.waves))-1
 	
+	# Get player and subscribe to death signal
+	var player_character: Player = $"../PlayerCharacter"
+	print(player_character)
+	player_character.on_death.connect(_game_over)
+
 
 func update_visuals():
 	for i in 3:
@@ -32,3 +37,7 @@ func update_progress():
 	$BarCells.region_rect = Rect2(0,0,progress*144,7)
 	var x = 84+((progress*144)*0.5)
 	$BarCells.position = Vector2(x,7)
+
+func _game_over():
+	Global.save_score(points)
+	print("saving points")
