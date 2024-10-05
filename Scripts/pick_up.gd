@@ -27,7 +27,7 @@ func _on_body_entered(body: Node2D) -> void:
 	UI_ref.points += Points
 	UI_ref.health += HP
 	UI_ref.update_visuals()
-	UI_ref.update_points()
+	UI_ref.update_points(Points)
 	spawner_ref.points += Points
 	queue_free()
 	print(UI_ref.points)
