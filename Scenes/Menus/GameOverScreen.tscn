@@ -57,6 +57,7 @@ offset_right = 290.0
 offset_bottom = 150.0
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
 offset_left = 40.0
 offset_top = 48.0
 offset_right = 143.0
