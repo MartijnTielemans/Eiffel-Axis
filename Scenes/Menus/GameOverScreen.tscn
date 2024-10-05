@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsmw2xiigwjyx"]
+[gd_scene load_steps=18 format=3 uid="uid://dsmw2xiigwjyx"]
 
 [ext_resource type="Texture2D" uid="uid://bgeelt541pjb" path="res://Assets/Menus/GameOver_Text.png" id="1_26fk3"]
 [ext_resource type="Script" path="res://Scenes/Menus/game_over_screen.gd" id="1_hflth"]
 [ext_resource type="FontFile" uid="uid://d35wovbc4u2xv" path="res://Fonts/PolygonPixel5x7Cyrillic.ttf" id="2_dga0u"]
+[ext_resource type="Texture2D" uid="uid://cucbfd613w2l6" path="res://Assets/Menus/GameOver_WinText.png" id="2_p7aua"]
 [ext_resource type="Texture2D" uid="uid://d1s1touhuoxof" path="res://Assets/Menus/RankIcons/RankIcon_D.png" id="2_ur6sx"]
 [ext_resource type="Texture2D" uid="uid://cfl3sdadin3i" path="res://Assets/Menus/Panel9Slice.png" id="3_6wcp0"]
 [ext_resource type="Texture2D" uid="uid://rxflgq3oen7t" path="res://Assets/Menus/RankIcons/RankIcon_C.png" id="3_tmidi"]
@@ -10,6 +11,106 @@
 [ext_resource type="Texture2D" uid="uid://bo16wcg4k754n" path="res://Assets/Menus/RankIcons/RankIcon_B.png" id="4_ygghn"]
 [ext_resource type="Texture2D" uid="uid://by22t0ugj3y6t" path="res://Assets/Menus/RankIcons/RankIcon_A.png" id="5_km1wh"]
 [ext_resource type="Texture2D" uid="uid://bl1yya2jjk787" path="res://Assets/Menus/RankIcons/RankIcon_S.png" id="6_ynqtm"]
+
+[sub_resource type="Animation" id="Animation_0xqk2"]
+resource_name = "PressThrob"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_s8clf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_imusn"]
+_data = {
+"PressThrob": SubResource("Animation_0xqk2"),
+"RESET": SubResource("Animation_s8clf")
+}
+
+[sub_resource type="Animation" id="Animation_ultut"]
+resource_name = "ResultsSequence"
+length = 3.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxContainer/NinePatchRect/NinePatchRect/RankImage:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8, 1.9, 2, 2.1, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasGroup:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ahdq2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxContainer/NinePatchRect/NinePatchRect/RankImage:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasGroup:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i8lqt"]
+_data = {
+"RESET": SubResource("Animation_ahdq2"),
+"ResultsSequence": SubResource("Animation_ultut")
+}
 
 [node name="GameOverScreen" type="Control" node_paths=PackedStringArray("playerScoreNumber", "highScoreNumber", "rankImage")]
 layout_mode = 3
@@ -22,6 +123,7 @@ script = ExtResource("1_hflth")
 playerScoreNumber = NodePath("BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Score Number")
 highScoreNumber = NodePath("BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/HighScore Number")
 rankImage = NodePath("BoxContainer/NinePatchRect/NinePatchRect/RankImage")
+winText = ExtResource("2_p7aua")
 rankImages = Array[CompressedTexture2D]([ExtResource("2_ur6sx"), ExtResource("3_tmidi"), ExtResource("4_ygghn"), ExtResource("5_km1wh"), ExtResource("6_ynqtm")])
 rankThresholds = Array[int]([3000, 5000, 7500, 10000])
 
@@ -142,18 +244,21 @@ offset_left = 54.0
 offset_top = 72.0
 offset_right = 88.0
 offset_bottom = 106.0
+pivot_offset = Vector2(16, 16)
+texture = ExtResource("2_ur6sx")
 
-[node name="Press" type="Label" parent="."]
-layout_mode = 1
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="Press" type="Label" parent="CanvasGroup"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -145.0
-offset_top = -20.0
-offset_right = -12.0
-offset_bottom = -6.0
+offset_left = 175.0
+offset_top = 160.0
+offset_right = 308.0
+offset_bottom = 174.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
@@ -161,8 +266,25 @@ theme_override_fonts/font = ExtResource("2_dga0u")
 text = "Press button to return."
 horizontal_alignment = 2
 
-[node name="CanContinueTimer" type="Timer" parent="."]
-wait_time = 3.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasGroup/Press"]
+libraries = {
+"": SubResource("AnimationLibrary_imusn")
+}
+autoplay = "PressThrob"
+
+[node name="ScoreCounterLockTimer" type="Timer" parent="."]
+wait_time = 2.1
 autostart = true
 
+[node name="CanContinueTimer" type="Timer" parent="."]
+wait_time = 3.2
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_i8lqt")
+}
+autoplay = "ResultsSequence"
+
+[connection signal="timeout" from="ScoreCounterLockTimer" to="." method="_on_score_counter_lock_timer_timeout"]
 [connection signal="timeout" from="CanContinueTimer" to="." method="_on_can_continue_timer_timeout"]
