@@ -97,7 +97,13 @@ func update_health(health_change: int):
 	UI_ref.health = HP
 	UI_ref.update_visuals()
 	if HP < 1:
-		pass
-	
-	if (health_change < 0):
 		$HurtParticle.emitting = true
+	if (health_change < 0):
+		SceneTransition.transitionOver.connect(load_scene);
+		SceneTransition.Transition(true);
+	
+
+# Loads the game scene
+func load_scene():
+	SceneTransition.Transition(false);
+	get_tree().change_scene_to_file("res://Scenes/Game.tscn");
