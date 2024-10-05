@@ -100,7 +100,6 @@ func update_health(health_change: int):
 		$HurtParticle.emitting = true
 		SceneTransition.transitionOver.connect(load_scene);
 		SceneTransition.Transition(true);
-	
 
 # Loads the game scene
 func load_scene():

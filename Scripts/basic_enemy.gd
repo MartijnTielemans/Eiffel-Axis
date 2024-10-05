@@ -16,6 +16,7 @@ func _ready():
 		global_position = spawn_pos
 	$Sprite2D.flip_h = start_left
 
+
 func _process(delta: float) -> void:
 	var dir = ((int(start_left)*-2)+1)
 	global_position.x -= SPEED * delta * dir
@@ -30,4 +31,4 @@ func die():
 	queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	$AnimationPlayer.play()
+	$AnimationPlayer.play("Movement")
