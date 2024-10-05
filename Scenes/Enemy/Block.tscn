@@ -8,6 +8,7 @@
 size = Vector2(24.8558, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trifr"]
+size = Vector2(18, 18)
 
 [node name="Block" type="StaticBody2D"]
 collision_layer = 3

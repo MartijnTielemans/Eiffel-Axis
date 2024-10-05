@@ -20,7 +20,6 @@ func update_points():
 func start_new_wave():
 	if current_wave < len(waves):
 		$AnimationPlayer.play(waves[current_wave])
-		print(current_wave/float(len(waves)))
 		UI_ref.progress = (current_wave/float(len(waves)))
 		UI_ref.update_progress()
 	else:
@@ -28,10 +27,11 @@ func start_new_wave():
 		UI_ref.update_progress()
 
 func update_enemy_count(change: int,awarded_points: int):
-	current_enemies -= 1
+	current_enemies += change
 	points += awarded_points
 	update_points()
-	if current_enemies < 1:
+	if current_enemies < 1 and not current_enemies == -1:
+		#when current_enemies == -1, then it means a scene is spawned, so it waits for the timer to be over.
 		current_wave += 1
 		start_new_wave()
 
@@ -108,3 +108,17 @@ func spawn_turret(Location: Vector2, start_left: bool, look_up: bool):
 	instanced_enemy.look_up = look_up
 	current_enemies += 1
 	level.add_child(instanced_enemy)
+
+func spawn_scene(Location: Vector2, timer: float, scene_ref: String):
+	var scene_to_load = "res://Scenes/LevelScenes/" + scene_ref + ".tscn"
+	var scene_to_spawn = load(scene_to_load)
+	var instanced_scene = scene_to_spawn.instantiate()
+	instanced_scene.global_position = Location					 #change this to where you want it to spawnw
+	current_enemies = -1
+	$Timer.wait_time = timer
+	$Timer.start()
+	level.add_child(instanced_scene)
+
+func _on_timer_timeout() -> void:
+	current_wave += 1
+	start_new_wave()
