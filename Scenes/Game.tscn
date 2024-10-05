@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://0np0slgleins" path="res://Scenes/GameUI.tscn" id="7_cd0yk"]
 [ext_resource type="PackedScene" uid="uid://bkunpnkgoskr0" path="res://Scenes/Visuals/CloudSpawner.tscn" id="7_l4iqh"]
 [ext_resource type="PackedScene" uid="uid://c1htrmo3v33m2" path="res://Scenes/Visuals/CloudScene.tscn" id="8_4b7s8"]
-[ext_resource type="PackedScene" uid="uid://ewiblxpwilux" path="res://Scenes/EnemyKillzone.tscn" id="9_8waex"]
-[ext_resource type="PackedScene" path="res://Scenes/Menus/PauseMenu.tscn" id="10_mpxb5"]
+[ext_resource type="PackedScene" path="res://Scenes/EnemyKillzone.tscn" id="9_8waex"]
+[ext_resource type="PackedScene" uid="uid://dpxod2wga6wfv" path="res://Scenes/Menus/PauseMenu.tscn" id="10_mpxb5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_20bud"]
 normal = Vector2(0, 1)
