@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfnlegnb4chkx"]
+[gd_scene load_steps=11 format=3 uid="uid://bfnlegnb4chkx"]
 
 [ext_resource type="Script" path="res://Scripts/turret_enemy.gd" id="1_pwf2t"]
 [ext_resource type="Texture2D" uid="uid://bktql02sym4wf" path="res://Assets/Enemies/Enemy_Turret.png" id="2_mdwqb"]
 [ext_resource type="PackedScene" uid="uid://donl0dpk4vj7k" path="res://Scenes/Enemy/EnemyHealth.tscn" id="3_qrigx"]
 [ext_resource type="PackedScene" uid="uid://dv2srg8rl3sm0" path="res://Scenes/Enemy/damage_player.tscn" id="4_umvwd"]
+[ext_resource type="AudioStream" uid="uid://bugk2whp5n617" path="res://Audio/EnemyShoot.wav" id="5_j5snw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ouoty"]
 radius = 7.0
@@ -68,9 +69,12 @@ shape = SubResource("CircleShape2D_m83k1")
 libraries = {
 "": SubResource("AnimationLibrary_3dm2d")
 }
-autoplay = "Movement"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_j5snw")
+bus = &"Sound Effects"
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -29,5 +29,9 @@ func _on_body_entered(body: Node2D) -> void:
 	UI_ref.update_visuals()
 	UI_ref.update_points(Points)
 	spawner_ref.points += Points
+	if HP > 0:
+		MusicManager.play_sound_effect("HealthPickup")
+	else:
+		MusicManager.play_sound_effect("PointsPickup")
 	queue_free()
 	print(UI_ref.points)
