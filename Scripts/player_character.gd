@@ -100,13 +100,14 @@ func update_health(health_change: int):
 		UI_ref.health = HP
 		UI_ref.update_visuals()
 		$HurtParticle.emitting = true
-		if HP < 1:
+		if HP == 0:
 			# Signal Game Over
+			MusicManager.play_sound_effect("GameOver")
 			on_death.emit()
 			SceneTransition.transitionOver.connect(load_scene);
 			SceneTransition.Transition(true);
 		else:
-			
+			MusicManager.play_sound_effect("PlayerDamage")
 			I_frames = true
 			$Timer.start()
 			visualise_Iframes()
