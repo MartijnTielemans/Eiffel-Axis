@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxa76khbsenqd"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_killzone.gd" id="1_odi1u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wayf"]
+size = Vector2(20, 299)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jursf"]
+size = Vector2(20, 289)
+
+[node name="EnemyKillzone" type="Area2D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_odi1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-28, 85)
+shape = SubResource("RectangleShape2D_3wayf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(354, 82)
+shape = SubResource("RectangleShape2D_jursf")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

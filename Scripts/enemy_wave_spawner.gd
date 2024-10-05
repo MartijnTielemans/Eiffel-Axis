@@ -27,6 +27,14 @@ func start_new_wave():
 		UI_ref.progress = (current_wave/float(len(waves)))
 		UI_ref.update_progress()
 
+func update_enemy_count(change: int,awarded_points: int):
+	current_enemies -= 1
+	points += awarded_points
+	update_points()
+	if current_enemies < 1:
+		current_wave += 1
+		start_new_wave()
+
 #spawns the basic enemy and gives it the needed variables
 func spawn_flyer_enemy(Location: Vector2, start_left: bool,move_up: bool):
 	var enemy_to_spawn = load("res://Scenes/Enemy/BasicEnemy.tscn")

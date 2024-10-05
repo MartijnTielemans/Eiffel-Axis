@@ -8,6 +8,7 @@ var level : Node2D
 var images = []
 const SPEED = 45
 var start_left : bool
+var spawn_pickup = true
 
 func _ready():
 	var healthref = get_node("EnemyHealth")
@@ -22,25 +23,25 @@ func _physics_process(delta: float) -> void:
 
 func flip_image():
 	$Sprite2D.flip_h = !$Sprite2D.flip_h
-
+func lose_points():
+	awarded_points = 0
+	spawn_pickup = false
+	
 func die():
-	spawner_ref.current_enemies -= 1
-	spawner_ref.points += awarded_points
-	spawner_ref.update_points()
-	if spawner_ref.current_enemies < 1:
-		spawner_ref.current_wave += 1
-		spawner_ref.start_new_wave()
-	for i in 2:
-		var object_to_spawn = load("res://Scenes/Enemy/CapsulePiece.tscn")
+	spawner_ref.update_enemy_count(-1,awarded_points)
+	if spawn_pickup:
+		for i in 2:
+			var object_to_spawn = load("res://Scenes/Enemy/CapsulePiece.tscn")
+			var instanced_object = object_to_spawn.instantiate()
+			instanced_object.global_position = global_position					 #change this to where you want it to spawn
+			instanced_object.x_speed = 30
+			instanced_object.y_speed = (-100+(i*100))
+			instanced_object.image = images[i]
+			level.add_child(instanced_object)
+		var dir = ((int(start_left)*-2)+1)
+		var object_to_spawn = load("res://Scenes/Enemy/PickUp.tscn")
 		var instanced_object = object_to_spawn.instantiate()
 		instanced_object.global_position = global_position					 #change this to where you want it to spawn
-		instanced_object.x_speed = 30
-		instanced_object.y_speed = (-100+(i*100))
-		instanced_object.image = images[i]
+		instanced_object.speed = -SPEED * dir
 		level.add_child(instanced_object)
-	var object_to_spawn = load("res://Scenes/Enemy/PickUp.tscn")
-	var instanced_object = object_to_spawn.instantiate()
-	instanced_object.global_position = global_position					 #change this to where you want it to spawn
-	instanced_object.speed = -SPEED
-	level.add_child(instanced_object)
 	queue_free()

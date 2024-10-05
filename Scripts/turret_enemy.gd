@@ -29,11 +29,9 @@ func shoot():
 	projectile_instance.spawnPos = global_position
 	level.add_child(projectile_instance)
 
+func lose_points():
+	awarded_points = 0
+
 func die():
-	spawner_ref.current_enemies -= 1
-	spawner_ref.points += awarded_points
-	spawner_ref.update_points()
-	if spawner_ref.current_enemies < 1:
-		spawner_ref.current_wave += 1
-		spawner_ref.start_new_wave()
+	spawner_ref.update_enemy_count(-1,awarded_points)
 	queue_free()
