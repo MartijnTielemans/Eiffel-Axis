@@ -27,7 +27,7 @@ signal on_death
 func _ready() -> void:
 	shootParticleXPos = $ShootParticle.position.x
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	#horizontal movement
 	var X_input:= Input.get_axis("move_left", "move_right")
