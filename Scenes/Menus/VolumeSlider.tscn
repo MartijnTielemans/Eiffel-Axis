@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://cwq63fjf4jrc2"]
+
+[ext_resource type="Texture2D" uid="uid://bwi2hcf3riv7g" path="res://Assets/Menus/ThrobGrab.png" id="1_t7cue"]
+[ext_resource type="Texture2D" uid="uid://7el614o1m32o" path="res://Assets/Menus/ThrobGrab_Invert.png" id="2_hvri6"]
+[ext_resource type="Script" path="res://Scenes/Menus/volume_slider.gd" id="4_3hk1t"]
+[ext_resource type="FontFile" uid="uid://d35wovbc4u2xv" path="res://Fonts/PolygonPixel5x7Cyrillic.ttf" id="4_jedt4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvre7"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.807843, 0.741176, 0.67451, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_taipb"]
+bg_color = Color(0.807843, 0.741176, 0.67451, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plbrl"]
+bg_color = Color(0.180392, 0.203922, 0.223529, 1)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.807843, 0.741176, 0.67451, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qubve"]
+bg_color = Color(0.180392, 0.203922, 0.223529, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy8u4"]
+bg_color = Color(0.807843, 0.741176, 0.67451, 1)
+
+[sub_resource type="Theme" id="Theme_uchri"]
+HSlider/constants/center_grabber = 0
+HSlider/constants/grabber_offset = 0
+HSlider/icons/grabber = ExtResource("1_t7cue")
+HSlider/icons/grabber_disabled = ExtResource("2_hvri6")
+HSlider/icons/grabber_highlight = ExtResource("2_hvri6")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_pvre7")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_taipb")
+HSlider/styles/slider = SubResource("StyleBoxFlat_plbrl")
+ProgressBar/fonts/font = ExtResource("4_jedt4")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_qubve")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_iy8u4")
+
+[node name="VolumeSlider" type="HSlider"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -120.0
+offset_bottom = -158.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_uchri")
+max_value = 1.5
+step = 0.1
+scrollable = false
+script = ExtResource("4_3hk1t")

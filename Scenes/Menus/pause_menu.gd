@@ -1,6 +1,7 @@
 extends Control
 
 @export var firstSelectedButton : TextureButton
+@export var settingsMenu : CanvasItem
 
 func Continue():
 	$".".visible = false
@@ -29,7 +30,9 @@ func _on_continue_pressed() -> void:
 
 
 func _on_settings_pressed() -> void:
-	pass # Replace with function body.
+	SetButtonFocus(false)
+	settingsMenu.visible = true
+	settingsMenu.ReturnFirstButton().grab_focus();
 
 
 func _on_exit_pressed() -> void:
@@ -41,3 +44,20 @@ func _on_exit_pressed() -> void:
 func load_scene():
 	SceneTransition.Transition(false);
 	get_tree().change_scene_to_file("res://Scenes/Menus/MenuMain.tscn");
+
+
+func SetButtonFocus(focus : bool):
+	if (focus):
+		$BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Continue.focus_mode = FOCUS_ALL
+		$BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Settings.focus_mode = FOCUS_ALL
+		$BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Exit.focus_mode = FOCUS_ALL
+	else:
+		$BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Continue.focus_mode = FOCUS_NONE
+		$BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Settings.focus_mode = FOCUS_NONE
+		$BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Exit.focus_mode = FOCUS_NONE
+
+
+func _on_settings_menu_close_panel() -> void:
+	settingsMenu.visible = false
+	SetButtonFocus(true)
+	$BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Settings.grab_focus()
