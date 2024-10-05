@@ -14,6 +14,7 @@ var Y_SPEED = 0
 var amount_of_projectiles = 0
 var is_pivoting
 var dir = 1
+var I_frames = false
 var sprites : Array[String] = [
 	"fly_up",
 	"default",
@@ -94,20 +95,35 @@ func end_pivot_player():
 	is_pivoting = false
 	
 func update_health(health_change: int):
-	HP += health_change
-	UI_ref.health = HP
-	UI_ref.update_visuals()
-	if HP < 1:
-		$HurtParticle.emitting = true
-	if (health_change < 0):
-		# Signal Game Over
-		on_death.emit()
+	if I_frames == false:
+		HP += health_change
+		UI_ref.health = HP
+		UI_ref.update_visuals()
+        
+		if HP < 1:
+		    # Signal Game Over
+            on_death.emit()
+			$HurtParticle.emitting = true
+			SceneTransition.transitionOver.connect(load_scene);
+			SceneTransition.Transition(true);
+		else:
+			I_frames = true
+			$Timer.start()
+			visualise_Iframes()
 		
-		SceneTransition.transitionOver.connect(load_scene);
-		SceneTransition.Transition(true);
-	
+
+
+func visualise_Iframes():
+	if I_frames == true:
+		$AnimatedSprite2D.visible = !$AnimatedSprite2D.visible
+		$AnimationPlayer.play("I_frames")
+	else:
+		$AnimatedSprite2D.visible = true
 
 # Loads the game scene
 func load_scene():
 	SceneTransition.Transition(false);
 	get_tree().change_scene_to_file("res://Scenes/Menus/GameOverScreen.tscn");
+
+func _on_timer_timeout() -> void:
+	I_frames = false

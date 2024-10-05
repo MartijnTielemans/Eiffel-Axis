@@ -3,32 +3,42 @@ extends Node2D
 
 @export var y_movement = 50
 @onready var player_character : CharacterBody2D
-var spawn_pos : Vector2
+var spawn_pos : Vector2 = Vector2(-9999,-9999)
 var spawner_ref : Node2D
 var awarded_points = 200
-const SPEED = 70
-var start_left : bool
+var SPEED = 45
+@export var start_left : bool
 
 
 func _ready():
 	var healthref = get_node("EnemyHealth")
 	healthref.health = 1
-	global_position = spawn_pos
+	if not spawn_pos == Vector2(-9999,-9999):
+		global_position = spawn_pos
 	$Sprite2D.flip_h = start_left
 
 func _physics_process(delta: float) -> void:
 	var dir = ((int(start_left)*-2)+1)
 	position.x -= SPEED * delta * dir
-	position.y += sin(position.x/25)
+	if SPEED == 70:
+		position.y += sin(position.x/25)
+		if (sin(position.x/25)>0.5):
+			$Sprite2D.texture = preload("res://Assets/Enemies/Enemy_Wavy_Down.png")
+		elif (sin(position.x/25)<-0.5):
+			$Sprite2D.texture = preload("res://Assets/Enemies/Enemy_Wavy_Up.png")
+		else:
+			$Sprite2D.texture = preload("res://Assets/Enemies/Enemy_Wavy.png")
 
 func lose_points():
 	awarded_points = 0
 
 func die():
-	spawner_ref.current_enemies -= 1
-	spawner_ref.points += awarded_points
-	spawner_ref.update_points()
-	if spawner_ref.current_enemies < 1:
-		spawner_ref.current_wave += 1
-		spawner_ref.start_new_wave()
+	if not spawner_ref == null:
+		spawner_ref.update_enemy_count(-1,awarded_points)
 	queue_free()
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	SPEED = 70
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	SPEED = 45

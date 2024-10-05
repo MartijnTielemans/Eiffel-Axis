@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bo1hlnjr873ur"]
+[gd_scene load_steps=17 format=3 uid="uid://bo1hlnjr873ur"]
 
 [ext_resource type="Script" path="res://Scripts/player_character.gd" id="1_ft8se"]
 [ext_resource type="Texture2D" uid="uid://h2ce8dd3iwmk" path="res://Assets/Player_FlyingSprites.png" id="2_h4ank"]
@@ -108,8 +108,28 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_aom0l"]
+resource_name = "I_frames"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"visualise_Iframes"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4yjnk"]
 _data = {
+"I_frames": SubResource("Animation_aom0l"),
 "PivotPlayer": SubResource("Animation_g2ab5"),
 "Shooting": SubResource("Animation_mfvew")
 }
@@ -174,3 +194,9 @@ initial_velocity_max = 94.0
 damping_min = 220.0
 damping_max = 220.0
 color_ramp = SubResource("Gradient_27pmy")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

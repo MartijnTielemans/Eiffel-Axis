@@ -96,3 +96,5 @@ initialDirectionMult = 1
 [node name="CloudScene3" parent="CloudSpawner" instance=ExtResource("8_4b7s8")]
 position = Vector2(68, 71)
 initialDirectionMult = 1
+
+[node name="EnemyKillzone" parent="." instance=ExtResource("9_8waex")]
