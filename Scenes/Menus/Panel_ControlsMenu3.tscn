@@ -78,41 +78,6 @@ patch_margin_top = 6
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="TextureButton" type="TextureButton" parent="BoxContainer/NinePatchRect/NinePatchRect"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -47.0
-offset_top = -27.0
-offset_right = -4.0
-offset_bottom = -5.0
-grow_horizontal = 0
-grow_vertical = 0
-texture_normal = ExtResource("5_tdvev")
-texture_pressed = ExtResource("6_rnul8")
-texture_hover = ExtResource("7_o0iku")
-texture_focused = ExtResource("8_q0mky")
-
-[node name="Label" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect/TextureButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 2.0
-offset_bottom = -6.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_vfxy4")
-theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
-theme_override_fonts/font = ExtResource("9_qh8ke")
-text = "Close"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="TextureRect2" type="TextureRect" parent="BoxContainer/NinePatchRect/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 8
@@ -209,12 +174,48 @@ vertical_alignment = 1
 layout_mode = 1
 offset_left = 7.0
 offset_top = 1.0
-offset_right = 72.0
+offset_right = 93.0
 offset_bottom = 14.0
 theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
 theme_override_constants/line_spacing = -3
 theme_override_fonts/font = ExtResource("9_qh8ke")
 text = "-- Contrôles --"
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="BoxContainer/NinePatchRect/NinePatchRect"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -27.0
+offset_right = -4.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("5_tdvev")
+texture_pressed = ExtResource("6_rnul8")
+texture_hover = ExtResource("7_o0iku")
+texture_focused = ExtResource("8_q0mky")
+
+[node name="Label" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 2.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_vfxy4")
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("9_qh8ke")
+text = "Close"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="BoxContainer/NinePatchRect/NinePatchRect/TextureButton" to="." method="_on_texture_button_pressed"]
