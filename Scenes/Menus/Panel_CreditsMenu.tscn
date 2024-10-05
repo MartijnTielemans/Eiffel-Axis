@@ -198,6 +198,7 @@ text = "Design, Code"
 vertical_alignment = 1
 
 [node name="Image" type="TextureRect" parent="BoxContainer2/NinePatchRect/NinePatchRect"]
+layout_mode = 0
 offset_left = 7.0
 offset_top = 7.0
 offset_right = 30.0
@@ -282,6 +283,7 @@ text = "Music, Sound"
 vertical_alignment = 1
 
 [node name="Image" type="TextureRect" parent="BoxContainer3/NinePatchRect/NinePatchRect"]
+layout_mode = 0
 offset_left = 7.0
 offset_top = 7.0
 offset_right = 30.0

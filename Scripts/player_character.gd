@@ -20,6 +20,11 @@ var sprites : Array[String] = [
 	"fly_down",
 	]
 
+var shootParticleXPos:float #Initial Particle position
+
+func _ready() -> void:
+	shootParticleXPos = $ShootParticle.position.x
+
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	#horizontal movement
@@ -65,6 +70,7 @@ func shoot_projectile():
 		amount_of_projectiles += 1
 		level.add_child(projectile_instance)
 		$AudioStreamPlayer2D.play()
+		$ShootParticle.emitting = true
 
 func pivot_player_animation():
 	is_pivoting = true
@@ -79,6 +85,10 @@ func pivot_player():
 	$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
 	dir = ((int($AnimatedSprite2D.flip_h)*-2)+1)
 	
+	# Set shoot particle position
+	$ShootParticle.position.x = shootParticleXPos * dir
+	$ShootParticle.direction.x = dir
+	
 func end_pivot_player():
 	is_pivoting = false
 	
@@ -88,3 +98,6 @@ func update_health(health_change: int):
 	UI_ref.update_visuals()
 	if HP < 1:
 		pass
+	
+	if (health_change < 0):
+		$HurtParticle.emitting = true
