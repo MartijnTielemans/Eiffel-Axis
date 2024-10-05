@@ -36,6 +36,7 @@ func shoot():
 		var projectile = load("res://Scenes/Enemy/EnemyBullet.tscn")
 		var projectile_instance = projectile.instantiate()
 		var shoot_dir = 1
+		$AudioStreamPlayer2D.play()
 		if i > 1:
 			shoot_dir = -1
 		projectile_instance.x_speed = (((i+1)%2)*shoot_dir)*75

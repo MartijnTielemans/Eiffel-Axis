@@ -36,6 +36,7 @@ func die():
 
 func shoot():
 	var dir = ((int(start_left)*-2)+1)
+	$AudioStreamPlayer2D.play()
 	for i in 3:
 		var projectile = load("res://Scenes/Enemy/EnemyBullet.tscn")
 		var projectile_instance = projectile.instantiate()
