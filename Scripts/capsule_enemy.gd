@@ -4,7 +4,7 @@ extends Node2D
 var spawn_pos : Vector2 = Vector2(-9999,-9999)
 var spawner_ref : Node2D
 var awarded_points = 0
-var level : Node2D
+@onready var level = get_tree().get_root().get_node("Level")
 var images = []
 const SPEED = 45
 @export var start_left : bool
