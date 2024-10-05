@@ -1,0 +1,235 @@
+[gd_scene load_steps=11 format=3 uid="uid://snx55223iu5q"]
+
+[ext_resource type="Texture2D" uid="uid://df0dlm3lhnbqg" path="res://Assets/Menus/PauseMenuBG.png" id="1_6xhnm"]
+[ext_resource type="Script" path="res://Scenes/Menus/pause_menu.gd" id="1_dkfiv"]
+[ext_resource type="Texture2D" uid="uid://cfl3sdadin3i" path="res://Assets/Menus/Panel9Slice.png" id="2_sqcn6"]
+[ext_resource type="Texture2D" uid="uid://gtvlcc72y7f3" path="res://Assets/Menus/Panel9SliceBlack.png" id="3_ugpqa"]
+[ext_resource type="Texture2D" uid="uid://o3npsthay5g2" path="res://Assets/Menus/MenuButton_Neutral.png" id="4_tux8x"]
+[ext_resource type="Texture2D" uid="uid://dqnphqo2ckj1c" path="res://Assets/Menus/MenuButton_Select.png" id="5_alcb6"]
+[ext_resource type="Texture2D" uid="uid://bx0lg23jbtw5h" path="res://Assets/Menus/MenuButton_HoverMouse.png" id="6_vp7gp"]
+[ext_resource type="Texture2D" uid="uid://c57onmqsyc0qu" path="res://Assets/Menus/MenuButton_Hover.png" id="7_831gg"]
+[ext_resource type="FontFile" uid="uid://d35wovbc4u2xv" path="res://Fonts/PolygonPixel5x7Cyrillic.ttf" id="8_16o51"]
+
+[sub_resource type="Theme" id="Theme_kfak6"]
+
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("firstSelectedButton")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dkfiv")
+firstSelectedButton = NodePath("BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Continue")
+
+[node name="MarginContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_6xhnm")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -65.0
+offset_right = 62.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_sqcn6")
+region_rect = Rect2(0, 0, 20, 20)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BoxContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_ugpqa")
+region_rect = Rect2(0, 0, 20, 20)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/NinePatchRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -26.0
+offset_right = 45.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Continue" type="TextureButton" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_tux8x")
+texture_pressed = ExtResource("5_alcb6")
+texture_hover = ExtResource("6_vp7gp")
+texture_focused = ExtResource("7_831gg")
+
+[node name="Label" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Continue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 2.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kfak6")
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("8_16o51")
+text = "Continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="TextureButton" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_tux8x")
+texture_pressed = ExtResource("5_alcb6")
+texture_hover = ExtResource("6_vp7gp")
+texture_focused = ExtResource("7_831gg")
+
+[node name="Label" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 2.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kfak6")
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("8_16o51")
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="TextureButton" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_tux8x")
+texture_pressed = ExtResource("5_alcb6")
+texture_hover = ExtResource("6_vp7gp")
+texture_focused = ExtResource("7_831gg")
+
+[node name="Label" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Exit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 2.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kfak6")
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("8_16o51")
+text = "Exit To Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 4.0
+offset_bottom = 27.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("8_16o51")
+text = "-- En Pause --"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+offset_left = 248.0
+offset_top = 147.0
+offset_right = 259.0
+offset_bottom = 158.0
+rotation = -3.14159
+size_flags_horizontal = 3
+texture = ExtResource("2_sqcn6")
+region_rect = Rect2(0, 0, 20, 20)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect2"]
+offset_left = -14.0
+offset_top = 21.0
+offset_right = 0.999999
+offset_bottom = 36.0
+size_flags_horizontal = 3
+texture = ExtResource("2_sqcn6")
+region_rect = Rect2(0, 0, 20, 20)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 54.0
+offset_top = 39.0
+offset_right = 65.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+texture = ExtResource("2_sqcn6")
+region_rect = Rect2(0, 0, 20, 20)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect"]
+offset_left = 11.0
+offset_top = 34.0
+offset_right = 26.0
+offset_bottom = 49.0
+size_flags_horizontal = 3
+texture = ExtResource("2_sqcn6")
+region_rect = Rect2(0, 0, 20, 20)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[connection signal="pressed" from="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

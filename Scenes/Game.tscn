@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cli2135tl06sc"]
+[gd_scene load_steps=16 format=3 uid="uid://cli2135tl06sc"]
 
 [ext_resource type="Texture2D" uid="uid://ctahdtrvwvadd" path="res://Assets/ColorBG.png" id="1_66xep"]
 [ext_resource type="PackedScene" uid="uid://bo1hlnjr873ur" path="res://Scenes/player_character.tscn" id="1_f47mq"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://0np0slgleins" path="res://Scenes/GameUI.tscn" id="7_cd0yk"]
 [ext_resource type="PackedScene" uid="uid://bkunpnkgoskr0" path="res://Scenes/Visuals/CloudSpawner.tscn" id="7_l4iqh"]
 [ext_resource type="PackedScene" uid="uid://c1htrmo3v33m2" path="res://Scenes/Visuals/CloudScene.tscn" id="8_4b7s8"]
+[ext_resource type="PackedScene" uid="uid://snx55223iu5q" path="res://Scenes/Menus/PauseMenu.tscn" id="9_gj1xf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_20bud"]
 normal = Vector2(0, 1)
@@ -93,3 +94,9 @@ initialDirectionMult = 1
 [node name="CloudScene3" parent="CloudSpawner" instance=ExtResource("8_4b7s8")]
 position = Vector2(68, 71)
 initialDirectionMult = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_gj1xf")]
+visible = false

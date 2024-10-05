@@ -122,6 +122,7 @@ _data = {
 }
 
 [node name="SceneTransition" type="CanvasLayer"]
+layer = 45
 script = ExtResource("1_crya7")
 
 [node name="TextureRect" type="TextureRect" parent="."]
