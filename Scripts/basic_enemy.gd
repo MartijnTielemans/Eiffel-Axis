@@ -1,5 +1,6 @@
 extends Node2D
 
+
 @export var y_movement = 50
 @onready var player_character : CharacterBody2D
 var spawn_pos : Vector2
@@ -20,11 +21,9 @@ func _physics_process(delta: float) -> void:
 	position.x -= SPEED * delta * dir
 	position.y += y_movement * delta * ((int(move_up)*2)-1)
 
+func lose_points():
+	awarded_points = 0
+
 func die():
-	spawner_ref.current_enemies -= 1
-	spawner_ref.points += awarded_points
-	spawner_ref.update_points()
-	if spawner_ref.current_enemies < 1:
-		spawner_ref.current_wave += 1
-		spawner_ref.start_new_wave()
+	spawner_ref.update_enemy_count(-1,awarded_points)
 	queue_free()

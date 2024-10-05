@@ -112,6 +112,8 @@ autoplay = "default"
 frame_progress = 0.529925
 
 [node name="EnemyHealth" parent="." instance=ExtResource("3_sv12s")]
+collision_layer = 9
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHealth"]
 z_index = 5

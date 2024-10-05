@@ -1,5 +1,5 @@
 extends Area2D
-
+class_name enemy_bullet
 var spawnPos : Vector2
 var x_speed : int
 var y_speed : int
