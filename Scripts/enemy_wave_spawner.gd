@@ -4,11 +4,7 @@ extends Node2D
 @onready var player_character: CharacterBody2D = $"../PlayerCharacter"
 @onready var UI_ref = $"../Control"
 var current_wave : float = 0
-var waves = [
-	"Wave1",
-	"Wave2",
-	"Wave3",
-	]
+@export var waves : Array[String]
 var current_enemies : int
 var points : int
 
