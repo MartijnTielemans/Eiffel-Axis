@@ -11,17 +11,9 @@ func _on_body_entered(body: Node2D) -> void:
 		if health > 1:
 			health -= 1
 		else:
+			for i in destroyParticles:
+				var particle : CPUParticles2D = i.instantiate()
+				particle.position = myparent.position
+				get_tree().root.add_child(particle)
+				particle.emitting = true
 			myparent.die()
-			
-	if health > 1:
-		pass
-		health -= 1
-	else:
-		for i in destroyParticles:
-			var particle : CPUParticles2D = i.instantiate()
-			particle.position = myparent.position
-			get_tree().root.add_child(particle)
-			particle.emitting = true
-		
-		myparent.die()
-		

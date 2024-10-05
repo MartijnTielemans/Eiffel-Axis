@@ -97,4 +97,3 @@ position = Vector2(68, 71)
 initialDirectionMult = 1
 
 [node name="EnemyKillzone" parent="." instance=ExtResource("9_8waex")]
-visible = false

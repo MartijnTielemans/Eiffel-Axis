@@ -39,7 +39,7 @@ _data = {
 "RESET": SubResource("Animation_akugm")
 }
 
-[node name="CharacterBody2D" type="Node2D"]
+[node name="Quad" type="Node2D"]
 z_index = 4
 script = ExtResource("1_5px5v")
 
@@ -53,6 +53,7 @@ collision_layer = 9
 collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHealth"]
+z_index = 5
 shape = SubResource("CircleShape2D_2vlek")
 
 [node name="DamagePlayer" parent="." instance=ExtResource("4_f3gkr")]
@@ -60,10 +61,15 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamagePlayer"]
+z_index = 5
 shape = SubResource("CircleShape2D_m83k1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_3dm2d")
 }
-autoplay = "Movement"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

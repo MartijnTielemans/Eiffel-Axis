@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjmc7s6l0wlig"]
+[gd_scene load_steps=7 format=3 uid="uid://cjmc7s6l0wlig"]
 
 [ext_resource type="Script" path="res://Scripts/swoop_enemy.gd" id="1_4gej1"]
 [ext_resource type="Texture2D" uid="uid://dg4rxo8fok3h2" path="res://Assets/Enemies/Enemy_Wavy.png" id="2_mg1j3"]
@@ -12,44 +12,7 @@ height = 22.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_m83k1"]
 radius = 5.0
 
-[sub_resource type="Animation" id="Animation_bdl3d"]
-resource_name = "Movement"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:y_movement")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.5, 1.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [75, 0]
-}
-
-[sub_resource type="Animation" id="Animation_akugm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:y_movement")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3dm2d"]
-_data = {
-"Movement": SubResource("Animation_bdl3d"),
-"RESET": SubResource("Animation_akugm")
-}
-
-[node name="CharacterBody2D" type="Node2D"]
+[node name="Wavy" type="Node2D"]
 z_index = 4
 script = ExtResource("1_4gej1")
 y_movement = 0
@@ -76,8 +39,7 @@ collision_mask = 4
 z_index = 5
 shape = SubResource("CircleShape2D_m83k1")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_3dm2d")
-}
-autoplay = "Movement"
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
