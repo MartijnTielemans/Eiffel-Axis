@@ -21,6 +21,7 @@ var sprites : Array[String] = [
 	]
 
 var shootParticleXPos:float #Initial Particle position
+signal on_death
 
 func _ready() -> void:
 	shootParticleXPos = $ShootParticle.position.x
@@ -99,6 +100,9 @@ func update_health(health_change: int):
 	if HP < 1:
 		$HurtParticle.emitting = true
 	if (health_change < 0):
+		# Signal Game Over
+		on_death.emit()
+		
 		SceneTransition.transitionOver.connect(load_scene);
 		SceneTransition.Transition(true);
 	
@@ -106,4 +110,4 @@ func update_health(health_change: int):
 # Loads the game scene
 func load_scene():
 	SceneTransition.Transition(false);
-	get_tree().change_scene_to_file("res://Scenes/Game.tscn");
+	get_tree().change_scene_to_file("res://Scenes/Menus/GameOverScreen.tscn");

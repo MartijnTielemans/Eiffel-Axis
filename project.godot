@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="EiffelAxis"
-run/main_scene="res://Scenes/Menus/MenuMain.tscn"
+run/main_scene="res://Scenes/Menus/LoadScene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SceneTransition="*res://Scenes/SceneTransition.tscn"
+Global="*res://Data/global.gd"
 
 [display]
 
