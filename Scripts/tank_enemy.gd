@@ -21,16 +21,15 @@ func _physics_process(delta: float) -> void:
 	if moving == true:
 		position.x -= SPEED * delta * dir
 
+func lose_points():
+	awarded_points = 0
+
 func die():
-	spawner_ref.current_enemies -= 1
-	spawner_ref.points += awarded_points
-	spawner_ref.update_points()
-	if spawner_ref.current_enemies < 1:
-		spawner_ref.current_wave += 1
-		spawner_ref.start_new_wave()
+	spawner_ref.update_enemy_count(-1,awarded_points)
 	queue_free()
 
 func shoot():
+	var dir = ((int(start_left)*-2)+1)
 	for i in 3:
 		var projectile = load("res://Scenes/Enemy/EnemyBullet.tscn")
 		var projectile_instance = projectile.instantiate()

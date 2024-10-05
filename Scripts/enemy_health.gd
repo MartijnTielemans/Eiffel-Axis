@@ -13,7 +13,6 @@ func _on_body_entered(body: Node2D) -> void:
 		else:
 			myparent.die()
 			
-	body.queue_free()
 	if health > 1:
 		pass
 		health -= 1

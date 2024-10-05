@@ -10,7 +10,7 @@ size = Vector2(24.8558, 26)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trifr"]
 
 [node name="Block" type="StaticBody2D"]
-collision_layer = 11
+collision_layer = 3
 script = ExtResource("1_pqoo8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

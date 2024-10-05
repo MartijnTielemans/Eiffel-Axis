@@ -61,6 +61,8 @@ texture = ExtResource("2_7tty3")
 
 [node name="EnemyHealth" parent="." instance=ExtResource("4_elqex")]
 z_index = 5
+collision_layer = 9
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHealth"]
 rotation = 1.5708

@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://0np0slgleins" path="res://Scenes/GameUI.tscn" id="7_cd0yk"]
 [ext_resource type="PackedScene" uid="uid://bkunpnkgoskr0" path="res://Scenes/Visuals/CloudSpawner.tscn" id="7_l4iqh"]
 [ext_resource type="PackedScene" uid="uid://c1htrmo3v33m2" path="res://Scenes/Visuals/CloudScene.tscn" id="8_4b7s8"]
+[ext_resource type="PackedScene" uid="uid://ewiblxpwilux" path="res://Scenes/EnemyKillzone.tscn" id="9_8waex"]
 [ext_resource type="PackedScene" uid="uid://dpxod2wga6wfv" path="res://Scenes/Menus/PauseMenu.tscn" id="9_gj1xf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_20bud"]
@@ -61,6 +62,7 @@ shape = SubResource("WorldBoundaryShape2D_fpw58")
 position = Vector2(101, 107)
 
 [node name="PlayerBulletKillzone" parent="." instance=ExtResource("2_tes6b")]
+visible = false
 position = Vector2(327, 89)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayerBulletKillzone"]
@@ -94,9 +96,3 @@ initialDirectionMult = 1
 [node name="CloudScene3" parent="CloudSpawner" instance=ExtResource("8_4b7s8")]
 position = Vector2(68, 71)
 initialDirectionMult = 1
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 3
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_gj1xf")]
-visible = false
