@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://fdgulaob06hx"]
+
+[ext_resource type="PackedScene" uid="uid://18vv3gsdr7xv" path="res://Scenes/Enemy/TankEnemy.tscn" id="4_q7dim"]
+
+[node name="WaveScene18" type="Node2D"]
+
+[node name="Tank" parent="." instance=ExtResource("4_q7dim")]
+position = Vector2(-30, 100)
+start_left = true
+
+[node name="Tank2" parent="." instance=ExtResource("4_q7dim")]
+position = Vector2(-166, 80)
+start_left = true
+
+[node name="Tank3" parent="." instance=ExtResource("4_q7dim")]
+position = Vector2(-166, 125)
+start_left = true
