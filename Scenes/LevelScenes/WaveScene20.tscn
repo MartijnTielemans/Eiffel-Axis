@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://xalcavewkuaf" path="res://Scenes/Enemy/BasicEnemy.tscn" id="2_tw7oc"]
 [ext_resource type="PackedScene" uid="uid://18vv3gsdr7xv" path="res://Scenes/Enemy/TankEnemy.tscn" id="3_nj7b1"]
 
-[node name="WaveScene18" type="Node2D"]
+[node name="WaveScene19" type="Node2D"]
 
 [node name="Block" parent="." instance=ExtResource("1_i66gc")]
 position = Vector2(11, 25)
