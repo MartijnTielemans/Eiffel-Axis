@@ -1,9 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://bo1hlnjr873ur"]
+[gd_scene load_steps=27 format=3 uid="uid://bo1hlnjr873ur"]
 
 [ext_resource type="Script" path="res://Scripts/player_character.gd" id="1_ft8se"]
 [ext_resource type="Texture2D" uid="uid://h2ce8dd3iwmk" path="res://Assets/Player_FlyingSprites.png" id="2_h4ank"]
 [ext_resource type="Texture2D" uid="uid://60mkedbpwqq" path="res://Assets/Player_TurnSprites.png" id="3_js5e1"]
 [ext_resource type="AudioStream" uid="uid://cyq3hqgfav3kn" path="res://Audio/PlayerShoot.wav" id="4_gyatx"]
+[ext_resource type="Texture2D" uid="uid://dr7caesyes8ej" path="res://Assets/Visuals/Player_Explosion-sheet.png" id="5_s5005"]
+[ext_resource type="Texture2D" uid="uid://brhmaapl6x30x" path="res://Assets/Visuals/DustParticle.png" id="6_al7ke"]
+[ext_resource type="Texture2D" uid="uid://qwq5eqdjfvm" path="res://Assets/Visuals/DustParticle_Flipped.png" id="7_3rsn1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2yl45"]
 atlas = ExtResource("2_h4ank")
@@ -139,6 +142,203 @@ interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.486607)
 colors = PackedColorArray(0.807843, 0.741176, 0.67451, 1, 0.180392, 0.203922, 0.223529, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oklol"]
+atlas = ExtResource("5_s5005")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2nfe"]
+atlas = ExtResource("5_s5005")
+region = Rect2(34, 0, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4bh3j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oklol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2nfe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="Animation" id="Animation_4t1p1"]
+resource_name = "GameOver_Explode"
+length = 4.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explode:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, null, true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.1, 0, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Dust1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.25, 2.6, 2.7, 2.8, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dust1:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.25, 2.15),
+"transitions": PackedFloat32Array(1, 0.307786, 0.435275),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-16, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Dust2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.25, 2.6, 2.7, 2.8, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dust2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.25, 2.15),
+"transitions": PackedFloat32Array(1, 0.307786, 0.435275),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(16, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oh43o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explode:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Dust1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dust1:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cd1n4"]
+resource_name = "GameOver_Idle"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qmoyd"]
+_data = {
+"GameOver_Explode": SubResource("Animation_4t1p1"),
+"GameOver_Idle": SubResource("Animation_cd1n4"),
+"RESET": SubResource("Animation_oh43o")
+}
+
 [node name="PlayerCharacter" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 13
@@ -208,5 +408,33 @@ target_position = Vector2(-13, 0)
 [node name="RayCast2D_R" type="RayCast2D" parent="."]
 target_position = Vector2(13, 0)
 
+[node name="ShipExplosion" type="Node2D" parent="."]
+visible = false
+
+[node name="Dust1" type="Sprite2D" parent="ShipExplosion"]
+visible = false
+position = Vector2(-16, 0)
+texture = ExtResource("6_al7ke")
+
+[node name="Dust2" type="Sprite2D" parent="ShipExplosion"]
+visible = false
+position = Vector2(16, 0)
+texture = ExtResource("7_3rsn1")
+
+[node name="Explode" type="AnimatedSprite2D" parent="ShipExplosion"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_4bh3j")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0360345
+
+[node name="GameOverExplosionAnim" type="AnimationPlayer" parent="ShipExplosion"]
+active = false
+libraries = {
+"": SubResource("AnimationLibrary_qmoyd")
+}
+autoplay = "GameOver_Idle"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="RepeatingTimer" to="." method="_on_repeating_timer_timeout"]
+[connection signal="animation_finished" from="ShipExplosion/GameOverExplosionAnim" to="." method="_game_over_transition"]
