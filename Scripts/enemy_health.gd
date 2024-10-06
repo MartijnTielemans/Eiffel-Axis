@@ -13,7 +13,7 @@ func _on_body_entered(body: Node2D) -> void:
 		else:
 			for i in destroyParticles:
 				var particle : CPUParticles2D = i.instantiate()
-				particle.position = myparent.position
+				particle.global_position = myparent.global_position
 				get_tree().root.add_child(particle)
 				particle.emitting = true
 			myparent.die()

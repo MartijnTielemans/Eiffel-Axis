@@ -70,18 +70,6 @@ func _process(delta: float) -> void:
 			var collidedBlock = $Raycast2D_L.get_collider()
 			collidedBlock.queue_free()
 		update_health(-1)
-		#print("Colliding")
-		#var Colliding_objectL = $RayCast2D_L.get_collider()
-		#if Colliding_objectL.get_parent().is_class("Block"):
-			#print("LEFT")
-			#var Colliding_Block = $RayCast2D_L.get_collider()
-			#Colliding_Block.destroy_self
-		#var Colliding_objectR = $RayCast2D_R.get_collider()
-		#if Colliding_objectL.get_parent().is_class("Block"):
-			#print("RIGHT")
-			#var Colliding_Block = $RayCast2D_R.get_collider()
-			#Colliding_Block.destroy_self
-		#update_health(-1)
 
 	#This is triggered by the AnimationPlayer
 func shoot_projectile():
