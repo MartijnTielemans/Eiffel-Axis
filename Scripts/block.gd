@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name Block
 
 var speed = 45
 var spawn_pos : Vector2 = Vector2(-9999,-9999)
@@ -22,6 +23,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func lose_points():
 	awarded_points = 0
+
+func destroy_self():
+	queue_free()
 
 func die():
 	if not spawner_ref == null:

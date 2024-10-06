@@ -199,4 +199,14 @@ color_ramp = SubResource("Gradient_27pmy")
 wait_time = 2.0
 one_shot = true
 
+[node name="RepeatingTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="RayCast2D_L" type="RayCast2D" parent="."]
+target_position = Vector2(-13, 0)
+
+[node name="RayCast2D_R" type="RayCast2D" parent="."]
+target_position = Vector2(13, 0)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="RepeatingTimer" to="." method="_on_repeating_timer_timeout"]
