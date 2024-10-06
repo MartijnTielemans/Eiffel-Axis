@@ -15,6 +15,7 @@ var amount_of_projectiles = 0
 var is_pivoting
 var dir = 1
 var I_frames = false
+var defeated : bool = false
 var sprites : Array[String] = [
 	"fly_up",
 	"default",
@@ -28,6 +29,9 @@ func _ready() -> void:
 	shootParticleXPos = $ShootParticle.position.x
 
 func _process(delta: float) -> void:
+	if (defeated):
+		return
+	
 	# Get the input direction and handle the movement/deceleration.
 	#horizontal movement
 	var X_input:= Input.get_axis("move_left", "move_right")
@@ -73,6 +77,9 @@ func _process(delta: float) -> void:
 
 	#This is triggered by the AnimationPlayer
 func shoot_projectile():
+	if (defeated):
+		return
+	
 	if amount_of_projectiles < MaxBullets:
 		var projectile = load("res://Scenes/Bullet.tscn")
 		var projectile_instance = projectile.instantiate()
@@ -94,6 +101,9 @@ func update_projectile_amount(projectile_change: int):
 	clamp(amount_of_projectiles,0,MaxBullets)
 
 func pivot_player():
+	if (defeated):
+		return
+	
 	$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
 	dir = ((int($AnimatedSprite2D.flip_h)*-2)+1)
 	
@@ -105,6 +115,9 @@ func end_pivot_player():
 	is_pivoting = false
 	
 func update_health(health_change: int):
+	if (defeated):
+		return
+	
 	if I_frames == false:
 		HP += health_change
 		UI_ref.health = HP
@@ -114,14 +127,20 @@ func update_health(health_change: int):
 			# Signal Game Over
 			MusicManager.play_sound_effect("GameOver")
 			on_death.emit()
-			SceneTransition.transitionOver.connect(load_scene);
-			SceneTransition.Transition(true);
+			defeated = true
+			$ShipExplosion/GameOverExplosionAnim.active = true
+			$ShipExplosion/GameOverExplosionAnim.play("GameOver_Explode")
 		else:
 			MusicManager.play_sound_effect("PlayerDamage")
 			I_frames = true
 			$Timer.start()
 			$RepeatingTimer.start()
 		
+
+func _game_over_transition(anim_name:StringName):
+	if anim_name == "GameOver_Explode":
+		SceneTransition.transitionOver.connect(load_scene);
+		SceneTransition.Transition(true);
 
 
 func visualise_Iframes():

@@ -103,6 +103,14 @@ func spawn_turret(Location: Vector2, start_left: bool, look_up: bool):
 	current_enemies += 1
 	level.add_child(instanced_enemy)
 
+func spawn_boss(Location: Vector2):
+	var enemy_to_spawn = load("res://Scenes/Enemy/BossEnemy.tscn")
+	var instanced_enemy = enemy_to_spawn.instantiate()
+	instanced_enemy.global_position = Location
+	instanced_enemy.spawner_ref = self
+	current_enemies += 1
+	level.add_child(instanced_enemy)
+
 func spawn_scene(Location: Vector2, timer: float, scene_ref: String):
 	var scene_to_load = "res://Scenes/LevelScenes/" + scene_ref + ".tscn"
 	var scene_to_spawn = load(scene_to_load)
