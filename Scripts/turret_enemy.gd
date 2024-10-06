@@ -28,7 +28,8 @@ func shoot():
 	var dir = ((int(start_left)*-2)+1)
 	projectile_instance.x_speed = -45 * dir
 	projectile_instance.spawnPos = global_position
-	$AudioStreamPlayer2D.play()
+	MusicManager.play_enemy_shoot()
+	#$AudioStreamPlayer2D.play()
 	level.add_child(projectile_instance)
 
 func lose_points():

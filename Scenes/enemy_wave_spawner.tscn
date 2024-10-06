@@ -1143,6 +1143,7 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gqd23"]
 _data = {
+"TestWave": SubResource("Animation_y60uc"),
 "Wave01": SubResource("Animation_ulbnv"),
 "Wave02": SubResource("Animation_kfxq4"),
 "Wave03": SubResource("Animation_k4uxv"),

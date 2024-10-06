@@ -3,13 +3,12 @@ extends Control
 @export var controlsPanel: BoxContainer;
 @export var settingsPanel: BoxContainer;
 @export var creditsPanel: BoxContainer;
-
 @export var controlButton: TextureButton
 @export var settingsButton: TextureButton
 @export var creditsButton: TextureButton
 var lastButtonPressed: TextureButton;
-
 @export var highScoreText : Label
+
 
 func _ready() -> void:
 	# Get high score from file
@@ -20,6 +19,8 @@ func _ready() -> void:
 func _on_play_pressed() -> void:
 	SceneTransition.transitionOver.connect(load_scene);
 	SceneTransition.Transition(true);
+	MusicManager.stop_sound_effect()
+	MusicManager.play_sound_effect("StartGame")
 
 # Loads the game scene
 func load_scene():
@@ -30,19 +31,23 @@ func _on_controls_pressed() -> void:
 	lastButtonPressed = controlButton;
 	controlsPanel.visible = true;
 	get_node("PanelMenus/BoxContainer/ControlsMenu2").ReturnFirstButton().grab_focus();
+	MusicManager.play_sound_effect("CursorSelect")
 
 func _on_settings_pressed() -> void:
 	lastButtonPressed = settingsButton;
 	settingsPanel.visible = true;
 	get_node("PanelMenus/BoxContainer2/SettingsMenu").ReturnFirstButton().grab_focus();
+	MusicManager.play_sound_effect("CursorSelect")
 
 func _on_quit_pressed() -> void:
 	get_tree().quit();
+	MusicManager.play_sound_effect("CursorSelect")
 
 func _on_credits_pressed() -> void:
 	lastButtonPressed = creditsButton;
 	creditsPanel.visible = true;
 	get_node("PanelMenus/BoxContainer3/CreditsMenu").ReturnFirstButton().grab_focus();
+	MusicManager.play_sound_effect("CursorSelect")
 
 # When a panel closes, reget focus on the last button
 func _on_close_panel() -> void:
@@ -50,3 +55,33 @@ func _on_close_panel() -> void:
 	settingsPanel.visible = false;
 	creditsPanel.visible = false;
 	lastButtonPressed.grab_focus();
+
+func _input(event):
+	if event.is_action_pressed("ui_down") or event.is_action_pressed("ui_up") or event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right"):
+		MusicManager.play_sound_effect("CursorMove")
+
+
+
+func _unhandled_input(event):
+	if not event.is_action_released("ui_accept") and not event.is_action_released("ui_down") and not event.is_action_released("ui_up") and not event.is_action_released("ui_left") and not event.is_action_released("ui_right"):
+		MusicManager.stop_sound_effect()
+
+
+func _on_play_mouse_entered() -> void:
+	MusicManager.play_sound_effect("CursorMove")
+
+
+func _on_controls_mouse_entered() -> void:
+	MusicManager.play_sound_effect("CursorMove")
+
+
+func _on_settings_mouse_entered() -> void:
+	MusicManager.play_sound_effect("CursorMove")
+
+
+func _on_credits_mouse_entered() -> void:
+	MusicManager.play_sound_effect("CursorMove")
+
+
+func _on_quit_mouse_entered() -> void:
+	MusicManager.play_sound_effect("CursorMove")
