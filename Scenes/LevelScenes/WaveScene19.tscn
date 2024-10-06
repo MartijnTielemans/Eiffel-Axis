@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg5e4e87eqm3o"]
+
+[ext_resource type="PackedScene" uid="uid://bkrvm18q3ybl" path="res://Scenes/Enemy/Block.tscn" id="1_xpafi"]
+[ext_resource type="PackedScene" uid="uid://bfnlegnb4chkx" path="res://Scenes/Enemy/TurretEnemy.tscn" id="2_mjc5r"]
+[ext_resource type="PackedScene" uid="uid://dr3o2ipcsa85g" path="res://Scenes/Enemy/ShooterEnemy.tscn" id="3_jco5t"]
+
+[node name="WaveScene18" type="Node2D"]
+
+[node name="Block" parent="." instance=ExtResource("1_xpafi")]
+position = Vector2(-271, 25)
+start_left = true
+
+[node name="Block2" parent="." instance=ExtResource("1_xpafi")]
+position = Vector2(-271, 47)
+start_left = true
+
+[node name="Block3" parent="." instance=ExtResource("1_xpafi")]
+position = Vector2(-249, 25)
+start_left = true
+
+[node name="Block4" parent="." instance=ExtResource("1_xpafi")]
+position = Vector2(-249, 169)
+start_left = true
+
+[node name="Block5" parent="." instance=ExtResource("1_xpafi")]
+position = Vector2(-271, 169)
+start_left = true
+
+[node name="Block6" parent="." instance=ExtResource("1_xpafi")]
+position = Vector2(-249, 147)
+start_left = true
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_mjc5r")]
+position = Vector2(-271, 148)
+look_up = true
+start_left = true
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("2_mjc5r")]
+position = Vector2(-249, 47)
+start_left = true
+
+[node name="Block7" parent="." instance=ExtResource("1_xpafi")]
+position = Vector2(-139, 25)
+start_left = true
+
+[node name="Block8" parent="." instance=ExtResource("1_xpafi")]
+position = Vector2(-139, 47)
+start_left = true
+
+[node name="Block9" parent="." instance=ExtResource("1_xpafi")]
+position = Vector2(-139, 169)
+start_left = true
+
+[node name="CharacterBody2D3" parent="." instance=ExtResource("2_mjc5r")]
+position = Vector2(-139, 148)
+look_up = true
+start_left = true
+
+[node name="Block10" parent="." instance=ExtResource("1_xpafi")]
+position = Vector2(-29, 25)
+start_left = true
+
+[node name="Block11" parent="." instance=ExtResource("1_xpafi")]
+position = Vector2(-29, 147)
+start_left = true
+
+[node name="Block12" parent="." instance=ExtResource("1_xpafi")]
+position = Vector2(-29, 169)
+start_left = true
+
+[node name="CharacterBody2D4" parent="." instance=ExtResource("2_mjc5r")]
+position = Vector2(-29, 47)
+start_left = true
+
+[node name="Quad" parent="." instance=ExtResource("3_jco5t")]
+position = Vector2(-319, 96)
+start_left = true

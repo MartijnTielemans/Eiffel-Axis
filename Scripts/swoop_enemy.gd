@@ -7,6 +7,7 @@ var spawn_pos : Vector2 = Vector2(-9999,-9999)
 var spawner_ref : Node2D
 var awarded_points = 200
 var SPEED = 45
+@export var moveSpeed : float = 70
 @export var start_left : bool
 
 
@@ -20,7 +21,7 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	var dir = ((int(start_left)*-2)+1)
 	position.x -= SPEED * delta * dir
-	if SPEED == 70:
+	if SPEED == moveSpeed:
 		position.y += sin(position.x/25)
 		if (sin(position.x/25)>0.5):
 			$Sprite2D.texture = preload("res://Assets/Enemies/Enemy_Wavy_Down.png")
@@ -41,7 +42,7 @@ func die():
 	queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	SPEED = 70
+	SPEED = moveSpeed
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	SPEED = 45

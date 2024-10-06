@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsfav4mrs16n5"]
+
+[ext_resource type="PackedScene" uid="uid://bkrvm18q3ybl" path="res://Scenes/Enemy/Block.tscn" id="1_crtxj"]
+
+[node name="WaveScene18" type="Node2D"]
+
+[node name="Block" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(11, 25)
+
+[node name="Block2" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(77, 25)
+
+[node name="Block3" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(99, 25)
+
+[node name="Block4" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(121, 25)
+
+[node name="Block5" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(143, 25)
+
+[node name="Block6" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(165, 25)
+
+[node name="Block7" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(187, 25)
+
+[node name="Block8" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(209, 25)
+
+[node name="Block9" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(77, 47)
+
+[node name="Block10" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(99, 47)
+
+[node name="Block11" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(121, 47)
+
+[node name="Block12" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(143, 47)
+
+[node name="Block13" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(165, 47)
+
+[node name="Block14" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(187, 47)
+
+[node name="Block15" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(77, 69)
+
+[node name="Block16" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(99, 69)
+
+[node name="Block17" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(121, 69)
+
+[node name="Block18" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(143, 69)
+
+[node name="Block19" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(77, 91)
+
+[node name="Block20" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(99, 91)
+
+[node name="Block23" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(77, 168)
+
+[node name="Block24" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(99, 168)
+
+[node name="Block25" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(121, 168)
+
+[node name="Block26" parent="." instance=ExtResource("1_crtxj")]
+position = Vector2(143, 168)

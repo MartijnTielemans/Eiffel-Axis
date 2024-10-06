@@ -1,0 +1,122 @@
+[gd_scene load_steps=4 format=3 uid="uid://brmtaukj06has"]
+
+[ext_resource type="PackedScene" uid="uid://bkrvm18q3ybl" path="res://Scenes/Enemy/Block.tscn" id="1_i66gc"]
+[ext_resource type="PackedScene" uid="uid://xalcavewkuaf" path="res://Scenes/Enemy/BasicEnemy.tscn" id="2_tw7oc"]
+[ext_resource type="PackedScene" uid="uid://18vv3gsdr7xv" path="res://Scenes/Enemy/TankEnemy.tscn" id="3_nj7b1"]
+
+[node name="WaveScene18" type="Node2D"]
+
+[node name="Block" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(11, 25)
+
+[node name="Block3" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(33, 25)
+
+[node name="Block4" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(33, 169)
+
+[node name="Block5" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(11, 169)
+
+[node name="Block2" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(55, 25)
+
+[node name="Block6" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(77, 25)
+
+[node name="Block7" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(77, 169)
+
+[node name="Block8" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(55, 169)
+
+[node name="Block9" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(99, 25)
+
+[node name="Block10" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(121, 25)
+
+[node name="Block11" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(121, 169)
+
+[node name="Block12" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(99, 169)
+
+[node name="Block13" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(143, 25)
+
+[node name="Block14" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(165, 25)
+
+[node name="Block15" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(165, 169)
+
+[node name="Block16" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(143, 169)
+
+[node name="Block17" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(187, 25)
+
+[node name="Block18" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(209, 25)
+
+[node name="Block19" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(209, 169)
+
+[node name="Block20" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(187, 169)
+
+[node name="Block21" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(231, 25)
+
+[node name="Block22" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(253, 25)
+
+[node name="Block23" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(253, 169)
+
+[node name="Block24" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(231, 169)
+
+[node name="Block25" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(275, 25)
+
+[node name="Block26" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(275, 169)
+
+[node name="Block27" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(297, 25)
+
+[node name="Block28" parent="." instance=ExtResource("1_i66gc")]
+position = Vector2(297, 169)
+
+[node name="Flyer" parent="." instance=ExtResource("2_tw7oc")]
+position = Vector2(120, 130)
+
+[node name="Flyer2" parent="." instance=ExtResource("2_tw7oc")]
+position = Vector2(154, 130)
+
+[node name="Flyer3" parent="." instance=ExtResource("2_tw7oc")]
+position = Vector2(188, 130)
+
+[node name="Flyer4" parent="." instance=ExtResource("2_tw7oc")]
+position = Vector2(222, 130)
+
+[node name="Flyer5" parent="." instance=ExtResource("2_tw7oc")]
+position = Vector2(103, 65)
+move_up = true
+
+[node name="Flyer6" parent="." instance=ExtResource("2_tw7oc")]
+position = Vector2(137, 65)
+move_up = true
+
+[node name="Flyer7" parent="." instance=ExtResource("2_tw7oc")]
+position = Vector2(171, 65)
+move_up = true
+
+[node name="Flyer8" parent="." instance=ExtResource("2_tw7oc")]
+position = Vector2(205, 65)
+move_up = true
+
+[node name="Tank" parent="." instance=ExtResource("3_nj7b1")]
+position = Vector2(233, 97)
