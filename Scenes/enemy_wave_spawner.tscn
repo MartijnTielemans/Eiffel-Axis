@@ -2,6 +2,39 @@
 
 [ext_resource type="Script" path="res://Scripts/enemy_wave_spawner.gd" id="1_dd37a"]
 
+[sub_resource type="Animation" id="Animation_y60uc"]
+resource_name = "TestWave"
+length = 10.0
+step = 0.05
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(330, 90), false, false],
+"method": &"spawn_flyer_enemy"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(330, 90), false],
+"method": &"spawn_wavy_enemy"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_ulbnv"]
 resource_name = "Wave1"
 length = 10.0
@@ -985,39 +1018,6 @@ tracks/3/keys = {
 "values": []
 }
 
-[sub_resource type="Animation" id="Animation_y60uc"]
-resource_name = "TestWave"
-length = 10.0
-step = 0.05
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [Vector2(330, 90), false, false],
-"method": &"spawn_flyer_enemy"
-}]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [Vector2(330, 90), false],
-"method": &"spawn_wavy_enemy"
-}]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gqd23"]
 _data = {
 "TestWave": SubResource("Animation_y60uc"),
@@ -1042,6 +1042,8 @@ _data = {
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_dd37a")
 waves = Array[String](["Wave01", "Wave02", "Wave03", "Wave04", "Wave05", "Wave06", "Wave07"])
+
+[node name="testnode2D" type="Node2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
