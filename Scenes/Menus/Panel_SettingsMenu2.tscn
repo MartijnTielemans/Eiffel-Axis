@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dp8x10dgmx6j0" path="res://Assets/Menus/MenuButtonSmall_HoverMouse.png" id="7_nq715"]
 [ext_resource type="Texture2D" uid="uid://bt2wba8o7jsga" path="res://Assets/Menus/MenuButtonSmall_Hover.png" id="8_2prm6"]
 [ext_resource type="FontFile" uid="uid://d35wovbc4u2xv" path="res://Fonts/PolygonPixel5x7Cyrillic.ttf" id="9_asfti"]
-[ext_resource type="PackedScene" uid="uid://cwq63fjf4jrc2" path="res://Scenes/Menus/VolumeSlider.tscn" id="10_pbbb6"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/VolumeSlider.tscn" id="10_pbbb6"]
 
 [sub_resource type="Theme" id="Theme_eaevg"]
 
