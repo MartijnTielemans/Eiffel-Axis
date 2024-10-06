@@ -16,6 +16,7 @@ radius = 5.0
 z_index = 4
 script = ExtResource("1_4gej1")
 y_movement = 0
+moveSpeed = 80.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 5
