@@ -6,3 +6,7 @@ func play_sound_effect(sound: String):
 
 func stop_sound_effect():
 	$AudioStreamPlayer2D.stop()
+
+func play_enemy_shoot():
+	#$AudioStreamPlayer2D.stream = load("res://Audio/EnemyShoot.wav")
+	$EnemyShootingSounds.play()

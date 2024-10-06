@@ -8,4 +8,5 @@ func ReturnFirstButton() -> TextureButton:
 
 # Emit the close panel signal
 func _on_texture_button_pressed() -> void:
+	MusicManager.play_sound_effect("CursorMove")
 	closePanel.emit();
