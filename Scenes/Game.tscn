@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://0np0slgleins" path="res://Scenes/GameUI.tscn" id="7_cd0yk"]
 [ext_resource type="PackedScene" uid="uid://bkunpnkgoskr0" path="res://Scenes/Visuals/CloudSpawner.tscn" id="7_l4iqh"]
 [ext_resource type="PackedScene" uid="uid://c1htrmo3v33m2" path="res://Scenes/Visuals/CloudScene.tscn" id="8_4b7s8"]
-[ext_resource type="PackedScene" uid="uid://ewiblxpwilux" path="res://Scenes/EnemyKillzone.tscn" id="9_8waex"]
-[ext_resource type="PackedScene" path="res://Scenes/Menus/PauseMenu.tscn" id="10_mpxb5"]
+[ext_resource type="PackedScene" path="res://Scenes/EnemyKillzone.tscn" id="9_8waex"]
+[ext_resource type="PackedScene" uid="uid://dpxod2wga6wfv" path="res://Scenes/Menus/PauseMenu.tscn" id="10_mpxb5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_20bud"]
 normal = Vector2(0, 1)
@@ -39,23 +39,22 @@ texture = ExtResource("1_66xep")
 position = Vector2(160, 35)
 
 [node name="ScreenEdges" type="StaticBody2D" parent="."]
-visible = false
 position = Vector2(156, 173)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ScreenEdges"]
-position = Vector2(0, -155)
+position = Vector2(0, -157)
 shape = SubResource("WorldBoundaryShape2D_20bud")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenEdges"]
-position = Vector2(0, 1)
+position = Vector2(0, 3)
 shape = SubResource("WorldBoundaryShape2D_q2qql")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="ScreenEdges"]
-position = Vector2(-150, -90)
+position = Vector2(-152, -90)
 shape = SubResource("WorldBoundaryShape2D_tra61")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="ScreenEdges"]
-position = Vector2(158, -90)
+position = Vector2(160, -90)
 shape = SubResource("WorldBoundaryShape2D_fpw58")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_f47mq")]
