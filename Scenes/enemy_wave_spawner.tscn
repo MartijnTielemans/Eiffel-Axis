@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cccn6g6gmnls2"]
+[gd_scene load_steps=13 format=3 uid="uid://cccn6g6gmnls2"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_wave_spawner.gd" id="1_dd37a"]
 
@@ -451,26 +451,230 @@ tracks/3/keys = {
 "values": []
 }
 
+[sub_resource type="Animation" id="Animation_qbn4m"]
+resource_name = "Wave8"
+length = 10.0
+step = 0.05
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.2, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [Vector2(-20, 55), true],
+"method": &"spawn_wavy_enemy"
+}, {
+"args": [Vector2(340, 55), false],
+"method": &"spawn_wavy_enemy"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [Vector2(-20, 120), true],
+"method": &"spawn_wavy_enemy"
+}, {
+"args": [Vector2(340, 120), false],
+"method": &"spawn_wavy_enemy"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.8, 5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [Vector2(340, 95), false],
+"method": &"spawn_quad_enemy"
+}, {
+"args": [Vector2(-20, 95), true],
+"method": &"spawn_quad_enemy"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_xw3hq"]
+resource_name = "Wave9"
+length = 10.0
+step = 0.05
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(5.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(340, 65), false],
+"method": &"spawn_wavy_enemy"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.2, 9.45),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [Vector2(-20, 55), true],
+"method": &"spawn_wavy_enemy"
+}, {
+"args": [Vector2(340, 95), false],
+"method": &"spawn_wavy_enemy"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(340, 160), false],
+"method": &"spawn_quad_enemy"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4, 0.9, 1.4, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [Vector2(340, 45), false, true],
+"method": &"spawn_flyer_enemy"
+}, {
+"args": [Vector2(340, 160), false, false],
+"method": &"spawn_flyer_enemy"
+}, {
+"args": [Vector2(340, 45), false, true],
+"method": &"spawn_flyer_enemy"
+}, {
+"args": [Vector2(340, 160), false, false],
+"method": &"spawn_flyer_enemy"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_stunp"]
+resource_name = "Wave10"
+length = 10.0
+step = 0.05
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(-20, 140), true],
+"method": &"spawn_wavy_enemy"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(340, 55), false],
+"method": &"spawn_wavy_enemy"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(340, 165), false],
+"method": &"spawn_quad_enemy"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(-20, 35), true],
+"method": &"spawn_quad_enemy"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gqd23"]
 _data = {
-"Wave1": SubResource("Animation_ulbnv"),
-"Wave2": SubResource("Animation_kfxq4"),
-"Wave3": SubResource("Animation_k4uxv"),
-"Wave4": SubResource("Animation_yja5a"),
-"Wave5": SubResource("Animation_s2l78"),
-"Wave6": SubResource("Animation_10th3"),
-"Wave7": SubResource("Animation_8j3h5")
+"Wave01": SubResource("Animation_ulbnv"),
+"Wave02": SubResource("Animation_kfxq4"),
+"Wave03": SubResource("Animation_k4uxv"),
+"Wave04": SubResource("Animation_yja5a"),
+"Wave05": SubResource("Animation_s2l78"),
+"Wave06": SubResource("Animation_10th3"),
+"Wave07": SubResource("Animation_8j3h5"),
+"Wave08": SubResource("Animation_qbn4m"),
+"Wave09": SubResource("Animation_xw3hq"),
+"Wave10": SubResource("Animation_stunp")
 }
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_dd37a")
-waves = ["Wave1", "Wave2", "Wave3", "Wave4", "Wave5", "Wave6", "Wave7"]
+waves = ["Wave01", "Wave02", "Wave03", "Wave04", "Wave05", "Wave06", "Wave07"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_gqd23")
 }
-autoplay = "Wave1"
+autoplay = "Wave10"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
