@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://41qig2kalxf0"]
+
+[ext_resource type="Script" path="res://Scripts/boss_enemy.gd" id="1_5v0hg"]
+[ext_resource type="PackedScene" uid="uid://donl0dpk4vj7k" path="res://Scenes/Enemy/EnemyHealth.tscn" id="2_178tt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aix5t"]
+size = Vector2(26, 66)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hk5nd"]
+size = Vector2(28, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkbab"]
+size = Vector2(24, 66)
+
+[node name="BossEnemy" type="CharacterBody2D" node_paths=PackedStringArray("bulletOrigin")]
+script = ExtResource("1_5v0hg")
+health = 30
+bulletOrigin = NodePath("Rotator/Bullet Origin")
+
+[node name="health" parent="." instance=ExtResource("2_178tt")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="health"]
+shape = SubResource("RectangleShape2D_aix5t")
+
+[node name="Rotator" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Rotator"]
+texture = SubResource("PlaceholderTexture2D_hk5nd")
+
+[node name="Bullet Origin" type="Node2D" parent="Rotator"]
+position = Vector2(-13, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bkbab")
+
+[node name="MoveModeTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="StartMovementTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AttackCoolDownTimer" type="Timer" parent="."]
+wait_time = 3.1
+one_shot = true
+
+[connection signal="timeout" from="MoveModeTimer" to="." method="_on_move_mode_timer_timeout"]
+[connection signal="timeout" from="StartMovementTimer" to="." method="_on_start_movement_timer_timeout"]
+[connection signal="timeout" from="AttackCoolDownTimer" to="." method="_on_start_movement_timer_timeout"]
