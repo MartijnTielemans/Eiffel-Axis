@@ -16,4 +16,5 @@ func _on_body_entered(body: Node2D) -> void:
 				particle.position = myparent.position
 				get_tree().root.add_child(particle)
 				particle.emitting = true
+			MusicManager.play_sound_effect("EnemyDestroyed")
 			myparent.die()
