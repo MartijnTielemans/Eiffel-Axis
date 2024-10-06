@@ -3,13 +3,12 @@ extends Control
 @export var controlsPanel: BoxContainer;
 @export var settingsPanel: BoxContainer;
 @export var creditsPanel: BoxContainer;
-
 @export var controlButton: TextureButton
 @export var settingsButton: TextureButton
 @export var creditsButton: TextureButton
 var lastButtonPressed: TextureButton;
-
 @export var highScoreText : Label
+var can_move_to = true
 
 func _ready() -> void:
 	# Get high score from file
@@ -50,3 +49,15 @@ func _on_close_panel() -> void:
 	settingsPanel.visible = false;
 	creditsPanel.visible = false;
 	lastButtonPressed.grab_focus();
+
+func _input(event):
+	if event.is_action_pressed("ui_down") or event.is_action_pressed("ui_up") or event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right"):
+		MusicManager.play_sound_effect("CursorMove")
+	if event.is_action_pressed("ui_accept"):
+		MusicManager.play_sound_effect("CursorSelect")
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_accept"):
+		MusicManager.play_sound_effect("CursorSelect")
+	elif not event.is_action_released("ui_accept") and not event.is_action_released("ui_down") and not event.is_action_released("ui_up") and not event.is_action_released("ui_left") and not event.is_action_released("ui_right"):
+			MusicManager.stop_sound_effect()

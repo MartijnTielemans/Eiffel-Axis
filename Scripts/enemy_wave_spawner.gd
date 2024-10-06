@@ -8,15 +8,25 @@ var current_wave : float = 0
 var current_enemies : int
 var points : int
 
+func _ready() -> void:
+	var CurrentAnim = $AnimationPlayer.get_animation(waves[current_wave])
+	print(CurrentAnim.track_get_key_count(0))
 
 func update_points(new_points: int):
 	UI_ref.update_points(new_points)
+	
 #if there is another wave in array "waves" it will start a new wave
 func start_new_wave():
 	if current_wave < len(waves):
 		$AnimationPlayer.play(waves[current_wave])
 		UI_ref.progress = (current_wave/float(len(waves)))
 		UI_ref.update_progress()
+		var CurrentAnim = $AnimationPlayer.get_animation(waves[current_wave])
+		var TrackCount = CurrentAnim.get_track_count()
+		current_enemies = 0
+		for i in range(TrackCount):
+			current_enemies += CurrentAnim.track_get_key_count(i)
+		#current_enemies = CurrentAnim.track_get_key_count
 	else:
 		UI_ref.progress = (current_wave/float(len(waves)))
 		UI_ref.update_progress()
@@ -38,7 +48,7 @@ func spawn_flyer_enemy(Location: Vector2, start_left: bool,move_up: bool):
 	instanced_enemy.move_up = move_up
 	instanced_enemy.start_left = start_left
 	instanced_enemy.spawner_ref = self
-	current_enemies += 1
+	#current_enemies += 1
 	level.add_child(instanced_enemy)
 
 #spawns the shooter enemy and gives it the needed variables
@@ -49,7 +59,7 @@ func spawn_quad_enemy(Location: Vector2, start_left: bool):
 	instanced_enemy.spawn_pos = Location					 #change this to where you want it to spawn
 	instanced_enemy.start_left = start_left
 	instanced_enemy.spawner_ref = self
-	current_enemies += 1
+	#current_enemies += 1
 	level.add_child(instanced_enemy)
 
 func spawn_wavy_enemy(Location: Vector2, start_left: bool):
@@ -59,7 +69,7 @@ func spawn_wavy_enemy(Location: Vector2, start_left: bool):
 	instanced_enemy.spawn_pos = Location					 #change this to where you want it to spawn
 	instanced_enemy.start_left = start_left
 	instanced_enemy.spawner_ref = self
-	current_enemies += 1
+	#current_enemies += 1
 	level.add_child(instanced_enemy)
 
 func spawn_tank_enemy(Location: Vector2, start_left: bool):
@@ -69,7 +79,7 @@ func spawn_tank_enemy(Location: Vector2, start_left: bool):
 	instanced_enemy.spawn_pos = Location					 #change this to where you want it to spawn
 	instanced_enemy.start_left = start_left
 	instanced_enemy.spawner_ref = self
-	current_enemies += 1
+	#current_enemies += 1
 	level.add_child(instanced_enemy)
 
 func spawn_capsule(Location: Vector2, start_left: bool):
@@ -80,7 +90,7 @@ func spawn_capsule(Location: Vector2, start_left: bool):
 	instanced_enemy.start_left = start_left
 	instanced_enemy.spawner_ref = self
 	instanced_enemy.level = level
-	current_enemies += 1
+	#current_enemies += 1
 	level.add_child(instanced_enemy)
 	
 func spawn_block(Location: Vector2, start_left: bool):
@@ -89,7 +99,7 @@ func spawn_block(Location: Vector2, start_left: bool):
 	instanced_enemy.spawn_pos = Location					 #change this to where you want it to spawn
 	instanced_enemy.start_left = start_left
 	instanced_enemy.spawner_ref = self
-	current_enemies += 1
+	#current_enemies += 1
 	level.add_child(instanced_enemy)
 
 func spawn_turret(Location: Vector2, start_left: bool, look_up: bool):
@@ -100,7 +110,7 @@ func spawn_turret(Location: Vector2, start_left: bool, look_up: bool):
 	instanced_enemy.start_left = start_left
 	instanced_enemy.spawner_ref = self
 	instanced_enemy.look_up = look_up
-	current_enemies += 1
+	#current_enemies += 1
 	level.add_child(instanced_enemy)
 
 func spawn_scene(Location: Vector2, timer: float, scene_ref: String):
