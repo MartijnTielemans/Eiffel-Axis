@@ -60,6 +60,28 @@ func _process(delta: float) -> void:
 		$AnimationPlayer.play("PivotPlayer")
 	elif is_shooting and !is_pivoting:
 		$AnimationPlayer.play("Shooting")
+	
+	#check wether being crushed
+	if $RayCast2D_L.is_colliding() and $RayCast2D_R.is_colliding():
+		if $RayCast2D_R.get_collider() is Block:
+			var collidedBlock = $RayCast2D_R.get_collider()
+			collidedBlock.queue_free()
+		if $RayCast2D_L.get_collider() is Block:
+			var collidedBlock = $Raycast2D_L.get_collider()
+			collidedBlock.queue_free()
+		update_health(-1)
+		#print("Colliding")
+		#var Colliding_objectL = $RayCast2D_L.get_collider()
+		#if Colliding_objectL.get_parent().is_class("Block"):
+			#print("LEFT")
+			#var Colliding_Block = $RayCast2D_L.get_collider()
+			#Colliding_Block.destroy_self
+		#var Colliding_objectR = $RayCast2D_R.get_collider()
+		#if Colliding_objectL.get_parent().is_class("Block"):
+			#print("RIGHT")
+			#var Colliding_Block = $RayCast2D_R.get_collider()
+			#Colliding_Block.destroy_self
+		#update_health(-1)
 
 	#This is triggered by the AnimationPlayer
 func shoot_projectile():
@@ -110,7 +132,7 @@ func update_health(health_change: int):
 			MusicManager.play_sound_effect("PlayerDamage")
 			I_frames = true
 			$Timer.start()
-			visualise_Iframes()
+			$RepeatingTimer.start()
 		
 
 
@@ -128,3 +150,10 @@ func load_scene():
 
 func _on_timer_timeout() -> void:
 	I_frames = false
+
+func _on_repeating_timer_timeout() -> void:
+	if I_frames == true:
+		$AnimatedSprite2D.visible = !$AnimatedSprite2D.visible
+	else:
+		$AnimatedSprite2D.visible = true
+		$RepeatingTimer.stop()

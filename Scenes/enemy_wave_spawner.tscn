@@ -26,9 +26,12 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.566667),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.233333, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [Vector2(180, 50), false],
+"method": &"spawn_block"
+}, {
 "args": [Vector2(330, 0), 15.0, "LevelScene1"],
 "method": &"spawn_scene"
 }]
