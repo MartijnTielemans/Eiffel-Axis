@@ -1,0 +1,216 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwawe0iwp08dl"]
+
+[ext_resource type="PackedScene" uid="uid://cjmc7s6l0wlig" path="res://Scenes/Enemy/SwoopEnemy.tscn" id="1_uidre"]
+[ext_resource type="PackedScene" uid="uid://bkrvm18q3ybl" path="res://Scenes/Enemy/Block.tscn" id="2_8tgvt"]
+[ext_resource type="PackedScene" uid="uid://18vv3gsdr7xv" path="res://Scenes/Enemy/TankEnemy.tscn" id="3_1sbry"]
+[ext_resource type="PackedScene" uid="uid://bfnlegnb4chkx" path="res://Scenes/Enemy/TurretEnemy.tscn" id="3_gsimr"]
+[ext_resource type="PackedScene" uid="uid://xalcavewkuaf" path="res://Scenes/Enemy/BasicEnemy.tscn" id="4_3y4j4"]
+
+[node name="WaveScene19" type="Node2D"]
+
+[node name="Block23" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(11, 169)
+
+[node name="Block24" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(33, 169)
+
+[node name="Block25" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(55, 169)
+
+[node name="Block26" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(77, 169)
+
+[node name="Block29" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(99, 169)
+
+[node name="Block30" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(121, 169)
+
+[node name="Block31" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(143, 169)
+
+[node name="Block27" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(165, 169)
+
+[node name="Block28" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(187, 169)
+
+[node name="Block32" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(209, 169)
+
+[node name="Block33" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(231, 169)
+
+[node name="Block34" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(253, 169)
+
+[node name="Block35" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(275, 169)
+
+[node name="Block36" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(297, 169)
+
+[node name="Block37" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(187, 147)
+
+[node name="Block38" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(209, 147)
+
+[node name="Block39" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(231, 147)
+
+[node name="Block40" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(253, 147)
+
+[node name="Block41" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(275, 147)
+
+[node name="Block42" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(297, 147)
+
+[node name="Block43" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(209, 125)
+
+[node name="Block44" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(231, 125)
+
+[node name="Block45" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(253, 125)
+
+[node name="Block46" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(275, 125)
+
+[node name="Block47" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(297, 125)
+
+[node name="Block48" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(319, 169)
+
+[node name="Block49" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(341, 169)
+
+[node name="Block50" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(363, 169)
+
+[node name="Block51" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(55, 25)
+
+[node name="Block52" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(77, 25)
+
+[node name="Block53" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(99, 25)
+
+[node name="Block54" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(121, 25)
+
+[node name="Block55" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(143, 25)
+
+[node name="Block56" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(165, 25)
+
+[node name="Block57" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(187, 25)
+
+[node name="Block58" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(209, 25)
+
+[node name="Block59" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(231, 25)
+
+[node name="Block60" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(253, 25)
+
+[node name="Block61" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(275, 25)
+
+[node name="Block62" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(297, 25)
+
+[node name="Block63" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(319, 25)
+
+[node name="Block64" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(55, 47)
+
+[node name="Block65" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(77, 47)
+
+[node name="Block66" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(99, 47)
+
+[node name="Block67" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(121, 47)
+
+[node name="Block68" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(77, 69)
+
+[node name="Block69" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(99, 69)
+
+[node name="Flyer" parent="." instance=ExtResource("4_3y4j4")]
+position = Vector2(143, 47)
+move_up = true
+
+[node name="Flyer2" parent="." instance=ExtResource("4_3y4j4")]
+position = Vector2(143, 69)
+move_up = true
+
+[node name="Flyer3" parent="." instance=ExtResource("4_3y4j4")]
+position = Vector2(143, 25)
+move_up = true
+
+[node name="Turret" parent="." instance=ExtResource("3_gsimr")]
+position = Vector2(55, 69)
+
+[node name="Wavy" parent="." instance=ExtResource("1_uidre")]
+position = Vector2(363, 98)
+
+[node name="Block70" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(451, 25)
+
+[node name="Block71" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(473, 25)
+
+[node name="Block72" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(495, 25)
+
+[node name="Block73" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(517, 25)
+
+[node name="Block74" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(451, 47)
+
+[node name="Block75" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(473, 47)
+
+[node name="Block76" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(451, 69)
+
+[node name="Block77" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(473, 69)
+
+[node name="Block78" parent="." instance=ExtResource("2_8tgvt")]
+position = Vector2(473, 91)
+
+[node name="Flyer4" parent="." instance=ExtResource("4_3y4j4")]
+position = Vector2(495, 94)
+move_up = true
+
+[node name="Flyer5" parent="." instance=ExtResource("4_3y4j4")]
+position = Vector2(495, 113)
+move_up = true
+
+[node name="Flyer6" parent="." instance=ExtResource("4_3y4j4")]
+position = Vector2(495, 75)
+move_up = true
+
+[node name="Tank" parent="." instance=ExtResource("3_1sbry")]
+position = Vector2(517, 136)
+
+[node name="Wavy2" parent="." instance=ExtResource("1_uidre")]
+position = Vector2(297, 98)
+
+[node name="Tank2" parent="." instance=ExtResource("3_1sbry")]
+position = Vector2(541, 75)

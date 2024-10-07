@@ -27,6 +27,7 @@ signal on_death
 
 func _ready() -> void:
 	shootParticleXPos = $ShootParticle.position.x
+	MusicManager.play_music("LevelTheme")
 
 func _process(delta: float) -> void:
 	if (defeated):

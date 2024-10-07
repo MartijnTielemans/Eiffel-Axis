@@ -1,6 +1,6 @@
 extends AnimatedSprite2D
 
-var SPEED = 0.2
+var SPEED = 0.4
 
 
 func _process(delta: float) -> void:
