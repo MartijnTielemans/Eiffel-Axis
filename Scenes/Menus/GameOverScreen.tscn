@@ -146,7 +146,7 @@ winText = ExtResource("2_p7aua")
 rankImages = Array[CompressedTexture2D]([ExtResource("2_ur6sx"), ExtResource("3_tmidi"), ExtResource("4_ygghn"), ExtResource("5_km1wh"), ExtResource("6_ynqtm")])
 rankIllustrations = Array[CompressedTexture2D]([ExtResource("8_jr6i1"), ExtResource("9_4vr6n"), ExtResource("10_0gsbu"), ExtResource("11_hj4yl"), ExtResource("12_wu32f")])
 rankSongs = Array[String](["RankD", "RankC", "RankB", "RankA", "RankS"])
-rankThresholds = Array[int]([3000, 5000, 7500, 10000])
+rankThresholds = Array[int]([8000, 16000, 26000, 36000])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
