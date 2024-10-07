@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=3 uid="uid://dejrx0k1nu6ai"]
+
+[ext_resource type="PackedScene" uid="uid://bkrvm18q3ybl" path="res://Scenes/Enemy/Block.tscn" id="1_fvpsj"]
+[ext_resource type="PackedScene" uid="uid://xalcavewkuaf" path="res://Scenes/Enemy/BasicEnemy.tscn" id="2_t6my2"]
+[ext_resource type="PackedScene" uid="uid://bfnlegnb4chkx" path="res://Scenes/Enemy/TurretEnemy.tscn" id="3_c4skt"]
+[ext_resource type="PackedScene" uid="uid://cjmc7s6l0wlig" path="res://Scenes/Enemy/SwoopEnemy.tscn" id="4_lpr1h"]
+
+[node name="WaveScene19" type="Node2D"]
+
+[node name="Block" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(13, 25)
+
+[node name="Block3" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(35, 25)
+
+[node name="Block2" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(13, 91)
+
+[node name="Block4" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(35, 91)
+
+[node name="Block5" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(35, 113)
+
+[node name="Block6" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(57, 113)
+
+[node name="Block7" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(79, 113)
+
+[node name="Block8" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(121, 113)
+
+[node name="Block9" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(99, 113)
+
+[node name="Block14" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(262, 25)
+
+[node name="Block29" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(240, 25)
+
+[node name="Block17" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(284, 25)
+
+[node name="Block18" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(306, 25)
+
+[node name="Block21" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(328, 25)
+
+[node name="Block22" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(350, 25)
+
+[node name="Block25" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(372, 25)
+
+[node name="Block27" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(394, 25)
+
+[node name="Block30" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(262, 47)
+
+[node name="Block31" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(284, 47)
+
+[node name="Block32" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(306, 47)
+
+[node name="Block33" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(328, 47)
+
+[node name="Block34" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(350, 47)
+
+[node name="Block35" parent="." instance=ExtResource("1_fvpsj")]
+position = Vector2(372, 47)
+
+[node name="Flyer5" parent="." instance=ExtResource("2_t6my2")]
+position = Vector2(283, 154)
+
+[node name="Flyer6" parent="." instance=ExtResource("2_t6my2")]
+position = Vector2(305, 132)
+
+[node name="Flyer7" parent="." instance=ExtResource("2_t6my2")]
+position = Vector2(327, 176)
+
+[node name="Flyer8" parent="." instance=ExtResource("2_t6my2")]
+position = Vector2(349, 154)
+
+[node name="CharacterBody2D3" parent="." instance=ExtResource("3_c4skt")]
+position = Vector2(57, 92)
+look_up = true
+
+[node name="CharacterBody2D4" parent="." instance=ExtResource("3_c4skt")]
+position = Vector2(99, 92)
+look_up = true
+
+[node name="CharacterBody2D5" parent="." instance=ExtResource("3_c4skt")]
+position = Vector2(13, 113)
+
+[node name="CharacterBody2D6" parent="." instance=ExtResource("3_c4skt")]
+position = Vector2(394, 47)
+
+[node name="Wavy" parent="." instance=ExtResource("4_lpr1h")]
+position = Vector2(161, 154)
+
+[node name="Wavy2" parent="." instance=ExtResource("4_lpr1h")]
+position = Vector2(183, 154)
+
+[node name="Wavy3" parent="." instance=ExtResource("4_lpr1h")]
+position = Vector2(205, 154)

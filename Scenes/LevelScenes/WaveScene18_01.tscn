@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4drwayude4pn"]
+
+[ext_resource type="PackedScene" uid="uid://bkrvm18q3ybl" path="res://Scenes/Enemy/Block.tscn" id="1_koshb"]
+[ext_resource type="PackedScene" uid="uid://bfnlegnb4chkx" path="res://Scenes/Enemy/TurretEnemy.tscn" id="2_1finy"]
+
+[node name="WaveScene18" type="Node2D"]
+
+[node name="Block23" parent="." instance=ExtResource("1_koshb")]
+position = Vector2(-77, 146)
+start_left = true
+
+[node name="Block24" parent="." instance=ExtResource("1_koshb")]
+position = Vector2(-55, 146)
+start_left = true
+
+[node name="Block25" parent="." instance=ExtResource("1_koshb")]
+position = Vector2(-33, 146)
+start_left = true
+
+[node name="Block26" parent="." instance=ExtResource("1_koshb")]
+position = Vector2(-11, 146)
+start_left = true
+
+[node name="Block27" parent="." instance=ExtResource("1_koshb")]
+position = Vector2(-55, 124)
+start_left = true
+
+[node name="Block28" parent="." instance=ExtResource("1_koshb")]
+position = Vector2(-33, 124)
+start_left = true
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_1finy")]
+position = Vector2(-77, 125)
+look_up = true
+start_left = true

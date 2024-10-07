@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://l7yoaetjvur1"]
+
+[ext_resource type="PackedScene" uid="uid://dr3o2ipcsa85g" path="res://Scenes/Enemy/ShooterEnemy.tscn" id="1_c3dt4"]
+[ext_resource type="PackedScene" uid="uid://cjmc7s6l0wlig" path="res://Scenes/Enemy/SwoopEnemy.tscn" id="2_qhuin"]
+
+[node name="WaveScene19" type="Node2D"]
+
+[node name="Quad" parent="." instance=ExtResource("1_c3dt4")]
+position = Vector2(-185, 136)
+start_left = true
+
+[node name="Wavy" parent="." instance=ExtResource("2_qhuin")]
+position = Vector2(-13, 117)
+start_left = true
+
+[node name="Quad2" parent="." instance=ExtResource("1_c3dt4")]
+position = Vector2(-294, 61)
+start_left = true

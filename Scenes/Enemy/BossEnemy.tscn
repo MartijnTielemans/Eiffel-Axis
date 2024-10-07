@@ -1,0 +1,319 @@
+[gd_scene load_steps=18 format=3 uid="uid://41qig2kalxf0"]
+
+[ext_resource type="Script" path="res://Scripts/boss_enemy.gd" id="1_5v0hg"]
+[ext_resource type="PackedScene" uid="uid://b0wq5c8rvlcn4" path="res://Scenes/Enemy/ShooterEnemy_BossVer.tscn" id="2_78r8y"]
+[ext_resource type="PackedScene" uid="uid://donl0dpk4vj7k" path="res://Scenes/Enemy/EnemyHealth.tscn" id="2_178tt"]
+[ext_resource type="Texture2D" uid="uid://bdywe42quoc8d" path="res://Assets/Enemies/BossEnemySprite_02.png" id="3_hbmgg"]
+[ext_resource type="PackedScene" uid="uid://dv2srg8rl3sm0" path="res://Scenes/Enemy/damage_player.tscn" id="3_i6s6v"]
+[ext_resource type="Texture2D" uid="uid://cugdikeir5gi3" path="res://Assets/Enemies/BossEnemySprite_01.png" id="5_23t8u"]
+[ext_resource type="PackedScene" path="res://Scenes/Visuals/EnemyDestroyParticle.tscn" id="7_e0ku5"]
+[ext_resource type="Texture2D" uid="uid://dr7caesyes8ej" path="res://Assets/Visuals/Player_Explosion-sheet.png" id="7_ra2w3"]
+[ext_resource type="PackedScene" uid="uid://cku01fcjln0gw" path="res://Scenes/Visuals/BossDestroyParticle.tscn" id="9_5lmtr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bydgu"]
+size = Vector2(24, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aix5t"]
+size = Vector2(26, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oklol"]
+atlas = ExtResource("7_ra2w3")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2nfe"]
+atlas = ExtResource("7_ra2w3")
+region = Rect2(34, 0, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_la5co"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oklol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2nfe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="Animation" id="Animation_ivcoy"]
+resource_name = "Boss_Death"
+length = 9.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explode:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explode2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.75, 3, 3.25, 3.5, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Explode3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.55, 1.8, 2.05, 2.3, 2.55, 2.8, 3.05, 3.3, 3.55, 3.8, 4.05, 4.3, 4.55, 4.8, 5.05, 5.3, 5.5, 5.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EnemyDestroyParticle:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4.3, 4.8, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EnemyDestroyParticle2:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4.55, 5.05, 5.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EnemyDestroyParticle3:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4.8, 5.25, 5.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BossParticle:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 5.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Rotator/Sprite2D:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 5.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_todsy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explode:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemyDestroyParticle:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnemyDestroyParticle2:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EnemyDestroyParticle3:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BossParticle:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Rotator/Sprite2D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_131od"]
+_data = {
+"Boss_Death": SubResource("Animation_ivcoy"),
+"RESET": SubResource("Animation_todsy")
+}
+
+[node name="BossEnemy" type="Node2D" node_paths=PackedStringArray("bulletOrigin")]
+script = ExtResource("1_5v0hg")
+sideSprite = ExtResource("5_23t8u")
+frontSprite = ExtResource("3_hbmgg")
+health = 75
+bulletOrigin = NodePath("Rotator/Bullet Origin")
+enemyToSpawn = ExtResource("2_78r8y")
+enemyPosLU = Vector2(-20, 25)
+enemyPosLD = Vector2(-20, 160)
+enemyPosRU = Vector2(340, 25)
+enemyPosRD = Vector2(340, 160)
+
+[node name="DamagePlayer" parent="." instance=ExtResource("3_i6s6v")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagePlayer"]
+shape = SubResource("RectangleShape2D_bydgu")
+
+[node name="health" parent="." instance=ExtResource("2_178tt")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="health"]
+shape = SubResource("RectangleShape2D_aix5t")
+
+[node name="Rotator" type="Node2D" parent="."]
+scale = Vector2(-1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Rotator"]
+position = Vector2(1, 0)
+texture = ExtResource("5_23t8u")
+
+[node name="Bullet Origin" type="Node2D" parent="Rotator"]
+position = Vector2(-13, -22)
+
+[node name="MoveModeTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="StartMovementTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="AttackCoolDownTimer" type="Timer" parent="."]
+wait_time = 1.41
+one_shot = true
+
+[node name="EnemySpawnCooldownTimer" type="Timer" parent="."]
+wait_time = 12.5
+
+[node name="SwitchedWaitTime" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="DeathSequence" type="Node2D" parent="."]
+
+[node name="EnemyDestroyParticle" parent="DeathSequence" instance=ExtResource("7_e0ku5")]
+position = Vector2(2, -17)
+
+[node name="EnemyDestroyParticle2" parent="DeathSequence" instance=ExtResource("7_e0ku5")]
+position = Vector2(-11, -1)
+
+[node name="EnemyDestroyParticle3" parent="DeathSequence" instance=ExtResource("7_e0ku5")]
+position = Vector2(4, 28)
+
+[node name="Explode" type="AnimatedSprite2D" parent="DeathSequence"]
+visible = false
+position = Vector2(-13, -21)
+sprite_frames = SubResource("SpriteFrames_la5co")
+autoplay = "default"
+
+[node name="Explode2" type="AnimatedSprite2D" parent="DeathSequence"]
+visible = false
+position = Vector2(11, 6)
+sprite_frames = SubResource("SpriteFrames_la5co")
+autoplay = "default"
+
+[node name="Explode3" type="AnimatedSprite2D" parent="DeathSequence"]
+visible = false
+position = Vector2(-15, 23)
+sprite_frames = SubResource("SpriteFrames_la5co")
+autoplay = "default"
+frame = 1
+frame_progress = 0.669379
+
+[node name="BossParticle" parent="DeathSequence" instance=ExtResource("9_5lmtr")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DeathSequence"]
+active = false
+libraries = {
+"": SubResource("AnimationLibrary_131od")
+}
+autoplay = "Boss_Death"
+
+[connection signal="timeout" from="MoveModeTimer" to="." method="_on_move_mode_timer_timeout"]
+[connection signal="timeout" from="StartMovementTimer" to="." method="_on_start_movement_timer_timeout"]
+[connection signal="timeout" from="AttackCoolDownTimer" to="." method="_on_attack_cool_down_timer_timeout"]
+[connection signal="timeout" from="EnemySpawnCooldownTimer" to="." method="_on_enemy_spawn_cooldown_timer_timeout"]
+[connection signal="timeout" from="SwitchedWaitTime" to="." method="_on_switched_wait_time_timeout"]
+[connection signal="animation_finished" from="DeathSequence/AnimationPlayer" to="." method="_death_sequence_over"]

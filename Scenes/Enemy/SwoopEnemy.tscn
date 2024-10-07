@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjmc7s6l0wlig"]
+
+[ext_resource type="Script" path="res://Scripts/swoop_enemy.gd" id="1_4gej1"]
+[ext_resource type="Texture2D" uid="uid://dg4rxo8fok3h2" path="res://Assets/Enemies/Enemy_Wavy.png" id="2_mg1j3"]
+[ext_resource type="PackedScene" uid="uid://donl0dpk4vj7k" path="res://Scenes/Enemy/EnemyHealth.tscn" id="3_sen17"]
+[ext_resource type="PackedScene" uid="uid://dv2srg8rl3sm0" path="res://Scenes/Enemy/damage_player.tscn" id="4_a3hvx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ouoty"]
+radius = 5.0
+height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m83k1"]
+radius = 5.0
+
+[node name="Wavy" type="Node2D"]
+z_index = 4
+script = ExtResource("1_4gej1")
+y_movement = 0
+moveSpeed = 80.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(0, 9.53674e-07)
+texture = ExtResource("2_mg1j3")
+
+[node name="EnemyHealth" parent="." instance=ExtResource("3_sen17")]
+collision_layer = 9
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHealth"]
+z_index = 5
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ouoty")
+
+[node name="DamagePlayer" parent="." instance=ExtResource("4_a3hvx")]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagePlayer"]
+z_index = 5
+shape = SubResource("CircleShape2D_m83k1")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

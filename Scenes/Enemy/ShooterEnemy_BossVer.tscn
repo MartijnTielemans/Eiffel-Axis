@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://b0wq5c8rvlcn4"]
+
+[ext_resource type="Script" path="res://Scripts/shooter_enemy.gd" id="1_ou0nn"]
+[ext_resource type="Texture2D" uid="uid://dhyy4ncexxo7k" path="res://Assets/Enemies/Enemy_QuadShot.png" id="2_wxcfb"]
+[ext_resource type="PackedScene" uid="uid://donl0dpk4vj7k" path="res://Scenes/Enemy/EnemyHealth.tscn" id="3_3ghsx"]
+[ext_resource type="PackedScene" uid="uid://dv2srg8rl3sm0" path="res://Scenes/Enemy/damage_player.tscn" id="4_5ltru"]
+[ext_resource type="AudioStream" uid="uid://bugk2whp5n617" path="res://Audio/EnemyShoot.wav" id="5_0cs4v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2vlek"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m83k1"]
+radius = 5.0
+
+[sub_resource type="Animation" id="Animation_bdl3d"]
+resource_name = "Movement"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_akugm"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3dm2d"]
+_data = {
+"Movement": SubResource("Animation_bdl3d"),
+"RESET": SubResource("Animation_akugm")
+}
+
+[node name="Quad" type="Node2D"]
+z_index = 4
+script = ExtResource("1_ou0nn")
+awarded_points = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(0, 9.53674e-07)
+texture = ExtResource("2_wxcfb")
+
+[node name="EnemyHealth" parent="." instance=ExtResource("3_3ghsx")]
+collision_layer = 9
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHealth"]
+z_index = 5
+shape = SubResource("CircleShape2D_2vlek")
+
+[node name="DamagePlayer" parent="." instance=ExtResource("4_5ltru")]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagePlayer"]
+z_index = 5
+shape = SubResource("CircleShape2D_m83k1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3dm2d")
+}
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_0cs4v")
+bus = &"Sound Effects"
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

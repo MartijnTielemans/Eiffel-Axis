@@ -1,0 +1,68 @@
+[gd_scene load_steps=13 format=3 uid="uid://dlgxnfmv8d1gg"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_bullet.gd" id="1_bvnvj"]
+[ext_resource type="PackedScene" uid="uid://dko8hipkovjto" path="res://Scenes/Visuals/EnemyBulletHitParticle.tscn" id="2_7t0f1"]
+[ext_resource type="Texture2D" uid="uid://d0sd8wc1n6s04" path="res://Assets/Enemies/Enemy_Bullet01.png" id="2_y8e7q"]
+[ext_resource type="Texture2D" uid="uid://63nejx3nka4j" path="res://Assets/Enemies/Enemy_Bullet02.png" id="3_pb18u"]
+[ext_resource type="Texture2D" uid="uid://d0bvgfcw6a4yw" path="res://Assets/Enemies/Enemy_Bullet03.png" id="4_synhv"]
+[ext_resource type="Texture2D" uid="uid://55hoc0ih1j10" path="res://Assets/Enemies/Enemy_Bullet04.png" id="5_0hlxj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvcq8"]
+atlas = ExtResource("2_y8e7q")
+region = Rect2(0, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvgaw"]
+atlas = ExtResource("3_pb18u")
+region = Rect2(0, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgj85"]
+atlas = ExtResource("4_synhv")
+region = Rect2(0, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gayb8"]
+atlas = ExtResource("5_0hlxj")
+region = Rect2(0, 0, 22, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4js1x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvcq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvgaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgj85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gayb8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m446m"]
+radius = 3.0
+
+[node name="EnemyBullet" type="Area2D"]
+collision_layer = 10
+collision_mask = 10
+script = ExtResource("1_bvnvj")
+bulletHitParticle = ExtResource("2_7t0f1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 4
+sprite_frames = SubResource("SpriteFrames_4js1x")
+autoplay = "default"
+frame_progress = 0.722806
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 4
+shape = SubResource("CircleShape2D_m446m")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

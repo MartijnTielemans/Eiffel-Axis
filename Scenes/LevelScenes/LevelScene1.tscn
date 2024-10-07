@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://dp77qhg17iwqr"]
+
+[ext_resource type="PackedScene" uid="uid://bkrvm18q3ybl" path="res://Scenes/Enemy/Block.tscn" id="1_t5e1u"]
+[ext_resource type="PackedScene" uid="uid://bfnlegnb4chkx" path="res://Scenes/Enemy/TurretEnemy.tscn" id="2_unt31"]
+[ext_resource type="PackedScene" uid="uid://cwqfcufw0uwdf" path="res://Scenes/Enemy/CapsuleEnemy.tscn" id="3_hgq7w"]
+[ext_resource type="PackedScene" uid="uid://cjmc7s6l0wlig" path="res://Scenes/Enemy/SwoopEnemy.tscn" id="4_vxhsr"]
+[ext_resource type="PackedScene" uid="uid://18vv3gsdr7xv" path="res://Scenes/Enemy/TankEnemy.tscn" id="5_yo2oa"]
+[ext_resource type="PackedScene" uid="uid://xalcavewkuaf" path="res://Scenes/Enemy/BasicEnemy.tscn" id="6_ynsu0"]
+[ext_resource type="PackedScene" uid="uid://dr3o2ipcsa85g" path="res://Scenes/Enemy/ShooterEnemy.tscn" id="7_xdm6g"]
+
+[node name="LevelScene1" type="Node2D"]
+
+[node name="Block2" parent="." instance=ExtResource("1_t5e1u")]
+position = Vector2(33, 169)
+
+[node name="Block" parent="." instance=ExtResource("1_t5e1u")]
+position = Vector2(11, 169)
+
+[node name="Block3" parent="." instance=ExtResource("1_t5e1u")]
+position = Vector2(55, 169)
+
+[node name="Block4" parent="." instance=ExtResource("1_t5e1u")]
+position = Vector2(77, 169)
+
+[node name="Block5" parent="." instance=ExtResource("1_t5e1u")]
+position = Vector2(99, 169)
+
+[node name="Block6" parent="." instance=ExtResource("1_t5e1u")]
+position = Vector2(121, 169)
+
+[node name="Block7" parent="." instance=ExtResource("1_t5e1u")]
+position = Vector2(55, 147)
+
+[node name="Block8" parent="." instance=ExtResource("1_t5e1u")]
+position = Vector2(77, 147)
+
+[node name="Block9" parent="." instance=ExtResource("1_t5e1u")]
+position = Vector2(99, 125)
+
+[node name="Block10" parent="." instance=ExtResource("1_t5e1u")]
+position = Vector2(99, 147)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_unt31")]
+position = Vector2(121, 147)
+look_up = true
+
+[node name="Block11" parent="." instance=ExtResource("1_t5e1u")]
+position = Vector2(143, 169)
+
+[node name="Block12" parent="." instance=ExtResource("1_t5e1u")]
+position = Vector2(165, 169)
+
+[node name="Block13" parent="." instance=ExtResource("1_t5e1u")]
+position = Vector2(187, 169)
+
+[node name="Block14" parent="." instance=ExtResource("1_t5e1u")]
+position = Vector2(209, 169)
+
+[node name="Block15" parent="." instance=ExtResource("1_t5e1u")]
+position = Vector2(231, 169)
+
+[node name="Block16" parent="." instance=ExtResource("1_t5e1u")]
+position = Vector2(143, 125)
+
+[node name="Block17" parent="." instance=ExtResource("1_t5e1u")]
+position = Vector2(187, 125)
+
+[node name="Block6" parent="Block17" instance=ExtResource("1_t5e1u")]
+position = Vector2(121, 169)
+
+[node name="Capsule" parent="." instance=ExtResource("3_hgq7w")]
+position = Vector2(165, 147)
+
+[node name="Wavy" parent="." instance=ExtResource("4_vxhsr")]
+position = Vector2(208, 125)
+
+[node name="Tank" parent="." instance=ExtResource("5_yo2oa")]
+position = Vector2(208, 149)
+
+[node name="Flyer" parent="." instance=ExtResource("6_ynsu0")]
+position = Vector2(187, 104)
+
+[node name="Quad" parent="." instance=ExtResource("7_xdm6g")]
+position = Vector2(253, 169)

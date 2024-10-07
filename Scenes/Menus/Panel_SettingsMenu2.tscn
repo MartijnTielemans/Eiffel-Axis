@@ -1,0 +1,186 @@
+[gd_scene load_steps=12 format=3 uid="uid://ck1vkcwad2qas"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/PanelScript.gd" id="1_wiin2"]
+[ext_resource type="Texture2D" uid="uid://baxj3iyrggvns" path="res://Assets/Menus/SettingsBG.png" id="2_xk2km"]
+[ext_resource type="Texture2D" uid="uid://cfl3sdadin3i" path="res://Assets/Menus/Panel9Slice.png" id="3_i8fe1"]
+[ext_resource type="Texture2D" uid="uid://gtvlcc72y7f3" path="res://Assets/Menus/Panel9SliceBlack.png" id="4_hj8vy"]
+[ext_resource type="Texture2D" uid="uid://bac8gqdhwy6gm" path="res://Assets/Menus/MenuButtonSmall_Neutral.png" id="5_1nc4j"]
+[ext_resource type="Texture2D" uid="uid://bvoxq8ryhx6of" path="res://Assets/Menus/MenuButtonSmall_Select.png" id="6_cbrjl"]
+[ext_resource type="Texture2D" uid="uid://dp8x10dgmx6j0" path="res://Assets/Menus/MenuButtonSmall_HoverMouse.png" id="7_nq715"]
+[ext_resource type="Texture2D" uid="uid://bt2wba8o7jsga" path="res://Assets/Menus/MenuButtonSmall_Hover.png" id="8_2prm6"]
+[ext_resource type="FontFile" uid="uid://d35wovbc4u2xv" path="res://Fonts/PolygonPixel5x7Cyrillic.ttf" id="9_asfti"]
+[ext_resource type="PackedScene" uid="uid://cwq63fjf4jrc2" path="res://Scenes/Menus/VolumeSlider.tscn" id="10_pbbb6"]
+
+[sub_resource type="Theme" id="Theme_eaevg"]
+
+[node name="SettingsMenu" type="Control" node_paths=PackedStringArray("firstButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wiin2")
+firstButton = NodePath("BoxContainer/NinePatchRect/NinePatchRect/TextureButton")
+
+[node name="BackgroundMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundMargin"]
+layout_mode = 2
+texture = ExtResource("2_xk2km")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -61.0
+offset_right = 125.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_i8fe1")
+region_rect = Rect2(0, 0, 20, 20)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BoxContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_hj8vy")
+region_rect = Rect2(0, 0, 20, 20)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="TextureButton" type="TextureButton" parent="BoxContainer/NinePatchRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -27.0
+offset_right = -4.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("5_1nc4j")
+texture_pressed = ExtResource("6_cbrjl")
+texture_hover = ExtResource("7_nq715")
+texture_focused = ExtResource("8_2prm6")
+
+[node name="Label" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 2.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_eaevg")
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("9_asfti")
+text = "Close"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 5.0
+offset_right = 109.0
+offset_bottom = 19.955
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("9_asfti")
+text = "-- Paramètres --"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/NinePatchRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 30.0
+offset_right = -21.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SliderHBox" type="HBoxContainer" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/SliderHBox"]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("9_asfti")
+text = "Master"
+
+[node name="VolumeSlider" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/SliderHBox" instance=ExtResource("10_pbbb6")]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+bus_name = "Master"
+
+[node name="SliderHBox2" type="HBoxContainer" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/SliderHBox2"]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("9_asfti")
+text = "Music"
+
+[node name="VolumeSlider" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/SliderHBox2" instance=ExtResource("10_pbbb6")]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+bus_name = "Music"
+
+[node name="SliderHBox3" type="HBoxContainer" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/SliderHBox3"]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.67451, 1)
+theme_override_fonts/font = ExtResource("9_asfti")
+text = "SFX"
+
+[node name="VolumeSlider" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/SliderHBox3" instance=ExtResource("10_pbbb6")]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+bus_name = "Sound Effects"
+
+[connection signal="pressed" from="BoxContainer/NinePatchRect/NinePatchRect/TextureButton" to="." method="_on_texture_button_pressed"]

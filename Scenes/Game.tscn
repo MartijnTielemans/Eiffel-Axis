@@ -1,0 +1,104 @@
+[gd_scene load_steps=17 format=3 uid="uid://cli2135tl06sc"]
+
+[ext_resource type="Texture2D" uid="uid://ctahdtrvwvadd" path="res://Assets/ColorBG.png" id="1_66xep"]
+[ext_resource type="PackedScene" uid="uid://bo1hlnjr873ur" path="res://Scenes/player_character.tscn" id="1_f47mq"]
+[ext_resource type="PackedScene" uid="uid://dnh3fcaqoh1i2" path="res://Scenes/BulletKillzone.tscn" id="2_tes6b"]
+[ext_resource type="PackedScene" uid="uid://01ipqwrpf2b4" path="res://Scenes/EiffelTowerBG.tscn" id="4_3uwxw"]
+[ext_resource type="PackedScene" uid="uid://cccn6g6gmnls2" path="res://Scenes/enemy_wave_spawner.tscn" id="6_y3l4w"]
+[ext_resource type="PackedScene" uid="uid://0np0slgleins" path="res://Scenes/GameUI.tscn" id="7_cd0yk"]
+[ext_resource type="PackedScene" uid="uid://bkunpnkgoskr0" path="res://Scenes/Visuals/CloudSpawner.tscn" id="7_l4iqh"]
+[ext_resource type="PackedScene" uid="uid://c1htrmo3v33m2" path="res://Scenes/Visuals/CloudScene.tscn" id="8_4b7s8"]
+[ext_resource type="PackedScene" uid="uid://ewiblxpwilux" path="res://Scenes/EnemyKillzone.tscn" id="9_8waex"]
+[ext_resource type="PackedScene" uid="uid://dpxod2wga6wfv" path="res://Scenes/Menus/PauseMenu.tscn" id="10_mpxb5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_20bud"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q2qql"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tra61"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fpw58"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_etps8"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnpl8"]
+normal = Vector2(-1, 0)
+
+[node name="Level" type="Node2D"]
+
+[node name="ColorBg" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(160, 90)
+texture = ExtResource("1_66xep")
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("4_3uwxw")]
+position = Vector2(160, 35)
+
+[node name="ScreenEdges" type="StaticBody2D" parent="."]
+position = Vector2(156, 173)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ScreenEdges"]
+position = Vector2(0, -157)
+shape = SubResource("WorldBoundaryShape2D_20bud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenEdges"]
+position = Vector2(0, 3)
+shape = SubResource("WorldBoundaryShape2D_q2qql")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ScreenEdges"]
+position = Vector2(-152, -90)
+shape = SubResource("WorldBoundaryShape2D_tra61")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ScreenEdges"]
+position = Vector2(160, -90)
+shape = SubResource("WorldBoundaryShape2D_fpw58")
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_f47mq")]
+position = Vector2(101, 107)
+
+[node name="PlayerBulletKillzone" parent="." instance=ExtResource("2_tes6b")]
+visible = false
+position = Vector2(327, 89)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayerBulletKillzone"]
+position = Vector2(-333, 5)
+shape = SubResource("WorldBoundaryShape2D_etps8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBulletKillzone"]
+shape = SubResource("WorldBoundaryShape2D_lnpl8")
+
+[node name="Wave_spawner" parent="." instance=ExtResource("6_y3l4w")]
+z_index = 4
+position = Vector2(344, 43)
+
+[node name="Control" parent="." instance=ExtResource("7_cd0yk")]
+z_index = 21
+offset_right = 320.0
+
+[node name="CloudSpawner" parent="." instance=ExtResource("7_l4iqh")]
+z_index = -1
+position = Vector2(0, -5)
+cloudScene = ExtResource("8_4b7s8")
+
+[node name="CloudScene" parent="CloudSpawner" instance=ExtResource("8_4b7s8")]
+position = Vector2(209, 54)
+initialDirectionMult = 1
+
+[node name="CloudScene2" parent="CloudSpawner" instance=ExtResource("8_4b7s8")]
+position = Vector2(243, 105)
+initialDirectionMult = 1
+
+[node name="CloudScene3" parent="CloudSpawner" instance=ExtResource("8_4b7s8")]
+position = Vector2(68, 71)
+initialDirectionMult = 1
+
+[node name="EnemyKillzone" parent="." instance=ExtResource("9_8waex")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_mpxb5")]
+visible = false

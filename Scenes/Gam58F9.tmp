@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://0np0slgleins"]
+
+[ext_resource type="Texture2D" uid="uid://cos0tn7ht2lr7" path="res://Assets/UI/UI_Heart_Full.png" id="1_5hd0h"]
+[ext_resource type="Script" path="res://Scripts/game_ui.gd" id="1_s4hrd"]
+[ext_resource type="Texture2D" uid="uid://cpdejujmkc2lk" path="res://Assets/UI/UI_ProgressNotches.png" id="2_5sua8"]
+[ext_resource type="Texture2D" uid="uid://cpiltujyawjqv" path="res://Assets/UI/UI_ProgressBar.png" id="2_kfsst"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 13.0
+grow_horizontal = 2
+script = ExtResource("1_s4hrd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 14.0
+grow_horizontal = 2
+color = Color(0.180392, 0.203922, 0.223529, 1)
+
+[node name="BarBG" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(-100, 0)
+layout_mode = 2
+offset_left = 84.0
+offset_top = 4.0
+offset_right = 228.0
+offset_bottom = 11.0
+grow_horizontal = 2
+texture = ExtResource("2_kfsst")
+stretch_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.141
+anchor_right = 0.228
+offset_left = -0.120003
+offset_top = 1.0
+offset_right = 0.0399933
+offset_bottom = 8.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
+
+[node name="Heart1" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 10.08
+texture = ExtResource("1_5hd0h")
+expand_mode = 5
+stretch_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_5hd0h")
+expand_mode = 5
+stretch_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_5hd0h")
+expand_mode = 5
+stretch_mode = 2
+
+[node name="BarCells" type="Sprite2D" parent="."]
+position = Vector2(156, 7)
+texture = ExtResource("2_5sua8")
+region_enabled = true
+region_rect = Rect2(0, 0, 144, 7)
