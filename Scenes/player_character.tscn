@@ -352,6 +352,9 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5e32g")
 
+[node name="PlayerSounds" type="AudioStreamPlayer2D" parent="."]
+bus = &"Sound Effects"
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_gyatx")
 bus = &"Sound Effects"

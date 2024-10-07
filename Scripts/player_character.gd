@@ -81,8 +81,6 @@ func shoot_projectile():
 	if (defeated):
 		return
 	amount_of_projectiles = clamp(amount_of_projectiles,0,MaxBullets)
-	print("Amount of bullets: " + str(amount_of_projectiles))
-	print("MaxBullets: " + str(MaxBullets))
 	if amount_of_projectiles < MaxBullets:
 		var projectile = load("res://Scenes/Bullet.tscn")
 		var projectile_instance = projectile.instantiate()
@@ -128,13 +126,15 @@ func update_health(health_change: int):
 		$HurtParticle.emitting = true
 		if HP == 0:
 			# Signal Game Over
-			MusicManager.play_sound_effect("GameOver")
+			$PlayerSounds.stream = preload("res://Audio/GameOver.wav")
+			$PlayerSounds.play()
 			on_death.emit()
 			defeated = true
 			$ShipExplosion/GameOverExplosionAnim.active = true
 			$ShipExplosion/GameOverExplosionAnim.play("GameOver_Explode")
 		else:
-			MusicManager.play_sound_effect("PlayerDamage")
+			$PlayerSounds.stream = preload("res://Audio/PlayerDamage.wav")
+			$PlayerSounds.play()
 			I_frames = true
 			$Timer.start()
 			$RepeatingTimer.start()

@@ -13,7 +13,7 @@ func _on_body_entered(body: Node2D) -> void:
 			MusicManager.play_player_bullet_sound_effect("EnemyHit")
 		else:
 			emit_particles()
-			MusicManager.play_sound_effect("EnemyDestroyed")
+			MusicManager.play_special("EnemyDestroyed")
 			myparent.die()
 
 func emit_particles():

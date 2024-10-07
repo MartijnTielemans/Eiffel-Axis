@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkrvm18q3ybl"]
+[gd_scene load_steps=7 format=3 uid="uid://bkrvm18q3ybl"]
 
 [ext_resource type="Script" path="res://Scripts/block.gd" id="1_pqoo8"]
 [ext_resource type="Texture2D" uid="uid://70jtftewx7lt" path="res://Assets/Enemies/Enemy_Block.png" id="1_vb3pj"]
+[ext_resource type="PackedScene" uid="uid://cwxqd5j7o4cpc" path="res://Scenes/Visuals/BlockBreak.tscn" id="2_aou0s"]
 [ext_resource type="Script" path="res://Scripts/area_2d.gd" id="3_w10lj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4rwbj"]
@@ -13,6 +14,7 @@ size = Vector2(18, 18)
 [node name="Block" type="StaticBody2D"]
 collision_layer = 3
 script = ExtResource("1_pqoo8")
+destroyParticles = ExtResource("2_aou0s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_vb3pj")

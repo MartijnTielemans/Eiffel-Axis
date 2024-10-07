@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwxqd5j7o4cpc"]
+
+[ext_resource type="Texture2D" uid="uid://c3ayol8y6dt2r" path="res://Assets/Visuals/BlockShards.png" id="1_1y5oq"]
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+emitting = false
+amount = 6
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.6
+texture = ExtResource("1_1y5oq")
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 150)
+initial_velocity_min = 50.0
+initial_velocity_max = 70.0
