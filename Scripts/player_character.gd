@@ -70,10 +70,10 @@ func _process(delta: float) -> void:
 	if $RayCast2D_L.is_colliding() and $RayCast2D_R.is_colliding():
 		if $RayCast2D_R.get_collider() is Block:
 			var collidedBlock = $RayCast2D_R.get_collider()
-			collidedBlock.queue_free()
+			collidedBlock.break_self()
 		if $RayCast2D_L.get_collider() is Block:
 			var collidedBlock = $Raycast2D_L.get_collider()
-			collidedBlock.queue_free()
+			collidedBlock.break_self()
 		update_health(-1)
 
 	#This is triggered by the AnimationPlayer
