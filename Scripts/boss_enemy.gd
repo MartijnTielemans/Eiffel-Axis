@@ -1,16 +1,21 @@
 extends Node2D
 
+var defeated = false
+signal bossDeath
+
 var player_character
 var spawner_ref : Node2D
 var movement_mode := MoveMode.IDLE
 enum MoveMode {IDLE, BETWEEN, MOVING}
 
-@export var awarded_points : int = 3000
+@export var sideSprite : CompressedTexture2D
+@export var frontSprite : CompressedTexture2D
 
+@export var awarded_points : int = 3000
 @export var health : int
 @export var bulletOrigin : Node2D
 @export var enemyToSpawn : PackedScene
-var direction : int = -1
+var direction : int = 1
 
 # Movement Variables
 var canMove = false
@@ -43,6 +48,9 @@ func _ready() -> void:
 	
 	startYPos = global_position.y
 	$StartMovementTimer.start()
+	
+	canMove = true
+	StartMovingSides()
 
 func _process(delta: float) -> void:
 	timeElapsed += delta
@@ -64,6 +72,7 @@ func _process(delta: float) -> void:
 		# If target position is reached, start timer and go to idle again
 		if position == moveTargetPos || sideSwitchTime == 1:
 			movement_mode = MoveMode.BETWEEN
+			$Rotator/Sprite2D.texture = frontSprite
 			$SwitchedWaitTime.start()
 
 # Shoots four bullets
@@ -113,15 +122,39 @@ func spawn_enemies():
 				enemy.start_left = true
 		
 		enemy.global_position = spawnPos
+		bossDeath.connect(enemy.emit_death_particle) 
+		bossDeath.connect(enemy.die) # Die if the boss is defeated
 		get_tree().get_root().get_node("Level").add_child(enemy)
 
 
 func die():
-	# Trigger player won functionality
-	var UI_ref = get_node("/root/Level/Control")
-	UI_ref.update_points(awarded_points)
-	get_node("/root/Level/PlayerCharacter").game_over_win()
-	queue_free() # Replace with sequence later
+	if defeated:
+		return
+	
+	defeated = true
+	bossDeath.emit()
+	$MoveModeTimer.stop()
+	$AttackCoolDownTimer.stop()
+	$EnemySpawnCooldownTimer.stop()
+	$DamagePlayer.canDamage = false
+	$DamagePlayer/CollisionShape2D.disabled = true
+	$health/CollisionShape2D.disabled = true
+	$health/CollisionShape2D.position.y += 9999
+	canMove = false
+	canShoot = false
+	canSpawnEnemy = false
+	StartDeathDequence()
+
+func StartDeathDequence():
+	$DeathSequence/AnimationPlayer.active = true
+	$DeathSequence/AnimationPlayer.play("Boss_Death")
+
+# Trigger player won functionality
+func _death_sequence_over(anim_name: StringName):
+	if anim_name == "Boss_Death":
+		var UI_ref = get_node("/root/Level/Control")
+		UI_ref.update_points(awarded_points)
+		get_node("/root/Level/PlayerCharacter").game_over_win()
 
 
 # Turns the boss. Scales -1 and sets direction
@@ -163,6 +196,7 @@ func _on_switched_wait_time_timeout() -> void:
 		TurnAround()
 		timeElapsed = 0
 		movement_mode = MoveMode.IDLE
+		$Rotator/Sprite2D.texture = sideSprite
 		StartMoveModeTimer()
 
 func _on_attack_cool_down_timer_timeout() -> void:

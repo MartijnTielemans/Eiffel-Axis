@@ -22,13 +22,18 @@ func _process(delta: float) -> void:
 
 func lose_points():
 	awarded_points = 0
+	
+
+func emit_death_particle():
+	$EnemyHealth.emit_particles()
 
 func die():
-	if not spawner_ref == null:
-		spawner_ref.update_enemy_count(-1,awarded_points)
-	else:
-		var UI_ref = get_node("/root/Level/Control")
-		UI_ref.update_points(awarded_points)
+	if awarded_points != 0:
+		if not spawner_ref == null:
+			spawner_ref.update_enemy_count(-1,awarded_points)
+		else:
+			var UI_ref = get_node("/root/Level/Control")
+			UI_ref.update_points(awarded_points)
 	queue_free()
 
 func shoot():

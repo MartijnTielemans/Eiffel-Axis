@@ -13,10 +13,13 @@ func _on_body_entered(body: Node2D) -> void:
 			MusicManager.play_player_bullet_sound_effect("EnemyHit")
 			print("playing")
 		else:
-			for i in destroyParticles:
-				var particle : CPUParticles2D = i.instantiate()
-				particle.global_position = myparent.global_position
-				get_tree().root.add_child(particle)
-				particle.emitting = true
+			emit_particles()
 			MusicManager.play_sound_effect("EnemyDestroyed")
 			myparent.die()
+
+func emit_particles():
+	for i in destroyParticles:
+		var particle : CPUParticles2D = i.instantiate()
+		particle.global_position = myparent.global_position
+		get_tree().root.add_child(particle)
+		particle.emitting = true
