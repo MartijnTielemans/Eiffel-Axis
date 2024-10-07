@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpv7tmway1fhk"]
+[gd_scene load_steps=2 format=3 uid="uid://b5uexffesgrcm"]
 
 [ext_resource type="Script" path="res://Scripts/ParticleDespawner.gd" id="1_wm0ad"]
 

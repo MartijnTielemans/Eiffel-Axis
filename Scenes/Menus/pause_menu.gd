@@ -70,7 +70,7 @@ func _on_settings_menu_close_panel() -> void:
 
 
 func _input(event):
-	if event.is_action_pressed("ui_down") or event.is_action_pressed("ui_up") or event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right"):
+	if not InputEventJoypadMotion and (event.is_action_pressed("ui_down") or event.is_action_pressed("ui_up") or event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right")):
 		MusicManager.play_sound_effect("CursorMove")
 
 func _unhandled_input(event):
