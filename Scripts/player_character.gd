@@ -81,8 +81,6 @@ func shoot_projectile():
 	if (defeated):
 		return
 	amount_of_projectiles = clamp(amount_of_projectiles,0,MaxBullets)
-	print("Amount of bullets: " + str(amount_of_projectiles))
-	print("MaxBullets: " + str(MaxBullets))
 	if amount_of_projectiles < MaxBullets:
 		var projectile = load("res://Scenes/Bullet.tscn")
 		var projectile_instance = projectile.instantiate()

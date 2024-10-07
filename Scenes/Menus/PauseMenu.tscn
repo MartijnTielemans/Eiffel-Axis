@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpxod2wga6wfv"]
+[gd_scene load_steps=12 format=3 uid="uid://crhrup3wxgq2j"]
 
 [ext_resource type="Texture2D" uid="uid://df0dlm3lhnbqg" path="res://Assets/Menus/PauseMenuBG.png" id="1_6xhnm"]
 [ext_resource type="Script" path="res://Scenes/Menus/pause_menu.gd" id="1_dkfiv"]
@@ -96,6 +96,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Continue" type="TextureButton" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 texture_normal = ExtResource("4_tux8x")
 texture_pressed = ExtResource("5_alcb6")
@@ -120,6 +121,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Settings" type="TextureButton" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 texture_normal = ExtResource("4_tux8x")
 texture_pressed = ExtResource("5_alcb6")
@@ -144,6 +146,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Exit" type="TextureButton" parent="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 texture_normal = ExtResource("4_tux8x")
 texture_pressed = ExtResource("5_alcb6")
@@ -241,7 +244,10 @@ patch_margin_bottom = 5
 visible = false
 layout_mode = 1
 
+[connection signal="mouse_entered" from="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="mouse_entered" from="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Settings" to="." method="_on_settings_mouse_entered"]
 [connection signal="pressed" from="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Exit" to="." method="_on_exit_mouse_entered"]
 [connection signal="pressed" from="BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="closePanel" from="SettingsMenu" to="." method="_on_settings_menu_close_panel"]

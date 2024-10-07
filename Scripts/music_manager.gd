@@ -16,6 +16,7 @@ func play_enemy_shoot():
 	#$AudioStreamPlayer2D.stream = load("res://Audio/EnemyShoot.wav")
 	$EnemyShootingSounds.play()
 
+
 func play_player_bullet_sound_effect(sound: String):
 	$PlayerBulletNoises.stream = load("res://Audio/" + sound + ".wav")
 	if sound == "EnemyHit":
@@ -25,3 +26,9 @@ func play_player_bullet_sound_effect(sound: String):
 func play_music(song: String):
 	$MusicPlayer.stream = load("res://Audio/Songs/" + song + ".wav")
 	$MusicPlayer.play()
+
+func play_special(sound: String):
+	$SpecialSounds.play()
+
+func continue_music():
+	$MusicPlayer.play
