@@ -29,6 +29,7 @@ func _ready() -> void:
 	
 	var index = GetCorrectRank(Global.latest_score)
 	rankImage.texture = rankImages[index]
+	rankIllust.texture = rankIllustrations[index]
 	MusicManager.play_music(rankSongs[index])
 
 func _process(delta: float) -> void:
