@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cjk88n4luj0va"]
+[gd_scene load_steps=42 format=3 uid="uid://cjk88n4luj0va"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/menu_main.gd" id="1_ddcqc"]
 [ext_resource type="FontFile" uid="uid://d35wovbc4u2xv" path="res://Fonts/PolygonPixel5x7Cyrillic.ttf" id="3_3eyp4"]
@@ -14,9 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://dp8x10dgmx6j0" path="res://Assets/Menus/MenuButtonSmall_HoverMouse.png" id="10_701kr"]
 [ext_resource type="Texture2D" uid="uid://ck8xmsc2bb23w" path="res://Assets/Menus/EiffelAxis Logo.png" id="12_rig77"]
 [ext_resource type="Texture2D" uid="uid://cqovsa7u16vrd" path="res://Assets/Menus/MenuPilot_Alt.png" id="13_wngn8"]
+[ext_resource type="Texture2D" uid="uid://dcbmydyd1h33u" path="res://Assets/Menus/MenuPilot_HalfBlink.png" id="14_ittrc"]
 [ext_resource type="Script" path="res://Scenes/Menus/ship_cursor.gd" id="14_kefrt"]
 [ext_resource type="PackedScene" uid="uid://bylhq0eyu52yp" path="res://Scenes/Menus/Panel_ControlsMenu3.tscn" id="14_xtm81"]
 [ext_resource type="PackedScene" uid="uid://ck1vkcwad2qas" path="res://Scenes/Menus/Panel_SettingsMenu2.tscn" id="15_o8sev"]
+[ext_resource type="Texture2D" uid="uid://dhtsfnah8ib6t" path="res://Assets/Menus/MenuPilot_Blink.png" id="15_rn13i"]
 [ext_resource type="PackedScene" uid="uid://bvlp1cffvf6s0" path="res://Scenes/Menus/Panel_CreditsMenu.tscn" id="16_e3x6g"]
 [ext_resource type="Texture2D" uid="uid://gtvlcc72y7f3" path="res://Assets/Menus/Panel9SliceBlack.png" id="19_dc8ej"]
 [ext_resource type="Texture2D" uid="uid://cfl3sdadin3i" path="res://Assets/Menus/Panel9Slice.png" id="20_ddbjj"]
@@ -174,6 +176,38 @@ OptionButton/styles/normal = SubResource("StyleBoxFlat_kxhnw")
 OptionButton/styles/normal_mirrored = SubResource("StyleBoxFlat_khodf")
 OptionButton/styles/pressed = SubResource("StyleBoxFlat_5oan0")
 OptionButton/styles/pressed_mirrored = SubResource("StyleBoxFlat_x8n1v")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7px7m"]
+atlas = ExtResource("13_wngn8")
+region = Rect2(0, 0, 152, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rf2oh"]
+atlas = ExtResource("14_ittrc")
+region = Rect2(0, 0, 152, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5xd8"]
+atlas = ExtResource("15_rn13i")
+region = Rect2(0, 0, 152, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pugal"]
+animations = [{
+"frames": [{
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_7px7m")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_rf2oh")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_s5xd8")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_rf2oh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [sub_resource type="Animation" id="Animation_vjfhs"]
 resource_name = "MenuCursorBob"
@@ -384,20 +418,11 @@ offset_bottom = 58.0
 texture = ExtResource("12_rig77")
 expand_mode = 2
 
-[node name="Pilot" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -90.0
-offset_right = -8.0
-offset_bottom = 90.0
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("13_wngn8")
+[node name="Pilot" type="AnimatedSprite2D" parent="."]
+position = Vector2(235, 90)
+sprite_frames = SubResource("SpriteFrames_pugal")
+autoplay = "default"
+frame_progress = 0.418127
 
 [node name="PanelMenus" type="Node" parent="."]
 

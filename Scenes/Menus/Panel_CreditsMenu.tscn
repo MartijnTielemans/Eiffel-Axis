@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvlp1cffvf6s0"]
+[gd_scene load_steps=14 format=3 uid="uid://bvlp1cffvf6s0"]
 
 [ext_resource type="Texture2D" uid="uid://baxj3iyrggvns" path="res://Assets/Menus/SettingsBG.png" id="1_eivd5"]
 [ext_resource type="Script" path="res://Scenes/Menus/PanelScript.gd" id="1_uqchk"]
@@ -7,9 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://bac8gqdhwy6gm" path="res://Assets/Menus/MenuButtonSmall_Neutral.png" id="4_cphn1"]
 [ext_resource type="Texture2D" uid="uid://bvoxq8ryhx6of" path="res://Assets/Menus/MenuButtonSmall_Select.png" id="5_gcpbd"]
 [ext_resource type="Texture2D" uid="uid://dp8x10dgmx6j0" path="res://Assets/Menus/MenuButtonSmall_HoverMouse.png" id="6_5v4hl"]
-[ext_resource type="Texture2D" uid="uid://clx1ivnkusmr3" path="res://Assets/Player_Neutral.png" id="6_jwf5y"]
+[ext_resource type="Texture2D" uid="uid://444bfuuxsdy5" path="res://Assets/Enemies/Enemy_Capsule.png" id="6_aniaq"]
 [ext_resource type="Texture2D" uid="uid://bt2wba8o7jsga" path="res://Assets/Menus/MenuButtonSmall_Hover.png" id="7_kie2y"]
+[ext_resource type="Texture2D" uid="uid://ct1x23uba108t" path="res://Assets/Enemies/Enemy_Tank03.png" id="7_t7jmb"]
 [ext_resource type="FontFile" uid="uid://d35wovbc4u2xv" path="res://Fonts/PolygonPixel5x7Cyrillic.ttf" id="8_3ox31"]
+[ext_resource type="Texture2D" uid="uid://dg4rxo8fok3h2" path="res://Assets/Enemies/Enemy_Wavy.png" id="8_jn8qm"]
 
 [sub_resource type="Theme" id="Theme_ttkwg"]
 
@@ -118,7 +120,7 @@ offset_left = 7.0
 offset_top = 7.0
 offset_right = 30.0
 offset_bottom = 30.0
-texture = ExtResource("6_jwf5y")
+texture = ExtResource("6_aniaq")
 
 [node name="BoxContainer2" type="BoxContainer" parent="."]
 layout_mode = 1
@@ -203,7 +205,7 @@ offset_left = 7.0
 offset_top = 7.0
 offset_right = 30.0
 offset_bottom = 30.0
-texture = ExtResource("6_jwf5y")
+texture = ExtResource("7_t7jmb")
 
 [node name="BoxContainer3" type="BoxContainer" parent="."]
 layout_mode = 1
@@ -288,7 +290,7 @@ offset_left = 7.0
 offset_top = 7.0
 offset_right = 30.0
 offset_bottom = 30.0
-texture = ExtResource("6_jwf5y")
+texture = ExtResource("8_jn8qm")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 1
