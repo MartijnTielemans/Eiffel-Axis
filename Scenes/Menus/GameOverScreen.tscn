@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dsmw2xiigwjyx"]
+[gd_scene load_steps=23 format=3 uid="uid://dsmw2xiigwjyx"]
 
 [ext_resource type="Texture2D" uid="uid://bgeelt541pjb" path="res://Assets/Menus/GameOver_Text.png" id="1_26fk3"]
 [ext_resource type="Script" path="res://Scenes/Menus/game_over_screen.gd" id="1_hflth"]
@@ -11,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://bo16wcg4k754n" path="res://Assets/Menus/RankIcons/RankIcon_B.png" id="4_ygghn"]
 [ext_resource type="Texture2D" uid="uid://by22t0ugj3y6t" path="res://Assets/Menus/RankIcons/RankIcon_A.png" id="5_km1wh"]
 [ext_resource type="Texture2D" uid="uid://bl1yya2jjk787" path="res://Assets/Menus/RankIcons/RankIcon_S.png" id="6_ynqtm"]
+[ext_resource type="Texture2D" uid="uid://bt2t5ndc8b0p0" path="res://Assets/Menus/RankIcons/RankIllustration_DRank_Downscaled.png" id="8_jr6i1"]
+[ext_resource type="Texture2D" uid="uid://dj4n36ylfktjg" path="res://Assets/Menus/RankIcons/RankIllustration_CRank_Downscaled.png" id="9_4vr6n"]
+[ext_resource type="Texture2D" uid="uid://b54axcwhft0gb" path="res://Assets/Menus/RankIcons/RankIllustration_BRank_Downscaled.png" id="10_0gsbu"]
+[ext_resource type="Texture2D" uid="uid://8xrynbgbbptu" path="res://Assets/Menus/RankIcons/RankIllustration_ARank_Downscaled.png" id="11_hj4yl"]
+[ext_resource type="Texture2D" uid="uid://b01omexhtq0j" path="res://Assets/Menus/RankIcons/RankIllustration_SRank_Downscaled.png" id="12_wu32f"]
 
 [sub_resource type="Animation" id="Animation_0xqk2"]
 resource_name = "PressThrob"
@@ -79,7 +84,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_ultut"]
 resource_name = "ResultsSequence"
-length = 3.0
+length = 4.0
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -100,10 +105,22 @@ tracks/1/path = NodePath("CanvasGroup:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FinalPilotImage:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3, 3.1, 3.2, 3.3, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i8lqt"]
@@ -112,7 +129,7 @@ _data = {
 "ResultsSequence": SubResource("Animation_ultut")
 }
 
-[node name="GameOverScreen" type="Control" node_paths=PackedStringArray("playerScoreNumber", "highScoreNumber", "rankImage", "bigText")]
+[node name="GameOverScreen" type="Control" node_paths=PackedStringArray("playerScoreNumber", "highScoreNumber", "rankImage", "rankIllust", "bigText")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -123,9 +140,11 @@ script = ExtResource("1_hflth")
 playerScoreNumber = NodePath("BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Score Number")
 highScoreNumber = NodePath("BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/HighScore Number")
 rankImage = NodePath("BoxContainer/NinePatchRect/NinePatchRect/RankImage")
+rankIllust = NodePath("FinalPilotImage")
 bigText = NodePath("GameOver")
 winText = ExtResource("2_p7aua")
 rankImages = Array[CompressedTexture2D]([ExtResource("2_ur6sx"), ExtResource("3_tmidi"), ExtResource("4_ygghn"), ExtResource("5_km1wh"), ExtResource("6_ynqtm")])
+rankIllustrations = Array[CompressedTexture2D]([ExtResource("8_jr6i1"), ExtResource("9_4vr6n"), ExtResource("10_0gsbu"), ExtResource("11_hj4yl"), ExtResource("12_wu32f")])
 rankSongs = Array[String](["RankD", "RankC", "RankB", "RankA", "RankS"])
 rankThresholds = Array[int]([3000, 5000, 7500, 10000])
 
@@ -159,6 +178,7 @@ offset_left = 158.0
 offset_top = 48.0
 offset_right = 290.0
 offset_bottom = 150.0
+texture = ExtResource("8_jr6i1")
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 0
@@ -279,7 +299,7 @@ wait_time = 2.1
 autostart = true
 
 [node name="CanContinueTimer" type="Timer" parent="."]
-wait_time = 3.2
+wait_time = 3.8
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

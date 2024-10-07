@@ -8,10 +8,12 @@ var canCountScore : bool = true
 @export var playerScoreNumber : Label
 @export var highScoreNumber : Label
 @export var rankImage : TextureRect
+@export var rankIllust : TextureRect
 @export var bigText : TextureRect
 @export var winText : CompressedTexture2D
 
 @export var rankImages : Array[CompressedTexture2D]
+@export var rankIllustrations : Array[CompressedTexture2D]
 @export var rankSongs : Array[String]
 @export var rankThresholds : Array[int]
 
@@ -27,6 +29,7 @@ func _ready() -> void:
 	
 	var index = GetCorrectRank(Global.latest_score)
 	rankImage.texture = rankImages[index]
+	rankIllust.texture = rankIllustrations[index]
 	MusicManager.play_music(rankSongs[index])
 
 func _process(delta: float) -> void:
