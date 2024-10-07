@@ -27,6 +27,7 @@ signal on_death
 
 func _ready() -> void:
 	shootParticleXPos = $ShootParticle.position.x
+	MusicManager.play_music("LevelTheme")
 
 func _process(delta: float) -> void:
 	if (defeated):
@@ -79,7 +80,9 @@ func _process(delta: float) -> void:
 func shoot_projectile():
 	if (defeated):
 		return
-	
+	amount_of_projectiles = clamp(amount_of_projectiles,0,MaxBullets)
+	print("Amount of bullets: " + str(amount_of_projectiles))
+	print("MaxBullets: " + str(MaxBullets))
 	if amount_of_projectiles < MaxBullets:
 		var projectile = load("res://Scenes/Bullet.tscn")
 		var projectile_instance = projectile.instantiate()
@@ -98,7 +101,7 @@ func pivot_player_animation():
 
 func update_projectile_amount(projectile_change: int):
 	amount_of_projectiles += projectile_change
-	clamp(amount_of_projectiles,0,MaxBullets)
+	amount_of_projectiles = clamp(amount_of_projectiles,0,MaxBullets)
 
 func pivot_player():
 	if (defeated):

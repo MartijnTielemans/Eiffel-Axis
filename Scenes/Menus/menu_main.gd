@@ -14,6 +14,7 @@ func _ready() -> void:
 	# Get high score from file
 	var high_score = Global.score_save.high_score
 	highScoreText.text = str(high_score)
+	MusicManager.play_music("MenuTheme")
 
 # Waits for the transition to be done before going to next scene
 func _on_play_pressed() -> void:

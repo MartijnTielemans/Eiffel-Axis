@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://byq36cadvbdgw"]
+
+[ext_resource type="PackedScene" uid="uid://cwqfcufw0uwdf" path="res://Scenes/Enemy/CapsuleEnemy.tscn" id="1_po4uj"]
+
+[node name="WaveScene30" type="Node2D"]
+
+[node name="Capsule" parent="." instance=ExtResource("1_po4uj")]
+position = Vector2(332, 95)

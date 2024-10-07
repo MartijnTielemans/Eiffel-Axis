@@ -22,3 +22,6 @@ func _on_body_entered(body: Node2D) -> void:
 		UI_ref.update_visuals()
 	if not body is Player_Bullet:
 		queue_free()
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free()
