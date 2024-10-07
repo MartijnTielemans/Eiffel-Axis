@@ -6,6 +6,7 @@ var spawn_pos : Vector2 = Vector2(-9999,-9999)
 var spawner_ref : Node2D
 @export var start_left : bool
 var awarded_points = 0
+@export var destroyParticles : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,6 +27,11 @@ func lose_points():
 	awarded_points = 0
 
 func destroy_self():
+	var DestroyParticle = load("res://Scenes/Visuals/BlockBreak.tscn")
+	var particle : CPUParticles2D = destroyParticles.instantiate()
+	particle.global_position = global_position
+	get_tree().root.add_child(particle)
+	particle.emitting = true
 	queue_free()
 
 func die():

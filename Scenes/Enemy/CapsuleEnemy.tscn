@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://donl0dpk4vj7k" path="res://Scenes/Enemy/EnemyHealth.tscn" id="3_4ys72"]
 [ext_resource type="PackedScene" uid="uid://dv2srg8rl3sm0" path="res://Scenes/Enemy/damage_player.tscn" id="4_8g7wj"]
 [ext_resource type="PackedScene" path="res://Scenes/Visuals/EnemyDestroyParticle.tscn" id="4_bh0m2"]
-[ext_resource type="PackedScene" path="res://Scenes/Visuals/CapsuleOpenParticle.tscn" id="5_ax64h"]
+[ext_resource type="PackedScene" uid="uid://co6iswnp3etw6" path="res://Scenes/Visuals/CapsuleOpenParticle.tscn" id="5_ax64h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ejr40"]
 radius = 11.0454
