@@ -1,6 +1,7 @@
 extends Node2D
+class_name Capsule
 
-
+var bullet_dir = null
 @export var start_left : bool
 @onready var level = get_tree().get_root().get_node("Level")
 @onready var player_character : CharacterBody2D
@@ -40,6 +41,7 @@ func die():
 			instanced_object.x_speed = 30
 			instanced_object.y_speed = (-100+(i*100))
 			instanced_object.image = images[i]
+			instanced_object.dir = bullet_dir
 			level.add_child(instanced_object)
 		var dir = ((int(start_left)*-2)+1)
 		var object_to_spawn = load("res://Scenes/Enemy/PickUp.tscn")

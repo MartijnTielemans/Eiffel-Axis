@@ -7,6 +7,8 @@ var health : int
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player_Bullet:
+		if myparent is Capsule:
+			myparent.bullet_dir = body.dir
 		body.destroy_self()
 		if health > 1:
 			health -= 1
