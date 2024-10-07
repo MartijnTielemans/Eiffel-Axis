@@ -26,12 +26,16 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func lose_points():
 	awarded_points = 0
 
-func destroy_self():
-	var DestroyParticle = load("res://Scenes/Visuals/BlockBreak.tscn")
+func break_self():
 	var particle : CPUParticles2D = destroyParticles.instantiate()
 	particle.global_position = global_position
 	get_tree().root.add_child(particle)
 	particle.emitting = true
+	print("breaking")
+	queue_free()
+
+
+func destroy_self():
 	queue_free()
 
 func die():
