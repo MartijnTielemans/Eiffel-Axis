@@ -9,8 +9,11 @@ var current_enemies : int
 var points : int
 
 func _ready() -> void:
-	var CurrentAnim = $AnimationPlayer.get_animation(waves[current_wave])
-	print(CurrentAnim.track_get_key_count(0))
+	var CurrentAnim = $AnimationPlayer.get_animation($AnimationPlayer.autoplay)
+	var TrackCount = CurrentAnim.get_track_count()
+	current_enemies = 0
+	for i in range(TrackCount):
+		current_enemies += CurrentAnim.track_get_key_count(i)
 
 func update_points(new_points: int):
 	UI_ref.update_points(new_points)
@@ -33,6 +36,7 @@ func start_new_wave():
 
 func update_enemy_count(change: int,awarded_points: int):
 	current_enemies += change
+	print(current_enemies)
 	update_points(awarded_points)
 	if current_enemies < 1 and not current_enemies == -1:
 		#when current_enemies == -1, then it means a scene is spawned, so it waits for the timer to be over.

@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://0np0slgleins" path="res://Scenes/GameUI.tscn" id="7_cd0yk"]
 [ext_resource type="PackedScene" uid="uid://bkunpnkgoskr0" path="res://Scenes/Visuals/CloudSpawner.tscn" id="7_l4iqh"]
 [ext_resource type="PackedScene" uid="uid://c1htrmo3v33m2" path="res://Scenes/Visuals/CloudScene.tscn" id="8_4b7s8"]
-[ext_resource type="PackedScene" path="res://Scenes/EnemyKillzone.tscn" id="9_8waex"]
-[ext_resource type="PackedScene" uid="uid://dpxod2wga6wfv" path="res://Scenes/Menus/PauseMenu.tscn" id="10_mpxb5"]
+[ext_resource type="PackedScene" uid="uid://ewiblxpwilux" path="res://Scenes/EnemyKillzone.tscn" id="9_8waex"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/PauseMenu.tscn" id="10_mpxb5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_20bud"]
 normal = Vector2(0, 1)
@@ -74,6 +74,7 @@ shape = SubResource("WorldBoundaryShape2D_lnpl8")
 [node name="Wave_spawner" parent="." instance=ExtResource("6_y3l4w")]
 z_index = 4
 position = Vector2(344, 43)
+waves = Array[String](["Wave01", "Wave02", "Wave03", "Wave04", "Wave05", "Wave06", "Wave07", "Wave08", "Wave09", "Wave10", "Wave11", "Wave12", "Wave13", "Wave14", "Wave15", "Wave16", "Wave17", "Wave18", "Wave19", "Wave20", "Wave21", "Wave22", "Wave23"])
 
 [node name="Control" parent="." instance=ExtResource("7_cd0yk")]
 z_index = 21
