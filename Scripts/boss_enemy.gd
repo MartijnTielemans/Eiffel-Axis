@@ -5,8 +5,10 @@ var spawner_ref : Node2D
 var movement_mode := MoveMode.IDLE
 enum MoveMode {IDLE, BETWEEN, MOVING}
 
-@export var awarded_points : int = 3000
+@export var sideSprite : CompressedTexture2D
+@export var frontSprite : CompressedTexture2D
 
+@export var awarded_points : int = 3000
 @export var health : int
 @export var bulletOrigin : Node2D
 @export var enemyToSpawn : PackedScene
@@ -64,6 +66,7 @@ func _process(delta: float) -> void:
 		# If target position is reached, start timer and go to idle again
 		if position == moveTargetPos || sideSwitchTime == 1:
 			movement_mode = MoveMode.BETWEEN
+			$Rotator/Sprite2D.texture = frontSprite
 			$SwitchedWaitTime.start()
 
 # Shoots four bullets
@@ -163,6 +166,7 @@ func _on_switched_wait_time_timeout() -> void:
 		TurnAround()
 		timeElapsed = 0
 		movement_mode = MoveMode.IDLE
+		$Rotator/Sprite2D.texture = sideSprite
 		StartMoveModeTimer()
 
 func _on_attack_cool_down_timer_timeout() -> void:

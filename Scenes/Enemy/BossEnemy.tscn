@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://41qig2kalxf0"]
+[gd_scene load_steps=9 format=3 uid="uid://41qig2kalxf0"]
 
 [ext_resource type="Script" path="res://Scripts/boss_enemy.gd" id="1_5v0hg"]
 [ext_resource type="PackedScene" uid="uid://b0wq5c8rvlcn4" path="res://Scenes/Enemy/ShooterEnemy_BossVer.tscn" id="2_78r8y"]
 [ext_resource type="PackedScene" uid="uid://donl0dpk4vj7k" path="res://Scenes/Enemy/EnemyHealth.tscn" id="2_178tt"]
+[ext_resource type="Texture2D" uid="uid://bdywe42quoc8d" path="res://Assets/Enemies/BossEnemySprite_02.png" id="3_hbmgg"]
 [ext_resource type="PackedScene" uid="uid://dv2srg8rl3sm0" path="res://Scenes/Enemy/damage_player.tscn" id="3_i6s6v"]
+[ext_resource type="Texture2D" uid="uid://cugdikeir5gi3" path="res://Assets/Enemies/BossEnemySprite_01.png" id="5_23t8u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bydgu"]
 size = Vector2(24, 66)
@@ -11,11 +13,10 @@ size = Vector2(24, 66)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aix5t"]
 size = Vector2(26, 66)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hk5nd"]
-size = Vector2(28, 68)
-
 [node name="BossEnemy" type="Node2D" node_paths=PackedStringArray("bulletOrigin")]
 script = ExtResource("1_5v0hg")
+sideSprite = ExtResource("5_23t8u")
+frontSprite = ExtResource("3_hbmgg")
 health = 75
 bulletOrigin = NodePath("Rotator/Bullet Origin")
 enemyToSpawn = ExtResource("2_78r8y")
@@ -37,7 +38,7 @@ shape = SubResource("RectangleShape2D_aix5t")
 [node name="Rotator" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
-texture = SubResource("PlaceholderTexture2D_hk5nd")
+texture = ExtResource("5_23t8u")
 
 [node name="Bullet Origin" type="Node2D" parent="Rotator"]
 position = Vector2(-13, -22)
