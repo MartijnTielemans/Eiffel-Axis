@@ -2005,7 +2005,7 @@ waves = Array[String](["Wave01", "Wave02", "Wave03", "Wave04", "Wave05", "Wave06
 libraries = {
 "": SubResource("AnimationLibrary_gqd23")
 }
-autoplay = "Wave27"
+autoplay = "Wave01"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
