@@ -112,7 +112,7 @@ _data = {
 "ResultsSequence": SubResource("Animation_ultut")
 }
 
-[node name="GameOverScreen" type="Control" node_paths=PackedStringArray("playerScoreNumber", "highScoreNumber", "rankImage")]
+[node name="GameOverScreen" type="Control" node_paths=PackedStringArray("playerScoreNumber", "highScoreNumber", "rankImage", "bigText")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -123,6 +123,7 @@ script = ExtResource("1_hflth")
 playerScoreNumber = NodePath("BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/Score Number")
 highScoreNumber = NodePath("BoxContainer/NinePatchRect/NinePatchRect/VBoxContainer/HighScore Number")
 rankImage = NodePath("BoxContainer/NinePatchRect/NinePatchRect/RankImage")
+bigText = NodePath("GameOver")
 winText = ExtResource("2_p7aua")
 rankImages = Array[CompressedTexture2D]([ExtResource("2_ur6sx"), ExtResource("3_tmidi"), ExtResource("4_ygghn"), ExtResource("5_km1wh"), ExtResource("6_ynqtm")])
 rankThresholds = Array[int]([3000, 5000, 7500, 10000])

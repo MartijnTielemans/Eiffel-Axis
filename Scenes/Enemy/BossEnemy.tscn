@@ -1,7 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://41qig2kalxf0"]
+[gd_scene load_steps=8 format=3 uid="uid://41qig2kalxf0"]
 
 [ext_resource type="Script" path="res://Scripts/boss_enemy.gd" id="1_5v0hg"]
+[ext_resource type="PackedScene" uid="uid://b0wq5c8rvlcn4" path="res://Scenes/Enemy/ShooterEnemy_BossVer.tscn" id="2_78r8y"]
 [ext_resource type="PackedScene" uid="uid://donl0dpk4vj7k" path="res://Scenes/Enemy/EnemyHealth.tscn" id="2_178tt"]
+[ext_resource type="PackedScene" uid="uid://dv2srg8rl3sm0" path="res://Scenes/Enemy/damage_player.tscn" id="3_i6s6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bydgu"]
+size = Vector2(24, 66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aix5t"]
 size = Vector2(26, 66)
@@ -9,13 +14,20 @@ size = Vector2(26, 66)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hk5nd"]
 size = Vector2(28, 68)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkbab"]
-size = Vector2(24, 66)
-
-[node name="BossEnemy" type="CharacterBody2D" node_paths=PackedStringArray("bulletOrigin")]
+[node name="BossEnemy" type="Node2D" node_paths=PackedStringArray("bulletOrigin")]
 script = ExtResource("1_5v0hg")
-health = 30
+health = 75
 bulletOrigin = NodePath("Rotator/Bullet Origin")
+enemyToSpawn = ExtResource("2_78r8y")
+enemyPosLU = Vector2(-20, 25)
+enemyPosLD = Vector2(-20, 160)
+enemyPosRU = Vector2(340, 25)
+enemyPosRD = Vector2(340, 160)
+
+[node name="DamagePlayer" parent="." instance=ExtResource("3_i6s6v")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagePlayer"]
+shape = SubResource("RectangleShape2D_bydgu")
 
 [node name="health" parent="." instance=ExtResource("2_178tt")]
 
@@ -28,22 +40,33 @@ shape = SubResource("RectangleShape2D_aix5t")
 texture = SubResource("PlaceholderTexture2D_hk5nd")
 
 [node name="Bullet Origin" type="Node2D" parent="Rotator"]
-position = Vector2(-13, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_bkbab")
+position = Vector2(-13, -22)
 
 [node name="MoveModeTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 
 [node name="StartMovementTimer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 
 [node name="AttackCoolDownTimer" type="Timer" parent="."]
-wait_time = 3.1
+wait_time = 1.41
+one_shot = true
+
+[node name="EnemySpawnCooldownTimer" type="Timer" parent="."]
+wait_time = 12.0
+
+[node name="SwitchedWaitTime" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="CollisionExceptionTimer" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [connection signal="timeout" from="MoveModeTimer" to="." method="_on_move_mode_timer_timeout"]
 [connection signal="timeout" from="StartMovementTimer" to="." method="_on_start_movement_timer_timeout"]
-[connection signal="timeout" from="AttackCoolDownTimer" to="." method="_on_start_movement_timer_timeout"]
+[connection signal="timeout" from="AttackCoolDownTimer" to="." method="_on_attack_cool_down_timer_timeout"]
+[connection signal="timeout" from="EnemySpawnCooldownTimer" to="." method="_on_enemy_spawn_cooldown_timer_timeout"]
+[connection signal="timeout" from="SwitchedWaitTime" to="." method="_on_switched_wait_time_timeout"]

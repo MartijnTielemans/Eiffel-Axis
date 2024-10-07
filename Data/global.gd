@@ -2,6 +2,7 @@ extends Node
 
 var latest_score : int
 var score_save : ScoreSave
+var player_won : bool = false
 
 func load_score():
 	score_save = ScoreSave.load_or_create()

@@ -150,6 +150,14 @@ func visualise_Iframes():
 	else:
 		$AnimatedSprite2D.visible = true
 
+# When the player beats the boss
+func game_over_win():
+	print("WIN")
+	Global.player_won = true
+	on_death.emit()
+	SceneTransition.transitionOver.connect(load_scene);
+	SceneTransition.Transition(true);
+
 # Loads the game scene
 func load_scene():
 	SceneTransition.Transition(false);

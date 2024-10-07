@@ -8,6 +8,7 @@ var canCountScore : bool = true
 @export var playerScoreNumber : Label
 @export var highScoreNumber : Label
 @export var rankImage : TextureRect
+@export var bigText : TextureRect
 @export var winText : CompressedTexture2D
 
 @export var rankImages : Array[CompressedTexture2D]
@@ -17,6 +18,9 @@ var canPress : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if Global.player_won:
+		bigText.texture = winText
+	
 	finalScore = Global.latest_score
 	highScore = Global.score_save.high_score
 	

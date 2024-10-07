@@ -6,7 +6,7 @@ extends Node2D
 @onready var player_character : CharacterBody2D
 var spawn_pos : Vector2 = Vector2(-9999,-9999)
 var spawner_ref : Node2D
-var awarded_points = 200
+@export var awarded_points = 200
 var SPEED = 45
 @export var start_left : bool
 

@@ -17,6 +17,7 @@ func _ready() -> void:
 
 # Waits for the transition to be done before going to next scene
 func _on_play_pressed() -> void:
+	Global.player_won = false
 	SceneTransition.transitionOver.connect(load_scene);
 	SceneTransition.Transition(true);
 	MusicManager.stop_sound_effect()
