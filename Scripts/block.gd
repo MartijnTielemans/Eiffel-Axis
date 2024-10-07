@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player_Bullet:
+		MusicManager.play_player_bullet_sound_effect("BlockHit")
 		body.destroy_self()
 
 func lose_points():

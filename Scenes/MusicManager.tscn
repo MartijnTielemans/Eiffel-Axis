@@ -11,3 +11,8 @@ bus = &"Sound Effects"
 
 [node name="EnemyShootingSounds" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_3dljr")
+bus = &"Sound Effects"
+
+[node name="PlayerBulletNoises" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+bus = &"Sound Effects"
