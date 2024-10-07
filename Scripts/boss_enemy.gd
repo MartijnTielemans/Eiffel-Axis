@@ -1,5 +1,8 @@
 extends Node2D
 
+var defeated = false
+signal bossDeath
+
 var player_character
 var spawner_ref : Node2D
 var movement_mode := MoveMode.IDLE
@@ -119,24 +122,39 @@ func spawn_enemies():
 				enemy.start_left = true
 		
 		enemy.global_position = spawnPos
+		bossDeath.connect(enemy.emit_death_particle) 
+		bossDeath.connect(enemy.die) # Die if the boss is defeated
 		get_tree().get_root().get_node("Level").add_child(enemy)
 
 
 func die():
+	if defeated:
+		return
+	
+	defeated = true
+	bossDeath.emit()
 	$MoveModeTimer.stop()
 	$AttackCoolDownTimer.stop()
 	$EnemySpawnCooldownTimer.stop()
+	$DamagePlayer.canDamage = false
+	$DamagePlayer/CollisionShape2D.disabled = true
+	$health/CollisionShape2D.disabled = true
+	$health/CollisionShape2D.position.y += 9999
 	canMove = false
 	canShoot = false
 	canSpawnEnemy = false
 	StartDeathDequence()
 
 func StartDeathDequence():
-	# Trigger player won functionality
-	var UI_ref = get_node("/root/Level/Control")
-	UI_ref.update_points(awarded_points)
-	get_node("/root/Level/PlayerCharacter").game_over_win()
-	queue_free() # Replace with sequence later
+	$DeathSequence/AnimationPlayer.active = true
+	$DeathSequence/AnimationPlayer.play("Boss_Death")
+
+# Trigger player won functionality
+func _death_sequence_over(anim_name: StringName):
+	if anim_name == "Boss_Death":
+		var UI_ref = get_node("/root/Level/Control")
+		UI_ref.update_points(awarded_points)
+		get_node("/root/Level/PlayerCharacter").game_over_win()
 
 
 # Turns the boss. Scales -1 and sets direction
