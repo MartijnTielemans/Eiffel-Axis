@@ -11,7 +11,6 @@ func _on_body_entered(body: Node2D) -> void:
 		if health > 1:
 			health -= 1
 			MusicManager.play_player_bullet_sound_effect("EnemyHit")
-			print("playing")
 		else:
 			emit_particles()
 			MusicManager.play_sound_effect("EnemyDestroyed")

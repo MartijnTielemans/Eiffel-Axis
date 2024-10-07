@@ -126,6 +126,7 @@ rankImage = NodePath("BoxContainer/NinePatchRect/NinePatchRect/RankImage")
 bigText = NodePath("GameOver")
 winText = ExtResource("2_p7aua")
 rankImages = Array[CompressedTexture2D]([ExtResource("2_ur6sx"), ExtResource("3_tmidi"), ExtResource("4_ygghn"), ExtResource("5_km1wh"), ExtResource("6_ynqtm")])
+rankSongs = Array[String](["RankD", "RankC", "RankB", "RankA", "RankS"])
 rankThresholds = Array[int]([3000, 5000, 7500, 10000])
 
 [node name="ColorRect" type="ColorRect" parent="."]

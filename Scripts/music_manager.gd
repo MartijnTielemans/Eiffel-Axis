@@ -21,4 +21,7 @@ func play_player_bullet_sound_effect(sound: String):
 	if sound == "EnemyHit":
 		$PlayerBulletNoises.stream = load("res://Audio/" + sound + ".mp3")
 	$PlayerBulletNoises.play()
-	
+
+func play_music(song: String):
+	$MusicPlayer.stream = load("res://Audio/Songs/" + song + ".wav")
+	$MusicPlayer.play()

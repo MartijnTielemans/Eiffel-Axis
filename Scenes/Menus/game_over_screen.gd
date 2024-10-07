@@ -12,6 +12,7 @@ var canCountScore : bool = true
 @export var winText : CompressedTexture2D
 
 @export var rankImages : Array[CompressedTexture2D]
+@export var rankSongs : Array[String]
 @export var rankThresholds : Array[int]
 
 var canPress : bool
@@ -26,7 +27,7 @@ func _ready() -> void:
 	
 	var index = GetCorrectRank(Global.latest_score)
 	rankImage.texture = rankImages[index]
-
+	MusicManager.play_music(rankSongs[index])
 
 func _process(delta: float) -> void:
 	if canCountScore:
