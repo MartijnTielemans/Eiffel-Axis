@@ -12,7 +12,7 @@ enum MoveMode {IDLE, BETWEEN, MOVING}
 @export var health : int
 @export var bulletOrigin : Node2D
 @export var enemyToSpawn : PackedScene
-var direction : int = -1
+var direction : int = 1
 
 # Movement Variables
 var canMove = false
@@ -45,6 +45,9 @@ func _ready() -> void:
 	
 	startYPos = global_position.y
 	$StartMovementTimer.start()
+	
+	canMove = true
+	StartMovingSides()
 
 func _process(delta: float) -> void:
 	timeElapsed += delta
@@ -120,6 +123,15 @@ func spawn_enemies():
 
 
 func die():
+	$MoveModeTimer.stop()
+	$AttackCoolDownTimer.stop()
+	$EnemySpawnCooldownTimer.stop()
+	canMove = false
+	canShoot = false
+	canSpawnEnemy = false
+	StartDeathDequence()
+
+func StartDeathDequence():
 	# Trigger player won functionality
 	var UI_ref = get_node("/root/Level/Control")
 	UI_ref.update_points(awarded_points)

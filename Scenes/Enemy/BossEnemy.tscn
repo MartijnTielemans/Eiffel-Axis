@@ -36,8 +36,10 @@ shape = SubResource("RectangleShape2D_bydgu")
 shape = SubResource("RectangleShape2D_aix5t")
 
 [node name="Rotator" type="Node2D" parent="."]
+scale = Vector2(-1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
+position = Vector2(1, 0)
 texture = ExtResource("5_23t8u")
 
 [node name="Bullet Origin" type="Node2D" parent="Rotator"]
@@ -56,14 +58,10 @@ wait_time = 1.41
 one_shot = true
 
 [node name="EnemySpawnCooldownTimer" type="Timer" parent="."]
-wait_time = 12.0
+wait_time = 12.5
 
 [node name="SwitchedWaitTime" type="Timer" parent="."]
 wait_time = 0.6
-one_shot = true
-
-[node name="CollisionExceptionTimer" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true
 
 [connection signal="timeout" from="MoveModeTimer" to="." method="_on_move_mode_timer_timeout"]
