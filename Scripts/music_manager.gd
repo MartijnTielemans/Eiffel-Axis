@@ -25,7 +25,10 @@ func play_player_bullet_sound_effect(sound: String):
 	$PlayerBulletNoises.play()
 
 func play_music(song: String):
-	$MusicPlayer.stream = load("res://Audio/Songs/" + song + ".wav")
+	if song == "BossMusic":
+		$MusicPlayer.stream = load("res://Audio/Songs/" + song + ".mp3")
+	else:
+		$MusicPlayer.stream = load("res://Audio/Songs/" + song + ".wav")
 	$MusicPlayer.play()
 
 func play_special(sound: String):

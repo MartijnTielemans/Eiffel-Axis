@@ -45,7 +45,7 @@ var fourBulletsYSpace : float = 11
 
 func _ready() -> void:
 	$health.health = health
-	
+	MusicManager.play_music("BossMusic")
 	startYPos = global_position.y
 	$StartMovementTimer.start()
 	
